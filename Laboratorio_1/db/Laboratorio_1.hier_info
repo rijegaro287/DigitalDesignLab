@@ -1,0 +1,14 @@
+|BCD_DECO
+N[0] => ~NO_FANOUT~
+N[1] => ~NO_FANOUT~
+N[2] => ~NO_FANOUT~
+N[3] => ~NO_FANOUT~
+a <= <GND>
+b <= <GND>
+c <= <GND>
+d <= <GND>
+e <= <GND>
+f <= <GND>
+g <= <GND>
+
+
