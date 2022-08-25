@@ -1,5 +1,5 @@
 EDA Netlist Writer report for Laboratorio_1
-Thu Aug 25 01:40:56 2022
+Thu Aug 25 13:18:00 2022
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -37,9 +37,9 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Thu Aug 25 01:40:56 2022 ;
+; EDA Netlist Writer Status ; Successful - Thu Aug 25 13:18:00 2022 ;
 ; Revision Name             ; Laboratorio_1                         ;
-; Top-level Entity Name     ; BCD_DECO                              ;
+; Top-level Entity Name     ; adder_4bits_to_7seg                   ;
 ; Family                    ; Cyclone V                             ;
 ; Simulation Files Creation ; Successful                            ;
 +---------------------------+---------------------------------------+
@@ -81,15 +81,15 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
     Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
-    Info: Processing started: Thu Aug 25 01:40:55 2022
+    Info: Processing started: Thu Aug 25 13:17:58 2022
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off Laboratorio_1 -c Laboratorio_1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Warning (202000): An incorrect timescale is selected for the Verilog Output (.VO) file of this PLL design. It's required that the timescale should be 1 ps when simulating a PLL design in a third party EDA tool.
 Info (204019): Generated file Laboratorio_1.svo in folder "/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/simulation/modelsim/" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 694 megabytes
-    Info: Processing ended: Thu Aug 25 01:40:56 2022
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Peak virtual memory: 696 megabytes
+    Info: Processing ended: Thu Aug 25 13:18:00 2022
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
 
 
