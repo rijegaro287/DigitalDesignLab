@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Laboratorio_1
-Wed Aug 24 22:36:23 2022
+Wed Aug 24 23:31:06 2022
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -43,7 +43,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Aug 24 22:36:23 2022       ;
+; Analysis & Synthesis Status     ; Successful - Wed Aug 24 23:31:06 2022       ;
 ; Quartus Prime Version           ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                   ; Laboratorio_1                               ;
 ; Top-level Entity Name           ; BCD_DECO                                    ;
@@ -175,31 +175,31 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-; Estimate of Logic utilization (ALMs needed) ; 0     ;
-;                                             ;       ;
-; Combinational ALUT usage for logic          ; 0     ;
-;     -- 7 input functions                    ; 0     ;
-;     -- 6 input functions                    ; 0     ;
-;     -- 5 input functions                    ; 0     ;
-;     -- 4 input functions                    ; 0     ;
-;     -- <=3 input functions                  ; 0     ;
-;                                             ;       ;
-; Dedicated logic registers                   ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 11    ;
-;                                             ;       ;
-; Total DSP Blocks                            ; 0     ;
-;                                             ;       ;
-; Maximum fan-out node                        ; N[0]  ;
-; Maximum fan-out                             ; 1     ;
-; Total fan-out                               ; 11    ;
-; Average fan-out                             ; 0.50  ;
-+---------------------------------------------+-------+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimate of Logic utilization (ALMs needed) ; 4            ;
+;                                             ;              ;
+; Combinational ALUT usage for logic          ; 7            ;
+;     -- 7 input functions                    ; 0            ;
+;     -- 6 input functions                    ; 0            ;
+;     -- 5 input functions                    ; 0            ;
+;     -- 4 input functions                    ; 7            ;
+;     -- <=3 input functions                  ; 0            ;
+;                                             ;              ;
+; Dedicated logic registers                   ; 0            ;
+;                                             ;              ;
+; I/O pins                                    ; 11           ;
+;                                             ;              ;
+; Total DSP Blocks                            ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; NUM[0]~input ;
+; Maximum fan-out                             ; 7            ;
+; Total fan-out                               ; 46           ;
+; Average fan-out                             ; 1.59         ;
++---------------------------------------------+--------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -207,7 +207,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |BCD_DECO                  ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 11   ; 0            ; |BCD_DECO           ; BCD_DECO    ; work         ;
+; |BCD_DECO                  ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 11   ; 0            ; |BCD_DECO           ; BCD_DECO    ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -232,13 +232,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 1                           ;
-;     normal            ; 1                           ;
-;         0 data inputs ; 1                           ;
+; arriav_lcell_comb     ; 13                          ;
+;     normal            ; 13                          ;
+;         1 data inputs ; 6                           ;
+;         4 data inputs ; 7                           ;
 ; boundary_port         ; 11                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 1.94                        ;
 +-----------------------+-----------------------------+
 
 
@@ -257,7 +258,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
-    Info: Processing started: Wed Aug 24 22:36:08 2022
+    Info: Processing started: Wed Aug 24 23:30:51 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Laboratorio_1 -c Laboratorio_1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -266,36 +267,17 @@ Info (12021): Found 1 design units, including 1 entities, in source file problem
 Info (12021): Found 1 design units, including 1 entities, in source file problema_1/BCD_DECO_TB.sv
     Info (12023): Found entity 1: BCD_DECO_TB File: /home/rijegaro/Escritorio/Taller de Diseño Digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO_TB.sv Line: 1
 Info (12127): Elaborating entity "BCD_DECO" for the top level hierarchy
-Warning (10034): Output port "a" at BCD_DECO.sv(3) has no driver File: /home/rijegaro/Escritorio/Taller de Diseño Digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO.sv Line: 3
-Warning (10034): Output port "b" at BCD_DECO.sv(3) has no driver File: /home/rijegaro/Escritorio/Taller de Diseño Digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO.sv Line: 3
-Warning (10034): Output port "c" at BCD_DECO.sv(3) has no driver File: /home/rijegaro/Escritorio/Taller de Diseño Digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO.sv Line: 3
-Warning (10034): Output port "d" at BCD_DECO.sv(3) has no driver File: /home/rijegaro/Escritorio/Taller de Diseño Digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO.sv Line: 3
-Warning (10034): Output port "e" at BCD_DECO.sv(3) has no driver File: /home/rijegaro/Escritorio/Taller de Diseño Digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO.sv Line: 3
-Warning (10034): Output port "f" at BCD_DECO.sv(3) has no driver File: /home/rijegaro/Escritorio/Taller de Diseño Digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO.sv Line: 3
-Warning (10034): Output port "g" at BCD_DECO.sv(3) has no driver File: /home/rijegaro/Escritorio/Taller de Diseño Digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO.sv Line: 3
-Warning (12158): Entity "BCD_DECO" contains only dangling pins
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "a" is stuck at GND File: /home/rijegaro/Escritorio/Taller de Diseño Digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO.sv Line: 3
-    Warning (13410): Pin "b" is stuck at GND File: /home/rijegaro/Escritorio/Taller de Diseño Digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO.sv Line: 3
-    Warning (13410): Pin "c" is stuck at GND File: /home/rijegaro/Escritorio/Taller de Diseño Digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO.sv Line: 3
-    Warning (13410): Pin "d" is stuck at GND File: /home/rijegaro/Escritorio/Taller de Diseño Digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO.sv Line: 3
-    Warning (13410): Pin "e" is stuck at GND File: /home/rijegaro/Escritorio/Taller de Diseño Digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO.sv Line: 3
-    Warning (13410): Pin "f" is stuck at GND File: /home/rijegaro/Escritorio/Taller de Diseño Digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO.sv Line: 3
-    Warning (13410): Pin "g" is stuck at GND File: /home/rijegaro/Escritorio/Taller de Diseño Digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO.sv Line: 3
+Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 4 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "N[0]" File: /home/rijegaro/Escritorio/Taller de Diseño Digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO.sv Line: 1
-    Warning (15610): No output dependent on input pin "N[1]" File: /home/rijegaro/Escritorio/Taller de Diseño Digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO.sv Line: 1
-    Warning (15610): No output dependent on input pin "N[2]" File: /home/rijegaro/Escritorio/Taller de Diseño Digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO.sv Line: 1
-    Warning (15610): No output dependent on input pin "N[3]" File: /home/rijegaro/Escritorio/Taller de Diseño Digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO.sv Line: 1
-Info (21057): Implemented 11 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 18 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
     Info (21059): Implemented 7 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 22 warnings
-    Info: Peak virtual memory: 441 megabytes
-    Info: Processing ended: Wed Aug 24 22:36:23 2022
+    Info (21061): Implemented 7 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 447 megabytes
+    Info: Processing ended: Wed Aug 24 23:31:06 2022
     Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:31
+    Info: Total CPU time (on all processors): 00:00:26
 
 
