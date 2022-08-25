@@ -1,5 +1,5 @@
 Flow report for Laboratorio_1
-Thu Aug 25 11:51:45 2022
+Thu Aug 25 12:41:53 2022
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -41,10 +41,10 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------+
 ; Flow Summary                                                              ;
 +-----------------------------+---------------------------------------------+
-; Flow Status                 ; Successful - Thu Aug 25 11:51:45 2022       ;
+; Flow Status                 ; Successful - Thu Aug 25 12:41:53 2022       ;
 ; Quartus Prime Version       ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name               ; Laboratorio_1                               ;
-; Top-level Entity Name       ; full_adder                                  ;
+; Top-level Entity Name       ; adder_4bits                                 ;
 ; Family                      ; Cyclone V                                   ;
 ; Device                      ; 5CSEMA5F31C6                                ;
 ; Timing Models               ; Final                                       ;
@@ -63,7 +63,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 08/25/2022 11:51:31 ;
+; Start date & time ; 08/25/2022 12:41:39 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Laboratorio_1       ;
 +-------------------+---------------------+
@@ -74,29 +74,33 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 1050349769559.166144989105765          ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID                ; 1050349769559.166145289910076          ; --            ; --          ; --             ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; adder_4bits_tb ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; BCD_DECO_TB    ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; full_adder_tb  ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; full_adder_tb                          ; --            ; --          ; eda_simulation ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; adder_4bits_tb                         ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Systemverilog Hdl                      ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                  ; Questa Intel FPGA (SystemVerilog)      ; <None>        ; --          ; --             ;
 ; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --            ; --          ; eda_simulation ;
+; EDA_TEST_BENCH_FILE                  ; problema_2/adder_4bits_tb.vhd          ; --            ; --          ; adder_4bits_tb ;
 ; EDA_TEST_BENCH_FILE                  ; problema_1/BCD_DECO_TB.sv              ; --            ; --          ; BCD_DECO_TB    ;
 ; EDA_TEST_BENCH_FILE                  ; problema_2/full_adder_tb.vhd           ; --            ; --          ; full_adder_tb  ;
+; EDA_TEST_BENCH_MODULE_NAME           ; adder_4bits_tb                         ; --            ; --          ; adder_4bits_tb ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; BCD_DECO_TB                            ; --            ; --          ; BCD_DECO_TB    ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; full_adder_tb                          ; --            ; --          ; full_adder_tb  ;
 ; EDA_TEST_BENCH_NAME                  ; BCD_DECO_TB                            ; --            ; --          ; eda_simulation ;
 ; EDA_TEST_BENCH_NAME                  ; full_adder_tb                          ; --            ; --          ; eda_simulation ;
+; EDA_TEST_BENCH_NAME                  ; adder_4bits_tb                         ; --            ; --          ; eda_simulation ;
 ; EDA_TIME_SCALE                       ; 10 ns                                  ; --            ; --          ; eda_simulation ;
 ; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --            ; --          ; --             ;
 ; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --            ; --          ; --             ;
-; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --            ; full_adder  ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --            ; full_adder  ; Top            ;
-; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --            ; full_adder  ; Top            ;
+; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --            ; adder_4bits ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --            ; adder_4bits ; Top            ;
+; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --            ; adder_4bits ; Top            ;
 ; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --            ; --          ; --             ;
 ; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --             ;
 ; PROJECT_OUTPUT_DIRECTORY             ; output_files                           ; --            ; --          ; --             ;
-; TOP_LEVEL_ENTITY                     ; full_adder                             ; Laboratorio_1 ; --          ; --             ;
+; TOP_LEVEL_ENTITY                     ; adder_4bits                            ; Laboratorio_1 ; --          ; --             ;
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
 
 
@@ -105,7 +109,7 @@ https://fpgasoftware.intel.com/eula.
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Elaboration ; 00:00:14     ; 1.0                     ; 802 MB              ; 00:00:33                           ;
+; Analysis & Elaboration ; 00:00:14     ; 1.0                     ; 804 MB              ; 00:00:33                           ;
 ; Total                  ; 00:00:14     ; --                      ; --                  ; 00:00:33                           ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 

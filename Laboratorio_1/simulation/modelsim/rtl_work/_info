@@ -11,46 +11,46 @@ z2
 cModel Technology
 Z0 d/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/simulation/modelsim
 T_opt
-Z1 !s110 1661450183
-V?GB0VNeAJHo@WkdgiLfzh0
-04 13 9 work full_adder_tb testbench 1
-=1-00f48db99357-6307b7c7-4f564-1998
-!s124 OEM10U2 
+Z1 !s110 1661453191
+VHRHgkY=NK:MRo[b`3Lz5K0
+04 14 9 work adder_4bits_tb testbench 1
+=1-00f48db99357-6307c387-49b64-298a
+!s124 OEM10U6 
 o-quiet -auto_acc_if_foreign -work work -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L cyclonev_hssi -L rtl_work -L work +acc
 tCvgOpt 0
 n@_opt
 OL;O;2021.2;73
-Efull_adder
-Z2 w1661449234
+Eadder_4bits
+Z2 w1661452308
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 1
+!i122 3
 R0
-Z5 8/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder.vhd
-Z6 F/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder.vhd
+Z5 8/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/adder_4bits.vhd
+Z6 F/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/adder_4bits.vhd
 l0
 L5 1
-Ve9H6fU9mgc>1l4RXO2cNc2
-!s100 OU6dN]RH;JOUZe=D3W<3;3
+Vhof9Hlj8g=l4LaMYCFi@k3
+!s100 cz4M1BN:VXEZ2GKTDiX<_2
 Z7 OL;C;2021.2;73
 31
-Z8 !s110 1661450182
+Z8 !s110 1661453190
 !i10b 1
-Z9 !s108 1661450182.000000
-Z10 !s90 -reportprogress|300|-93|-work|work|/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder.vhd|
-Z11 !s107 /home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder.vhd|
+Z9 !s108 1661453190.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/adder_4bits.vhd|
+Z11 !s107 /home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/adder_4bits.vhd|
 !i113 0
 Z12 o-93 -work work
 Z13 tExplicit 1 CvgOpt 0
 Astructural
 R3
 R4
-DEx4 work 10 full_adder 0 22 e9H6fU9mgc>1l4RXO2cNc2
-!i122 1
-l17
-L16 5
-V:0kJHA<mL6Z:i477YHXlU0
-!s100 djT?BcT`@Mi_DlF3@_lh41
+DEx4 work 11 adder_4bits 0 22 hof9Hlj8g=l4LaMYCFi@k3
+!i122 3
+l28
+L16 49
+V7]kG`?Oed0zbV;=fMcXRL1
+!s100 Va?6QAX=mb]bdlVPR1F513
 R7
 31
 R8
@@ -61,25 +61,107 @@ R11
 !i113 0
 R12
 R13
-Efull_adder_tb
-Z14 w1661450174
+Eadder_4bits_tb
+Z14 w1661453173
+R3
+R4
+!i122 4
+R0
+Z15 8/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/adder_4bits_tb.vhd
+Z16 F/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/adder_4bits_tb.vhd
+l0
+L4 1
+VRnn8^PG6nT5>mlh9cTYU91
+!s100 :^^3YO9zbF80Z<``AKMoO0
+R7
+31
+R1
+!i10b 1
+Z17 !s108 1661453191.000000
+Z18 !s90 -reportprogress|300|-93|-work|work|/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/adder_4bits_tb.vhd|
+Z19 !s107 /home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/adder_4bits_tb.vhd|
+!i113 0
+R12
+R13
+Atestbench
+R3
+R4
+DEx4 work 14 adder_4bits_tb 0 22 Rnn8^PG6nT5>mlh9cTYU91
+!i122 4
+l25
+L8 50
+V2_]Z?YWg`Im_;Zc<1b>Eg2
+!s100 zm>>]]iG7Cana@Ei8^gB61
+R7
+31
+R1
+!i10b 1
+R17
+R18
+R19
+!i113 0
+R12
+R13
+Efull_adder
+Z20 w1661452094
 R3
 R4
 !i122 2
 R0
-Z15 8/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder_tb.vhd
-Z16 F/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder_tb.vhd
+Z21 8/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder.vhd
+Z22 F/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder.vhd
+l0
+L5 1
+V<5FC1iI<>T=TIh3g?ljE03
+!s100 PE325^agP5W0>LG7Lh_Oj3
+R7
+31
+R8
+!i10b 1
+R9
+Z23 !s90 -reportprogress|300|-93|-work|work|/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder.vhd|
+Z24 !s107 /home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder.vhd|
+!i113 0
+R12
+R13
+Astructural
+R3
+R4
+DEx4 work 10 full_adder 0 22 <5FC1iI<>T=TIh3g?ljE03
+!i122 2
+l16
+L15 5
+VnW8o6OM=gETXA:k7Hm1BQ2
+!s100 Q9JNEVdhQ93HcmWF4RZ@51
+R7
+31
+R8
+!i10b 1
+R9
+R23
+R24
+!i113 0
+R12
+R13
+Efull_adder_tb
+Z25 w1661452514
+R3
+R4
+!i122 0
+R0
+Z26 8/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder_tb.vhd
+Z27 F/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder_tb.vhd
 l0
 L4 1
 VZ<;?J25k38@SWTfIPIU_a3
 !s100 B>;9`<>KBIClz0EKVi[Z@3
 R7
 31
-R1
+R8
 !i10b 1
 R9
-Z17 !s90 -reportprogress|300|-93|-work|work|/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder_tb.vhd|
-Z18 !s107 /home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder_tb.vhd|
+Z28 !s90 -reportprogress|300|-93|-work|work|/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder_tb.vhd|
+Z29 !s107 /home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder_tb.vhd|
 !i113 0
 R12
 R13
@@ -87,18 +169,18 @@ Atestbench
 R3
 R4
 DEx4 work 13 full_adder_tb 0 22 Z<;?J25k38@SWTfIPIU_a3
-!i122 2
+!i122 0
 l21
-L8 64
-VZWDVfVSa8m^HcChZg4OK^2
-!s100 8OeQ8;h8F2D^B@dXkeI<52
+L8 61
+V]QO4m05`6L8>ZajGGG4N11
+!s100 HP6Aj;VV8jhc09QLL6:D61
 R7
 31
-R1
+R8
 !i10b 1
 R9
-R17
-R18
+R28
+R29
 !i113 0
 R12
 R13

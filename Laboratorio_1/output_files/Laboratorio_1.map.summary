@@ -1,7 +1,7 @@
-Analysis & Elaboration Status : Successful - Thu Aug 25 11:51:45 2022
+Analysis & Elaboration Status : Successful - Thu Aug 25 12:41:53 2022
 Quartus Prime Version : 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 Revision Name : Laboratorio_1
-Top-level Entity Name : full_adder
+Top-level Entity Name : adder_4bits
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A until Partition Merge
 Total registers : N/A until Partition Merge
