@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Laboratorio_1
-Wed Aug 24 23:31:06 2022
+Thu Aug 25 00:55:55 2022
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -43,7 +43,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Aug 24 23:31:06 2022       ;
+; Analysis & Synthesis Status     ; Successful - Thu Aug 25 00:55:55 2022       ;
 ; Quartus Prime Version           ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                   ; Laboratorio_1                               ;
 ; Top-level Entity Name           ; BCD_DECO                                    ;
@@ -166,13 +166,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                          ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                                      ; Library ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+---------+
-; problema_1/BCD_DECO.sv           ; yes             ; User SystemVerilog HDL File  ; /home/rijegaro/Escritorio/Taller de Diseño Digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO.sv ;         ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                                     ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------------------------------------------------+---------+
+; problema_1/BCD_DECO.sv           ; yes             ; User SystemVerilog HDL File  ; /home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO.sv ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +------------------------------------------------------------+
@@ -258,14 +258,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
-    Info: Processing started: Wed Aug 24 23:30:51 2022
+    Info: Processing started: Thu Aug 25 00:55:45 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Laboratorio_1 -c Laboratorio_1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file problema_1/BCD_DECO.sv
-    Info (12023): Found entity 1: BCD_DECO File: /home/rijegaro/Escritorio/Taller de Diseño Digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file problema_1/BCD_DECO_TB.sv
-    Info (12023): Found entity 1: BCD_DECO_TB File: /home/rijegaro/Escritorio/Taller de Diseño Digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO_TB.sv Line: 1
+    Info (12023): Found entity 1: BCD_DECO_TB File: /home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO_TB.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file problema_1/BCD_DECO.sv
+    Info (12023): Found entity 1: BCD_DECO File: /home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_1/BCD_DECO.sv Line: 1
 Info (12127): Elaborating entity "BCD_DECO" for the top level hierarchy
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
@@ -276,8 +276,8 @@ Info (21057): Implemented 18 device resources after synthesis - the final resour
     Info (21061): Implemented 7 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 447 megabytes
-    Info: Processing ended: Wed Aug 24 23:31:06 2022
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:26
+    Info: Processing ended: Thu Aug 25 00:55:55 2022
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:21
 
 

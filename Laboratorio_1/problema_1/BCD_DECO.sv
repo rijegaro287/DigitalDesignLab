@@ -1,7 +1,7 @@
-module BCD_DECO(NUM, BCD);
-    input [3:0] NUM;
-    output [6:0] BCD; // orden -> abcdefg
+module BCD_DECO(input logic [3:0] NUM,
+                output logic [6:0] BCD);
 
+    // orden BCD -> abcdefg
     always @(NUM) begin
         case(NUM)
             4'b0000: BCD <= 7'b1111110; // 0
