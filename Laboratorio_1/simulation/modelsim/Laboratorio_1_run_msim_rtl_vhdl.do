@@ -9,6 +9,7 @@ vcom -93 -work work {/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens
 vcom -93 -work work {/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/adder_4bits_tb.vhd}
 vcom -93 -work work {/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder.vhd}
 vcom -93 -work work {/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/adder_4bits.vhd}
+vcom -93 -work work {/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/adder_4bits_to_7seg.vhd}
 
 vcom -93 -work work {/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/adder_4bits_tb.vhd}
 

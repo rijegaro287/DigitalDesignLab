@@ -53,12 +53,9 @@ set_global_assignment -name EDA_SIMULATION_TOOL "Questa Intel FPGA (SystemVerilo
 set_global_assignment -name EDA_TIME_SCALE "10 ns" -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "SYSTEMVERILOG HDL" -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH adder_4bits_tb -section_id eda_simulation
-set_global_assignment -name EDA_TEST_BENCH_NAME BCD_DECO_TB -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH adder_4bits_to_7seg_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id BCD_DECO_TB
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME BCD_DECO_TB -section_id BCD_DECO_TB
-set_global_assignment -name SYSTEMVERILOG_FILE problema_1/BCD_DECO_TB.sv
-set_global_assignment -name SYSTEMVERILOG_FILE problema_1/BCD_DECO.sv
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME bcd_deco_tb -section_id bcd_deco_tb
 set_location_assignment PIN_AB12 -to NUM[0]
 set_location_assignment PIN_AC12 -to NUM[1]
 set_location_assignment PIN_AF9 -to NUM[2]
@@ -77,13 +74,21 @@ set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id full_adder_t
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME full_adder_tb -section_id full_adder_tb
 set_global_assignment -name VHDL_FILE problema_2/adder_4bits.vhd
 set_global_assignment -name VHDL_FILE problema_2/adder_4bits_tb.vhd
-set_global_assignment -name EDA_TEST_BENCH_FILE problema_1/BCD_DECO_TB.sv -section_id BCD_DECO_TB
-set_global_assignment -name EDA_TEST_BENCH_FILE problema_2/full_adder_tb.vhd -section_id full_adder_tb
 set_global_assignment -name EDA_TEST_BENCH_NAME adder_4bits_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id adder_4bits_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME adder_4bits_tb -section_id adder_4bits_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE problema_2/adder_4bits_tb.vhd -section_id adder_4bits_tb
 set_global_assignment -name VHDL_FILE problema_2/adder_4bits_to_7seg.vhd
+set_global_assignment -name SYSTEMVERILOG_FILE problema_1/bcd_deco.sv
+set_global_assignment -name SYSTEMVERILOG_FILE problema_1/bcd_deco_tb.sv
+set_global_assignment -name EDA_TEST_BENCH_NAME bcd_deco_tb -section_id eda_simulation
+set_global_assignment -name VHDL_FILE problema_2/adder_4bits_to_7seg_tb.vhd
+set_global_assignment -name EDA_TEST_BENCH_FILE problema_2/full_adder_tb.vhd -section_id full_adder_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE problema_2/adder_4bits_tb.vhd -section_id adder_4bits_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE problema_1/bcd_deco_tb.sv -section_id bcd_deco_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME adder_4bits_to_7seg_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id adder_4bits_to_7seg_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME adder_4bits_to_7seg_tb -section_id adder_4bits_to_7seg_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE problema_2/adder_4bits_to_7seg_tb.vhd -section_id adder_4bits_to_7seg_tb
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top

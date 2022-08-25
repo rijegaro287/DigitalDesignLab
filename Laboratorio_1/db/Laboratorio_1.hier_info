@@ -8,20 +8,20 @@ B[1] => adder_4bits:adder.B[1]
 B[2] => adder_4bits:adder.B[2]
 B[3] => adder_4bits:adder.B[3]
 Cin => adder_4bits:adder.Cin
-BCD_0[0] <= BCD_DECO:deco_0.BCD[0]
-BCD_0[1] <= BCD_DECO:deco_0.BCD[1]
-BCD_0[2] <= BCD_DECO:deco_0.BCD[2]
-BCD_0[3] <= BCD_DECO:deco_0.BCD[3]
-BCD_0[4] <= BCD_DECO:deco_0.BCD[4]
-BCD_0[5] <= BCD_DECO:deco_0.BCD[5]
-BCD_0[6] <= BCD_DECO:deco_0.BCD[6]
-BCD_1[0] <= BCD_DECO:deco_1.BCD[0]
-BCD_1[1] <= BCD_DECO:deco_1.BCD[1]
-BCD_1[2] <= BCD_DECO:deco_1.BCD[2]
-BCD_1[3] <= BCD_DECO:deco_1.BCD[3]
-BCD_1[4] <= BCD_DECO:deco_1.BCD[4]
-BCD_1[5] <= BCD_DECO:deco_1.BCD[5]
-BCD_1[6] <= BCD_DECO:deco_1.BCD[6]
+BCD_0[0] <= bcd_deco:deco_0.BCD[0]
+BCD_0[1] <= bcd_deco:deco_0.BCD[1]
+BCD_0[2] <= bcd_deco:deco_0.BCD[2]
+BCD_0[3] <= bcd_deco:deco_0.BCD[3]
+BCD_0[4] <= bcd_deco:deco_0.BCD[4]
+BCD_0[5] <= bcd_deco:deco_0.BCD[5]
+BCD_0[6] <= bcd_deco:deco_0.BCD[6]
+BCD_1[0] <= bcd_deco:deco_1.BCD[0]
+BCD_1[1] <= bcd_deco:deco_1.BCD[1]
+BCD_1[2] <= bcd_deco:deco_1.BCD[2]
+BCD_1[3] <= bcd_deco:deco_1.BCD[3]
+BCD_1[4] <= bcd_deco:deco_1.BCD[4]
+BCD_1[5] <= bcd_deco:deco_1.BCD[5]
+BCD_1[6] <= bcd_deco:deco_1.BCD[6]
 
 
 |adder_4bits_to_7seg|adder_4bits:adder
@@ -85,7 +85,7 @@ Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
 S <= S.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|adder_4bits_to_7seg|BCD_DECO:deco_0
+|adder_4bits_to_7seg|bcd_deco:deco_0
 NUM[0] => Decoder0.IN3
 NUM[1] => Decoder0.IN2
 NUM[2] => Decoder0.IN1
@@ -99,7 +99,7 @@ BCD[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 BCD[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|adder_4bits_to_7seg|BCD_DECO:deco_1
+|adder_4bits_to_7seg|bcd_deco:deco_1
 NUM[0] => Decoder0.IN3
 NUM[1] => Decoder0.IN2
 NUM[2] => Decoder0.IN1

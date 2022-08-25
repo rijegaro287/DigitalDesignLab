@@ -23,7 +23,7 @@ component adder_4bits is
     );
 end component;
 
-component BCD_DECO is
+component bcd_deco is
     port (
         NUM : in std_logic_vector(3 downto 0);
         BCD : out std_logic_vector(6 downto 0)
@@ -33,7 +33,12 @@ end component;
 signal Cout : std_logic_vector(3 downto 0);
 signal S : std_logic_vector(3 downto 0);
 
+
 begin
+    Cout(1) <= '0';
+    Cout(2) <= '0';
+    Cout(3) <= '0';
+
     adder : adder_4bits
         port map (
             A,
@@ -43,13 +48,13 @@ begin
             S
         );
 
-    deco_0 : BCD_DECO
+    deco_0 : bcd_deco
         port map (
             S,
             BCD_0
         );
 
-    deco_1 : BCD_DECO
+    deco_1 : bcd_deco
         port map (
             Cout,
             BCD_1
