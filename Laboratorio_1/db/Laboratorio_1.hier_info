@@ -1,4 +1,30 @@
-|adder_4bits
+|adder_4bits_to_7seg
+A[0] => adder_4bits:adder.A[0]
+A[1] => adder_4bits:adder.A[1]
+A[2] => adder_4bits:adder.A[2]
+A[3] => adder_4bits:adder.A[3]
+B[0] => adder_4bits:adder.B[0]
+B[1] => adder_4bits:adder.B[1]
+B[2] => adder_4bits:adder.B[2]
+B[3] => adder_4bits:adder.B[3]
+Cin => adder_4bits:adder.Cin
+BCD_0[0] <= BCD_DECO:deco_0.BCD[0]
+BCD_0[1] <= BCD_DECO:deco_0.BCD[1]
+BCD_0[2] <= BCD_DECO:deco_0.BCD[2]
+BCD_0[3] <= BCD_DECO:deco_0.BCD[3]
+BCD_0[4] <= BCD_DECO:deco_0.BCD[4]
+BCD_0[5] <= BCD_DECO:deco_0.BCD[5]
+BCD_0[6] <= BCD_DECO:deco_0.BCD[6]
+BCD_1[0] <= BCD_DECO:deco_1.BCD[0]
+BCD_1[1] <= BCD_DECO:deco_1.BCD[1]
+BCD_1[2] <= BCD_DECO:deco_1.BCD[2]
+BCD_1[3] <= BCD_DECO:deco_1.BCD[3]
+BCD_1[4] <= BCD_DECO:deco_1.BCD[4]
+BCD_1[5] <= BCD_DECO:deco_1.BCD[5]
+BCD_1[6] <= BCD_DECO:deco_1.BCD[6]
+
+
+|adder_4bits_to_7seg|adder_4bits:adder
 A[0] => full_adder:full_adder_0.A
 A[1] => full_adder:full_adder_1.A
 A[2] => full_adder:full_adder_2.A
@@ -15,7 +41,7 @@ S[2] <= full_adder:full_adder_2.S
 S[3] <= full_adder:full_adder_3.S
 
 
-|adder_4bits|full_adder:full_adder_0
+|adder_4bits_to_7seg|adder_4bits:adder|full_adder:full_adder_0
 A => Cout.IN0
 A => Cout.IN0
 B => Cout.IN1
@@ -26,7 +52,7 @@ Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
 S <= S.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|adder_4bits|full_adder:full_adder_1
+|adder_4bits_to_7seg|adder_4bits:adder|full_adder:full_adder_1
 A => Cout.IN0
 A => Cout.IN0
 B => Cout.IN1
@@ -37,7 +63,7 @@ Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
 S <= S.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|adder_4bits|full_adder:full_adder_2
+|adder_4bits_to_7seg|adder_4bits:adder|full_adder:full_adder_2
 A => Cout.IN0
 A => Cout.IN0
 B => Cout.IN1
@@ -48,7 +74,7 @@ Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
 S <= S.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|adder_4bits|full_adder:full_adder_3
+|adder_4bits_to_7seg|adder_4bits:adder|full_adder:full_adder_3
 A => Cout.IN0
 A => Cout.IN0
 B => Cout.IN1
@@ -57,5 +83,33 @@ Cin => Cout.IN1
 Cin => S.IN1
 Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
 S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_4bits_to_7seg|BCD_DECO:deco_0
+NUM[0] => Decoder0.IN3
+NUM[1] => Decoder0.IN2
+NUM[2] => Decoder0.IN1
+NUM[3] => Decoder0.IN0
+BCD[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+BCD[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+BCD[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+BCD[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+BCD[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+BCD[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+BCD[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_4bits_to_7seg|BCD_DECO:deco_1
+NUM[0] => Decoder0.IN3
+NUM[1] => Decoder0.IN2
+NUM[2] => Decoder0.IN1
+NUM[3] => Decoder0.IN0
+BCD[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+BCD[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+BCD[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+BCD[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+BCD[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+BCD[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+BCD[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
