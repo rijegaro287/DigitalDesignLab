@@ -25,47 +25,70 @@
 # 
 # vcom -93 -work work {/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder_tb.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:56:22 on Aug 25,2022
+# Start time: 12:46:30 on Aug 25,2022
 # vcom -reportprogress 300 -93 -work work /home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity full_adder_tb
 # -- Compiling architecture testbench of full_adder_tb
-# End time: 11:56:22 on Aug 25,2022, Elapsed time: 0:00:00
+# End time: 12:46:30 on Aug 25,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/adder_4bits_tb.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 12:46:30 on Aug 25,2022
+# vcom -reportprogress 300 -93 -work work /home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/adder_4bits_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity adder_4bits_tb
+# -- Compiling architecture testbench of adder_4bits_tb
+# End time: 12:46:30 on Aug 25,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:56:22 on Aug 25,2022
+# Start time: 12:46:30 on Aug 25,2022
 # vcom -reportprogress 300 -93 -work work /home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity full_adder
 # -- Compiling architecture structural of full_adder
-# End time: 11:56:22 on Aug 25,2022, Elapsed time: 0:00:00
+# End time: 12:46:30 on Aug 25,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# 
-# vcom -93 -work work {/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder_tb.vhd}
+# vcom -93 -work work {/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/adder_4bits.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 11:56:22 on Aug 25,2022
-# vcom -reportprogress 300 -93 -work work /home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/full_adder_tb.vhd 
+# Start time: 12:46:30 on Aug 25,2022
+# vcom -reportprogress 300 -93 -work work /home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/adder_4bits.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity full_adder_tb
-# -- Compiling architecture testbench of full_adder_tb
-# End time: 11:56:23 on Aug 25,2022, Elapsed time: 0:00:01
+# -- Compiling entity adder_4bits
+# -- Compiling architecture structural of adder_4bits
+# End time: 12:46:30 on Aug 25,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L cyclonev_hssi -L rtl_work -L work -voptargs="+acc"  full_adder_tb
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L cyclonev_hssi -L rtl_work -L work -voptargs=""+acc"" full_adder_tb 
-# Start time: 11:56:23 on Aug 25,2022
+# vcom -93 -work work {/home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/adder_4bits_tb.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 12:46:31 on Aug 25,2022
+# vcom -reportprogress 300 -93 -work work /home/rijegaro/Escritorio/taller_de_diseno_digital/RGatgens_ATrejos_digital_design_lab_2022/Laboratorio_1/problema_2/adder_4bits_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity adder_4bits_tb
+# -- Compiling architecture testbench of adder_4bits_tb
+# End time: 12:46:31 on Aug 25,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L cyclonev_hssi -L rtl_work -L work -voptargs="+acc"  adder_4bits_tb
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L cyclonev_hssi -L rtl_work -L work -voptargs=""+acc"" adder_4bits_tb 
+# Start time: 12:46:31 on Aug 25,2022
 # ** Note: (vsim-3812) Design is being optimized...
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.full_adder_tb(testbench)#1
+# Loading work.adder_4bits_tb(testbench)#1
+# Loading work.adder_4bits(structural)#1
 # Loading work.full_adder(structural)#1
 # 
 # add wave *
@@ -74,5 +97,5 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-# End time: 11:57:09 on Aug 25,2022, Elapsed time: 0:00:46
+# End time: 12:49:55 on Aug 25,2022, Elapsed time: 0:03:24
 # Errors: 0, Warnings: 0
