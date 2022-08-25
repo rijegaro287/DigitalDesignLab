@@ -1,5 +1,5 @@
 Flow report for Laboratorio_1
-Thu Aug 25 00:57:11 2022
+Thu Aug 25 01:40:56 2022
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Thu Aug 25 00:57:11 2022       ;
+; Flow Status                     ; Successful - Thu Aug 25 01:40:56 2022       ;
 ; Quartus Prime Version           ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                   ; Laboratorio_1                               ;
 ; Top-level Entity Name           ; BCD_DECO                                    ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 08/25/2022 00:55:45 ;
+; Start date & time ; 08/25/2022 01:39:28 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Laboratorio_1       ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 1050349769559.166141054527571          ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID                ; 1050349769559.166141316831933          ; --            ; --          ; --             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; BCD_DECO_TB    ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; BCD_DECO_TB                            ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Systemverilog Hdl                      ; --            ; --          ; eda_simulation ;
@@ -106,12 +106,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:09     ; 1.0                     ; 433 MB              ; 00:00:21                           ;
-; Fitter               ; 00:00:44     ; 1.0                     ; 1537 MB             ; 00:01:05                           ;
-; Assembler            ; 00:00:11     ; 1.0                     ; 517 MB              ; 00:00:08                           ;
-; Timing Analyzer      ; 00:00:09     ; 1.0                     ; 783 MB              ; 00:00:06                           ;
+; Analysis & Synthesis ; 00:00:13     ; 1.0                     ; 435 MB              ; 00:00:30                           ;
+; Fitter               ; 00:00:52     ; 1.0                     ; 1542 MB             ; 00:01:19                           ;
+; Assembler            ; 00:00:09     ; 1.0                     ; 520 MB              ; 00:00:09                           ;
+; Timing Analyzer      ; 00:00:06     ; 1.0                     ; 784 MB              ; 00:00:06                           ;
 ; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 694 MB              ; 00:00:01                           ;
-; Total                ; 00:01:14     ; --                      ; --                  ; 00:01:41                           ;
+; Total                ; 00:01:21     ; --                      ; --                  ; 00:02:05                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
