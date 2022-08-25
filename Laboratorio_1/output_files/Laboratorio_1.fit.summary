@@ -1,13 +1,13 @@
-Fitter Status : Successful - Thu Aug 25 01:40:34 2022
+Fitter Status : Successful - Thu Aug 25 13:17:25 2022
 Quartus Prime Version : 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 Revision Name : Laboratorio_1
-Top-level Entity Name : BCD_DECO
+Top-level Entity Name : adder_4bits_to_7seg
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 4 / 32,070 ( < 1 % )
+Logic utilization (in ALMs) : 7 / 32,070 ( < 1 % )
 Total registers : 0
-Total pins : 11 / 457 ( 2 % )
+Total pins : 23 / 457 ( 5 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 4,065,280 ( 0 % )
 Total RAM Blocks : 0 / 397 ( 0 % )

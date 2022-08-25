@@ -61,6 +61,4 @@ begin
             Cout,
             S(3)
         );
-
-    
 end structural;
