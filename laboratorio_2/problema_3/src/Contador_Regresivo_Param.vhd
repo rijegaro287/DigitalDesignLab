@@ -19,12 +19,13 @@ Architecture contador of Contador_Regresivo_Param is
 		signal UNO : std_logic_vector (6 downto 0) := "1111001";
 		signal CERO : std_logic_vector (6 downto 0) := "1000000";
 		
-		signal cuenta : integer range 0 to ((2**n) - 1) := 0;
+		signal cuenta : integer range 0 to ((2**n) - 1) := ((2**n) - 1);
 		signal numbin : std_logic_vector (5 downto 0) := conv_std_logic_vector(cuenta, 6);
 begin
-	contador_n_bits : process (reset, n, UNO, CERO, cuenta, numbin) begin
+	contador_n_bits : process (reset, n, UNO, CERO, cuenta, numbin, inicial, reloj) begin
 		if (reset = '0') then
 			cuenta <= 0;
+			numbin <= conv_std_logic_vector(cuenta, 6);
 		elsif (inicial = '0') and (cuenta < (2**n)) then
 			cuenta <= ((2**n) - 1);
 			numbin <= conv_std_logic_vector(cuenta, 6);
@@ -38,7 +39,6 @@ begin
 			end if;
 		end if;
 		
-		numbin <= conv_std_logic_vector(cuenta, 6);
 		--segmento 6
 		if (numbin(0) = '1') then
 			seg1 <= UNO;

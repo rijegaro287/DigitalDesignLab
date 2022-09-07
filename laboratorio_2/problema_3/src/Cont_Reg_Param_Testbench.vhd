@@ -36,34 +36,26 @@ architecture tb of Cont_Reg_Param_Testbench is
 				seg6 => seg6
 			);
 	process begin	
+		reloj <= '1';
+		reset <= '1';
+		inicial <= '1'; wait for 1 us;
 		-- Prueba 2 bits
 		inicial <= '0';wait for 1 us;
 		inicial <= '1';wait for 1 us;
+		-- Prueba resta
+		reloj <= '0';wait for 1 us;
+		reloj <= '1';wait for 1 us; 
+		assert ((seg1 = "1000000") and (seg2 = "1111001"))
+		report "Fallo en prueba resta 2 bits" severity error;
+		 
+		reset <= '1';
+		wait for 1 us;  
+		reset <= '0';
+		wait for 1 us;
+		reset <= '1';
+		wait for 1 us;
 		inicial <= '0';wait for 1 us;
 		inicial <= '1';wait for 1 us;
-		-- Prueba resta
-		 reloj <= '0';
-		 reset <= '1';
-		 wait for 1 us;
-		 reloj <= '1';
-		 reset <= '1';
-		 wait for 1 us;  
-		 reloj <= '0';
-		 reset <= '1';
-		 wait for 1 us; 
-		 assert ((seg1 = "1111001") and (seg2 = "1000000"))
-		 report "Fallo en prueba resta 2 bits" severity error;
-		 
-		 reset <= '1';
-		 wait for 1 us;  
-		 reset <= '0';
-		 wait for 1 us;
-		 reset <= '1';
-		 wait for 1 us;
-		 inicial <= '0';wait for 1 us;
-		 inicial <= '1';wait for 1 us;
-		 inicial <= '0';wait for 1 us;
-		 inicial <= '1';wait for 1 us;
 		-- Prueba reset
 		 wait for 1 us;
 		 reloj <= '1';
