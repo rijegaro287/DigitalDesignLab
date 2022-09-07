@@ -27,26 +27,31 @@ begin
 
     tb_process: process
     begin
+        --Salida 00000
         A <= "0000";
         B <= "0000";
         Cin <= '0';
         wait for 10 ns;
 
+        -- Salida: 00111
         A <= "0101";
         B <= "0010";
         Cin <= '0';
         wait for 10 ns;
 
+        -- Salida: 01100
         A <= "1010";
         B <= "0010";
         Cin <= '0';
         wait for 10 ns;
-
+        
+        -- Salida: 10110
         A <= "1111";
         B <= "0110";
         Cin <= '1';
         wait for 10 ns;
 
+        -- Salida: 11111
         A <= "1111";
         B <= "1111";
         Cin <= '1';
@@ -55,3 +60,4 @@ begin
         wait;
     end process;
 end testbench;
+
