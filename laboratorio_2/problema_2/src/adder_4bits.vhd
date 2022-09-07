@@ -12,8 +12,8 @@ entity adder_4bits is
     );
 end adder_4bits;
 
-
 architecture structural of adder_4bits is
+
 component full_adder is
     port (
         A : in std_logic;
@@ -25,6 +25,7 @@ component full_adder is
 end component;
 
 signal Cout_0, Cout_1, Cout_2 : std_logic;
+
 begin
     full_adder_0 : full_adder
         port map (
@@ -62,3 +63,4 @@ begin
             S(3)
         );
 end structural;
+

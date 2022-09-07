@@ -30,15 +30,10 @@ component bcd_deco is
     );
 end component;
 
-signal Cout : std_logic_vector(3 downto 0);
+signal Cout : std_logic_vector(3 downto 0) := "0000";
 signal S : std_logic_vector(3 downto 0);
 
-
 begin
-    Cout(1) <= '0';
-    Cout(2) <= '0';
-    Cout(3) <= '0';
-
     adder : adder_4bits
         port map (
             A,
@@ -60,3 +55,5 @@ begin
             BCD_1
         );
 end structural;
+
+

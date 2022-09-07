@@ -49,7 +49,6 @@ set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name VHDL_FILE Contador_Regresivo_Param.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -98,7 +97,6 @@ set_location_assignment PIN_AB27 -to seg6[3]
 set_location_assignment PIN_AB26 -to seg6[4]
 set_location_assignment PIN_AA26 -to seg6[5]
 set_location_assignment PIN_AA25 -to seg6[6]
-set_global_assignment -name VHDL_FILE Cont_Reg_Param_Testbench.vhd
 set_global_assignment -name EDA_SIMULATION_TOOL "Questa Intel FPGA (VHDL)"
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
@@ -109,4 +107,6 @@ set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id Cont_Reg_Par
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Cont_Reg_Param_Testbench -section_id Cont_Reg_Param_Testbench
 set_global_assignment -name EDA_TEST_BENCH_FILE Cont_Reg_Param_Testbench.vhd -section_id Cont_Reg_Param_Testbench
 set_location_assignment PIN_W15 -to inicial
+set_global_assignment -name VHDL_FILE src/Contador_Regresivo_Param.vhd
+set_global_assignment -name VHDL_FILE src/Cont_Reg_Param_Testbench.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
