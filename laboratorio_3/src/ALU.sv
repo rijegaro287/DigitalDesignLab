@@ -21,5 +21,4 @@ module ALU(A, B, S, R, N, Z, C, V);
             .S(S[3]),
             .F(R) 
         );
-
 endmodule

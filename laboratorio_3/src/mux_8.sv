@@ -24,6 +24,4 @@ module mux_8
             3'b111: F <= E7;
         endcase 
     end
-
-
 endmodule

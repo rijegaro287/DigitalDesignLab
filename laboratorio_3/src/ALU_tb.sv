@@ -22,6 +22,10 @@ module ALU_tb();
         A <= 4'b1010;
         B <= 4'b1100;
         #10;
+        // Con overflow
+        A <= 4'b1111;
+        B <= 4'b1111;
+        #10;
 
         // ---------------> Resta <---------------
         S <= 4'b0001;
@@ -31,6 +35,10 @@ module ALU_tb();
         #10;
         // Resultado negativo
         A <= 4'b1010;
+        B <= 4'b1100;
+        #10;
+        // Resultado negativo con overflow
+        A <= 4'b0000;
         B <= 4'b1100;
         #10;
 
