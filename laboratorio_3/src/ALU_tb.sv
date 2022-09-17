@@ -22,24 +22,31 @@ module ALU_tb();
         A <= 4'b1010;
         B <= 4'b1100;
         #10;
-        // Con overflow
-        A <= 4'b1111;
-        B <= 4'b1111;
+        //Con overflow positivo
+        A <= 4'b0100;
+        B <= 4'b0100;
         #10;
-
+        //Con overflow negativo
+        A <= 4'b1100;
+        B <= 4'b1000;
+        #10;
         // ---------------> Resta <---------------
         S <= 4'b0001;
         // Resultado positivo
         A <= 4'b1111;
         B <= 4'b1100;
         #10;
-        // Resultado negativo
+        // Resultado con carry
         A <= 4'b1010;
         B <= 4'b1100;
         #10;
-        // Resultado negativo con overflow
-        A <= 4'b0000;
+        // Resultado con overflow
+        A <= 4'b0100;
         B <= 4'b1100;
+        #10;
+        // Resultado con overflow
+        A <= 4'b1100;
+        B <= 4'b0101;
         #10;
 
         $stop;

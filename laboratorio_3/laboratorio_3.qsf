@@ -65,8 +65,10 @@ set_global_assignment -name EDA_TEST_BENCH_NAME ALU_tb -section_id eda_simulatio
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id ALU_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME ALU_tb -section_id ALU_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE src/ALU_tb.sv -section_id ALU_tb
-set_global_assignment -name SYSTEMVERILOG_FILE src/mux_8.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/aritmetica/sumador.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/aritmetica/sumador_restador.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/aritmetica/sumador_completo.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/mux_8.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/aritmetica/unidad_aritmetica.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/logica/unidad_logica.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/ALU.sv

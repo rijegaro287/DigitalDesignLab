@@ -7,31 +7,35 @@ module unidad_aritmetica
     output logic [(NUM_BITS-1):0] R;
     output logic N, Z, C, V;
 
-    logic GND;
-    assign GND = 0;
-
-    logic ADDR_CTRL;
-    assign ADDR_CTRL = ~S[3] & ~S[2] & S[0];
-
-    logic [(NUM_BITS-1):0] ADDR_RESULT;
+    logic [(NUM_BITS-1):0] ADDR_RESULT; 
     logic [(NUM_BITS-1):0] MULT_RESULT;
     logic [(NUM_BITS-1):0] DIV_RESULT;
     logic [(NUM_BITS-1):0] MOD_RESULT;
 
-    sumador_restador #(.NUM_BITS(NUM_BITS))
-        sumador_restador_0(.A(A), .B(B), .CTRL(ADDR_CTRL), .Cout(C), .R(ADDR_RESULT));
+    logic CTRL;
+    assign CTRL = !S[3] && !S[2] && !S[1] && S[0];
+    sumador_restador #(.NUM_BITS(NUM_BITS)) sumador_restador(
+        .Cin(CTRL),
+        .A(A),
+        .B(B),
+        .S(ADDR_RESULT),
+        .C(C),
+        .V(V)
+    );
 
-    mux_8 #(.INPUT_BITS(NUM_BITS)) 
-        op_selector(
-            .E0(ADDR_RESULT),
-            .E1(ADDR_RESULT),
-            .E2(MULT_RESULT),
-            .E3(DIV_RESULT),
-            .E4(MOD_RESULT),
-            .E5(GND),
-            .E6(GND),
-            .E7(GND),
-            .S(S),
-            .F(R)
-        );
+    mux_8 #(.INPUT_BITS(NUM_BITS)) op_selector(
+        .E0(ADDR_RESULT),
+        .E1(ADDR_RESULT),
+        .E2(MULT_RESULT),
+        .E3(DIV_RESULT),
+        .E4(MOD_RESULT),
+        .E5(0),
+        .E6(0),
+        .E7(0),
+        .S(S),
+        .F(R)
+    );
+
+    assign N = R[NUM_BITS-1];
+    assign Z = ~|R;
 endmodule

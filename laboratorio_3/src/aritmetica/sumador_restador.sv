@@ -1,13 +1,29 @@
 module sumador_restador
-#(parameter NUM_BITS = 2) (A, B, CTRL, Cout, R);
+#(parameter NUM_BITS = 2) (Cin, A, B, S, C, V);
+    input logic Cin;
     input logic [(NUM_BITS-1):0] A;
     input logic [(NUM_BITS-1):0] B;
-    input logic CTRL;
 
-    output logic Cout;
-    output logic [(NUM_BITS-1):0] R;
+    output logic [(NUM_BITS-1):0] S;
+    output logic C, V;
 
-    always @(A or B or CTRL) begin
-        {Cout, R} <= CTRL ? A - B : A + B;
-    end
+    logic [(NUM_BITS-1):0] BXOR;
+    generate
+        genvar i;
+        for (i = 0; i < NUM_BITS; i = i+1) begin : complement_b
+            assign BXOR[i] = Cin ^ B[i];
+        end
+    endgenerate
+
+    logic Co;
+    sumador #(.NUM_BITS(NUM_BITS)) sumador (
+        .Cin(Cin),
+        .A(A),
+        .B(BXOR),
+        .S(S),
+        .C(Co),
+        .V(V)
+    );
+
+    assign C = Cin ^ Co;
 endmodule
