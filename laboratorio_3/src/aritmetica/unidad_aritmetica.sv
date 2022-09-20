@@ -23,6 +23,15 @@ module unidad_aritmetica
         .V(V)
     );
 
+    logic mult_carry, mult_overflow;
+    multiplicador #(.NUM_BITS(NUM_BITS)) multiplicador(
+        .A(A),
+        .B(B),
+        .S(MULT_RESULT),
+        .C(mult_carry),
+        .V(mult_overflow)
+    );
+
     mux_8 #(.INPUT_BITS(NUM_BITS)) op_selector(
         .E0(ADDR_RESULT),
         .E1(ADDR_RESULT),
