@@ -13,8 +13,8 @@ module multiplicador
         for (i = 0; i < NUM_BITS; i = i+1) begin : array_multiplier 
             for (j = 0; j < NUM_BITS; j = j+1) begin : cols
                 sumador_completo sumador_completo_i(
-                    .Cin(i == 0 ? 0 : co[i-1][j]),
-                    .A(j == 0 ? 0 :
+                    .Cin(i == 1'b0 ? 1'b0 : co[i-1][j]),
+                    .A(j == 1'b0 ? 1'b0 :
                         (i == (NUM_BITS-1) ? co[i][j-1] :
                             sum[i+1][j-1])),
                     .B(A[j] && B[i]),
