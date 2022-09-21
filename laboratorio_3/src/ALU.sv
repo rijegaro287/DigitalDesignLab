@@ -1,24 +1,36 @@
-`define NUM_BITS 4
-
-module ALU(A, B, S, R, N, Z, C, V);    
-    input logic [(`NUM_BITS-1):0] A;
-    input logic [(`NUM_BITS-1):0] B;
+module ALU
+#(parameter NUM_BITS = 2)(A, B, S, R, N, Z, C, V);    
+    input logic [(NUM_BITS-1):0] A;
+    input logic [(NUM_BITS-1):0] B;
     input logic [3:0] S;
 
-    output logic [(`NUM_BITS-1):0] R;
+    output logic [(NUM_BITS-1):0] R;
     output logic N, Z, C, V;
 
-    logic [(`NUM_BITS-1):0] ARITH_RESULT;
-    logic [(`NUM_BITS-1):0] LOGIC_RESULT;
+    logic [(NUM_BITS-1):0] ARITH_RESULT;
+    logic [(NUM_BITS-1):0] LOGIC_RESULT;
 
-    unidad_aritmetica #(.NUM_BITS(`NUM_BITS)) 
-        UA( .A(A), .B(B), .S(S[2:0]), .R(ARITH_RESULT), .N(N), .Z(Z), .C(C), .V(V) );
+    logic ua_carry, ua_overflow;
+    unidad_aritmetica #(.NUM_BITS(NUM_BITS)) UA(
+        .A(A),
+        .B(B),
+        .S(S[2:0]),
+        .R(ARITH_RESULT),
+        .C(ua_carry),
+        .V(ua_overflow)
+    );
 
-    mux_2 #(.INPUT_BITS(`NUM_BITS)) 
-        op_selector( 
-            .E0(ARITH_RESULT),
-            .E1(LOGIC_RESULT),
-            .S(S[3]),
-            .F(R) 
-        );
+    unidad_logica #(.NUM_BITS(NUM_BITS)) UL(
+        .A(A),
+        .B(B),
+        .S(S[2:0]),
+        .R(LOGIC_RESULT)
+    );
+
+    assign R = S[3] ? LOGIC_RESULT : ARITH_RESULT;
+    
+    assign N = R[NUM_BITS-1];
+    assign Z = ~|R;
+    assign C = S[3] ? 1'b0 : ua_carry;
+    assign V = S[3] ? 1'b0 : ua_overflow;
 endmodule

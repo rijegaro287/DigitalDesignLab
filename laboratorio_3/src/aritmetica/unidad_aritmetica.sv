@@ -1,11 +1,11 @@
 module unidad_aritmetica
-#(parameter NUM_BITS = 2) (A, B, S, R, N, Z, C, V);
+#(parameter NUM_BITS = 2) (A, B, S, R, C, V);
     input logic [(NUM_BITS-1):0] A;
     input logic [(NUM_BITS-1):0] B;
-    input logic [3:0] S;
+    input logic [2:0] S;
 
     output logic [(NUM_BITS-1):0] R;
-    output logic N, Z, C, V;
+    output logic C, V;
 
     logic [(NUM_BITS-1):0] ADDR_RESULT; 
     logic [(NUM_BITS-1):0] MULT_RESULT;
@@ -13,7 +13,7 @@ module unidad_aritmetica
     logic [(NUM_BITS-1):0] MOD_RESULT;
 
     logic CTRL;
-    assign CTRL = !S[3] && !S[2] && !S[1] && S[0];
+    assign CTRL = !S[2] && !S[1] && S[0];
 
     logic addr_carry, addr_overflow;
     sumador_restador #(.NUM_BITS(NUM_BITS)) sumador_restador(
@@ -34,13 +34,13 @@ module unidad_aritmetica
         .V(mult_overflow)
     );
 
-    divisor#(.NUM_BITS(NUM_BITS)) divisor(
+    divisor #(.NUM_BITS(NUM_BITS)) divisor(
         .A(A),
         .B(B),
         .S(DIV_RESULT)
     );
 
-    modulo#(.NUM_BITS(NUM_BITS)) modulo(
+    modulo# (.NUM_BITS(NUM_BITS)) modulo(
         .A(A),
         .B(B),
         .S(MOD_RESULT)
@@ -84,7 +84,4 @@ module unidad_aritmetica
         .S(S),
         .F(V)
     );
-
-    assign N = R[NUM_BITS-1];
-    assign Z = ~|R;
 endmodule
