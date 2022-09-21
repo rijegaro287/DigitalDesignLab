@@ -14,13 +14,15 @@ module unidad_aritmetica
 
     logic CTRL;
     assign CTRL = !S[3] && !S[2] && !S[1] && S[0];
+
+    logic addr_carry, addr_overflow;
     sumador_restador #(.NUM_BITS(NUM_BITS)) sumador_restador(
         .Cin(CTRL),
         .A(A),
         .B(B),
         .S(ADDR_RESULT),
-        .C(C),
-        .V(V)
+        .C(addr_carry),
+        .V(addr_overflow)
     );
 
     logic mult_carry, mult_overflow;
@@ -30,6 +32,18 @@ module unidad_aritmetica
         .S(MULT_RESULT),
         .C(mult_carry),
         .V(mult_overflow)
+    );
+
+    divisor#(.NUM_BITS(NUM_BITS)) divisor(
+        .A(A),
+        .B(B),
+        .S(DIV_RESULT)
+    );
+
+    modulo#(.NUM_BITS(NUM_BITS)) modulo(
+        .A(A),
+        .B(B),
+        .S(MOD_RESULT)
     );
 
     mux_8 #(.INPUT_BITS(NUM_BITS)) op_selector(
@@ -43,6 +57,32 @@ module unidad_aritmetica
         .E7(0),
         .S(S),
         .F(R)
+    );
+
+    mux_8 #(.INPUT_BITS(1)) carry_selector(
+        .E0(addr_carry),
+        .E1(addr_carry),
+        .E2(mult_carry),
+        .E3(0),
+        .E4(0),
+        .E5(0),
+        .E6(0),
+        .E7(0),
+        .S(S),
+        .F(C)
+    );
+
+    mux_8 #(.INPUT_BITS(1)) overflow_selector(
+        .E0(addr_overflow),
+        .E1(addr_overflow),
+        .E2(mult_overflow),
+        .E3(0),
+        .E4(0),
+        .E5(0),
+        .E6(0),
+        .E7(0),
+        .S(S),
+        .F(V)
     );
 
     assign N = R[NUM_BITS-1];

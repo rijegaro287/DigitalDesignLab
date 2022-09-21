@@ -1,10 +1,10 @@
 module multiplicador
 #(parameter NUM_BITS = 2)(A, B, S, C, V);
-    input [(NUM_BITS-1):0] A;
-    input [(NUM_BITS-1):0] B;
+    input logic [(NUM_BITS-1):0] A;
+    input logic [(NUM_BITS-1):0] B;
 
-    output [(NUM_BITS-1):0] S;
-    output C, V;
+    output logic [(NUM_BITS-1):0] S;
+    output logic C, V;
 
     logic [(NUM_BITS-1):0] co [(NUM_BITS-1):0];
     logic [(NUM_BITS-1):0] sum [(NUM_BITS-1):0];
@@ -31,8 +31,9 @@ module multiplicador
     assign P0 = sum[0];
     generate
         genvar k;
-        for (i = 1; i < NUM_BITS; i = i+1) begin : array_sum
-            assign P1[i] = (i == NUM_BITS-1 ? co[NUM_BITS-1][NUM_BITS-1] : sum[i][NUM_BITS-1]);
+        for (i = 1; i <= NUM_BITS; i = i+1) begin : array_sum
+            assign P1[i-1] = 
+                (i == NUM_BITS ? co[NUM_BITS-1][NUM_BITS-1] : sum[i][NUM_BITS-1]);
         end
     endgenerate
 
