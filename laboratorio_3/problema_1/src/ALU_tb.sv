@@ -1,13 +1,11 @@
 `define NUM_BITS 4
 
 module ALU_tb();
-    localparam NUM_BITS = 4;
-
-    logic [(NUM_BITS-1):0] A;
-    logic [(NUM_BITS-1):0] B;
+    logic [(`NUM_BITS-1):0] A;
+    logic [(`NUM_BITS-1):0] B;
     logic [3:0] S;
 
-    logic [(NUM_BITS-1):0] R;
+    logic [(`NUM_BITS-1):0] R;
     logic N, Z, C, V;
 
     ALU #(.NUM_BITS(`NUM_BITS)) dut(.A(A), .B(B), .S(S), .R(R), .N(N), .Z(Z), .C(C), .V(V));
