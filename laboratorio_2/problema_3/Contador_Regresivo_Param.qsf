@@ -105,8 +105,8 @@ set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH Cont_Reg_Param_
 set_global_assignment -name EDA_TEST_BENCH_NAME Cont_Reg_Param_Testbench -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id Cont_Reg_Param_Testbench
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Cont_Reg_Param_Testbench -section_id Cont_Reg_Param_Testbench
-set_global_assignment -name EDA_TEST_BENCH_FILE Cont_Reg_Param_Testbench.vhd -section_id Cont_Reg_Param_Testbench
 set_location_assignment PIN_W15 -to inicial
 set_global_assignment -name VHDL_FILE src/Contador_Regresivo_Param.vhd
 set_global_assignment -name VHDL_FILE src/Cont_Reg_Param_Testbench.vhd
+set_global_assignment -name EDA_TEST_BENCH_FILE src/Cont_Reg_Param_Testbench.vhd -section_id Cont_Reg_Param_Testbench
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
