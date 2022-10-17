@@ -6,18 +6,17 @@ module controller (
     input logic down_button,
     input logic left_button
 );
-    parameter DIFF_SELECTION_STATE = 2'b00;
-    parameter PLAYING_STATE = 2'b01;
-    parameter WIN_STATE = 2'b10;
-    parameter GAME_OVER_STATE = 2'b11;
+    localparam DIFF_SELECTION_STATE = 2'b00;
+    localparam PLAYING_STATE = 2'b01;
+    localparam WIN_STATE = 2'b10;
+    localparam GAME_OVER_STATE = 2'b11;
     
-    parameter MAX_BODY_LENGTH = 32;
+    localparam MAX_BODY_LENGTH = 32;
 
     logic [1:0] difficulty = 0;
     logic won = 0;
     logic crashed = 0;
 
-    logic [(MAX_BODY_LENGTH-1):0] snake_body = 0;
     logic [1:0] snake_speed = 0;
 
     logic [1:0] state = DIFF_SELECTION_STATE;
@@ -33,17 +32,14 @@ module controller (
         DIFF_SELECTION_STATE: begin
           if (difficulty == difficulty_selector.NORMAL) begin
             snake_speed <= 2;
-            snake_body[1:0] <= 2'b11;
             next_state <= PLAYING_STATE;
           end 
           else if (difficulty == difficulty_selector.HARD) begin
             snake_speed <= 3;
-            snake_body[1:0] <= 2'b11;
             next_state <= PLAYING_STATE;
           end 
           else begin
             snake_speed <= 0;
-            snake_body[1:0] <= 2'b00;
             next_state <= DIFF_SELECTION_STATE;
           end
         end
