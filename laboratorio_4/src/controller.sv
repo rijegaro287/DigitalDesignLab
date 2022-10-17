@@ -17,7 +17,6 @@ module controller (
     logic won = 0;
     logic crashed = 0;
 
-    logic [1:0] snake_speed = 0;
 
     logic [1:0] state = DIFF_SELECTION_STATE;
     logic [1:0] next_state;
@@ -30,17 +29,11 @@ module controller (
     always_comb begin
       case (state)
         DIFF_SELECTION_STATE: begin
-          if (difficulty == difficulty_selector.NORMAL) begin
-            snake_speed <= 2;
-            next_state <= PLAYING_STATE;
-          end 
-          else if (difficulty == difficulty_selector.HARD) begin
-            snake_speed <= 3;
-            next_state <= PLAYING_STATE;
+          if (difficulty == difficulty_selector.UNSET) begin
+            next_state <= DIFF_SELECTION_STATE;
           end 
           else begin
-            snake_speed <= 0;
-            next_state <= DIFF_SELECTION_STATE;
+            next_state <= PLAYING_STATE;
           end
         end
         PLAYING_STATE: begin

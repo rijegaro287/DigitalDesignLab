@@ -60,14 +60,6 @@ set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME controller_tb -section_id
 set_global_assignment -name EDA_TEST_BENCH_NAME difficulty_selector_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id difficulty_selector_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME difficulty_selector_tb -section_id difficulty_selector_tb
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name SYSTEMVERILOG_FILE test/snake_tb.sv
-set_global_assignment -name SYSTEMVERILOG_FILE src/snake.sv
-set_global_assignment -name SYSTEMVERILOG_FILE test/difficulty_selector_tb.sv
-set_global_assignment -name SYSTEMVERILOG_FILE src/difficulty_selector.sv
-set_global_assignment -name SYSTEMVERILOG_FILE src/controller.sv
 set_global_assignment -name EDA_TEST_BENCH_FILE test/controller_tb.sv -section_id controller_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE test/difficulty_selector_tb.sv -section_id difficulty_selector_tb
 set_global_assignment -name EDA_TEST_BENCH_NAME snake_tb -section_id eda_simulation
@@ -76,4 +68,12 @@ set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME snake_tb -section_id snak
 set_global_assignment -name EDA_TEST_BENCH_FILE test/snake_tb.sv -section_id snake_tb
 set_global_assignment -name VERILOG_INPUT_VERSION SYSTEMVERILOG_2005
 set_global_assignment -name VERILOG_SHOW_LMF_MAPPING_MESSAGES OFF
+set_global_assignment -name SYSTEMVERILOG_FILE test/snake_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/snake.sv
+set_global_assignment -name SYSTEMVERILOG_FILE test/difficulty_selector_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/difficulty_selector.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/controller.sv
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
