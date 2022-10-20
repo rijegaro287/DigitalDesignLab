@@ -14,7 +14,7 @@ module snake_tb();
 
     logic [(ROWS-1):0][(COLUMNS-1):0] grid;
 
-    snake #(
+    snake_controller #(
         .ROWS(ROWS),
         .COLUMNS(COLUMNS),
         .BODY_LENGTH(BODY_LENGTH)

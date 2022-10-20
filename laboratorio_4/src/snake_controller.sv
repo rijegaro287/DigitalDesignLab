@@ -1,4 +1,4 @@
-module snake
+module snake_controller
 #(
     parameter ROWS = 10,
     parameter COLS = 10,
