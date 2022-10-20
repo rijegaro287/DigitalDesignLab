@@ -8,7 +8,7 @@ reg [25:0] accum = 0;
 wire pps = (accum == 0);
 
 always @(posedge clock) begin
-	 accum <= (pps ? 5_000_000 : accum) - 1;
+	 accum <= (pps ? 1_000_000 : accum) - 1;
 	 
     if (pps) begin
         if (finish == 1'b1) begin

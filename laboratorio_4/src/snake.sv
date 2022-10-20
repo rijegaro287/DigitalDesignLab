@@ -1,7 +1,7 @@
 module snake
 #(
     parameter ROWS = 10,
-    parameter COLUMNS = 10,
+    parameter COLS = 10,
     parameter BODY_LENGTH = 10
 )
 (
@@ -16,7 +16,7 @@ module snake
     // grid[i][j] da las casillas
     // grid[0] es block0, grid[1] es block1, etc
     // La comida va incluida en el grid
-    output logic [(ROWS-1):0][(COLUMNS-1):0] grid 
+    output logic [(ROWS-1):0][(COLS-1):0] grid 
 );
     localparam UP = 2'b00;
     localparam RIGHT = 2'b01;
@@ -113,7 +113,7 @@ module snake
                         else part.pos_y = part.pos_y - 1;
                     end
                     RIGHT: begin
-                        if (part.pos_x == (COLUMNS-1)) part.pos_x = 0;
+                        if (part.pos_x == (COLS-1)) part.pos_x = 0;
                         else part.pos_x = part.pos_x + 1;
                     end
                     DOWN: begin
@@ -121,7 +121,7 @@ module snake
                         else part.pos_y = part.pos_y + 1;
                     end
                     LEFT: begin
-                        if (part.pos_x == 0) part.pos_x = (COLUMNS-1);
+                        if (part.pos_x == 0) part.pos_x = (COLS-1);
                         else part.pos_x = part.pos_x - 1;
                     end
                 endcase
