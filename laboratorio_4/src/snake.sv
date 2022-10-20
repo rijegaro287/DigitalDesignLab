@@ -2,7 +2,7 @@ module snake
 #(
     parameter ROWS = 10,
     parameter COLUMNS = 10,
-    parameter BODY_LENGTH = 16
+    parameter BODY_LENGTH = 10
 )
 (
     input logic clk,
@@ -47,10 +47,10 @@ module snake
             reset_everything();
         end
         else begin
-            if (up_button) direction = UP;
-            else if (right_button) direction = RIGHT;
-            else if (down_button) direction = DOWN;
-            else if (left_button) direction = LEFT;
+            if (~up_button && (direction != DOWN)) direction = UP;
+            else if (~right_button && (direction != LEFT)) direction = RIGHT;
+            else if (~down_button && (direction != UP)) direction = DOWN;
+            else if (~left_button && (direction != RIGHT)) direction = LEFT;
             else direction = direction;
 
             move_snake();
@@ -75,7 +75,7 @@ module snake
             else snake_body[i].active = 0;
             
             snake_body[i].pos_x = 0;
-            snake_body[i].pos_y = 0;
+            snake_body[i].pos_y = 1;
         end
     endtask
 
@@ -137,14 +137,16 @@ module snake
     endtask
 
     task generate_food;
-        automatic snake_part snake_head = snake_body[0];
-        food_pos.x = snake_head.pos_x + 1;
-        food_pos.y = snake_head.pos_y;
+        food_pos.x = 4;
+        food_pos.y = 4;
     endtask
 
     task check_food_collision;
         automatic snake_part snake_head = snake_body[0];
-        if ((snake_head.pos_x == food_pos.x) && (snake_head.pos_y == food_pos.y)) begin
+        if (
+            (snake_head.pos_x == food_pos.x) &&
+            (snake_head.pos_y == food_pos.y)
+        ) begin
             automatic int i = 0;
             while (snake_body[i].active && (i < (BODY_LENGTH-1))) begin
                 i = i + 1;
