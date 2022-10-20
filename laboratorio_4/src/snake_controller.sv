@@ -1,8 +1,8 @@
-module snake
+module snake_controller
 #(
     parameter ROWS = 10,
-    parameter COLUMNS = 10,
-    parameter BODY_LENGTH = 16
+    parameter COLS = 10,
+    parameter BODY_LENGTH = 10
 )
 (
     input logic clk,
@@ -16,7 +16,7 @@ module snake
     // grid[i][j] da las casillas
     // grid[0] es block0, grid[1] es block1, etc
     // La comida va incluida en el grid
-    output logic [(ROWS-1):0][(COLUMNS-1):0] grid 
+    output logic [(ROWS-1):0][(COLS-1):0] grid 
 );
     localparam UP = 2'b00;
     localparam RIGHT = 2'b01;
@@ -47,10 +47,10 @@ module snake
             reset_everything();
         end
         else begin
-            if (up_button) direction = UP;
-            else if (right_button) direction = RIGHT;
-            else if (down_button) direction = DOWN;
-            else if (left_button) direction = LEFT;
+            if (~up_button && (direction != DOWN)) direction = UP;
+            else if (~right_button && (direction != LEFT)) direction = RIGHT;
+            else if (~down_button && (direction != UP)) direction = DOWN;
+            else if (~left_button && (direction != RIGHT)) direction = LEFT;
             else direction = direction;
 
             move_snake();
@@ -75,7 +75,7 @@ module snake
             else snake_body[i].active = 0;
             
             snake_body[i].pos_x = 0;
-            snake_body[i].pos_y = 0;
+            snake_body[i].pos_y = 1;
         end
     endtask
 
@@ -113,7 +113,7 @@ module snake
                         else part.pos_y = part.pos_y - 1;
                     end
                     RIGHT: begin
-                        if (part.pos_x == (COLUMNS-1)) part.pos_x = 0;
+                        if (part.pos_x == (COLS-1)) part.pos_x = 0;
                         else part.pos_x = part.pos_x + 1;
                     end
                     DOWN: begin
@@ -121,7 +121,7 @@ module snake
                         else part.pos_y = part.pos_y + 1;
                     end
                     LEFT: begin
-                        if (part.pos_x == 0) part.pos_x = (COLUMNS-1);
+                        if (part.pos_x == 0) part.pos_x = (COLS-1);
                         else part.pos_x = part.pos_x - 1;
                     end
                 endcase
@@ -137,14 +137,16 @@ module snake
     endtask
 
     task generate_food;
-        automatic snake_part snake_head = snake_body[0];
-        food_pos.x = snake_head.pos_x + 1;
-        food_pos.y = snake_head.pos_y;
+        food_pos.x = 4;
+        food_pos.y = 4;
     endtask
 
     task check_food_collision;
         automatic snake_part snake_head = snake_body[0];
-        if ((snake_head.pos_x == food_pos.x) && (snake_head.pos_y == food_pos.y)) begin
+        if (
+            (snake_head.pos_x == food_pos.x) &&
+            (snake_head.pos_y == food_pos.y)
+        ) begin
             automatic int i = 0;
             while (snake_body[i].active && (i < (BODY_LENGTH-1))) begin
                 i = i + 1;
