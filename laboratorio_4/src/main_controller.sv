@@ -14,7 +14,8 @@ module main_controller (
   output logic VGA_SYNC_N,
   output logic VGA_HS,
   output logic VGA_VS,
-  output logic [6:0] score
+  output logic [6:0] score_0,
+  output logic [6:0] score_1
 
   /* Para simulacion */
   // output logic [1:0] difficulty,
@@ -31,15 +32,16 @@ module main_controller (
   localparam WIDTH = 640;
   localparam HEIGHT = 480;
 
-  localparam ROWS = 5;
+  localparam ROWS = 15;
   localparam COLS = (WIDTH / HEIGHT) * ROWS; // Para que las celdas sean cuadradas
-  localparam BODY_LENGTH = 16;
+  localparam BODY_LENGTH = 32;
 
   /* VARIABLES DE CONTROL */
   logic [1:0] difficulty;
   logic [1:0] variable_difficulty;
   logic [($clog2(BODY_LENGTH)-1):0] score_bin;
   logic [(ROWS-1):0][(COLS-1):0] grid; 
+  // logic load_generators;
   logic won;
   logic lost;
 
@@ -125,8 +127,15 @@ module main_controller (
     .blank_n(VGA_BLANK_N)
   );
 
-  bcd_deco score_decoder(
-    .NUM(score_bin),
-    .SEG(score)
+  bcd_deco score_0_decoder(
+    .NUM(score_bin[3:0]),
+    .SEG(score_0)
+	);
+
+  logic [3:0] score_1_bin = 0;
+  assign score_1_bin[0] = score_bin[4];
+  bcd_deco score_1_decoder(
+    .NUM(score_1_bin),
+    .SEG(score_1)
 	);
 endmodule

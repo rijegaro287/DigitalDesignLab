@@ -12,6 +12,7 @@ module snake_controller
   input logic right_button,
   input logic down_button,
   input logic left_button,
+  // input logic load_generators,
 
   output logic [(ROWS-1):0][(COLS-1):0] grid,
   output logic [($clog2(BODY_LENGTH)-1):0] score,
@@ -40,7 +41,50 @@ module snake_controller
 	int score_var;
   bit [1:0] direction;
 
-  initial reset_everything();
+  logic load_generators = 0;
+
+  int random_row_1;
+  int random_col_1;
+
+  int random_row_2;
+  int random_col_2;
+
+  random_number_generator #(.LIMIT(ROWS-1), .SEED(8'h6D))
+  row_generator_1 (
+    .clk(clk),
+    .rst(rst),
+    .load(load_generators),
+    .random_number(random_row_1)
+  );
+
+  random_number_generator #(.LIMIT(COLS-1), .SEED(8'h8A))
+  col_generator_1 (
+    .clk(clk),
+    .rst(rst),
+    .load(load_generators),
+    .random_number(random_col_1)
+  );
+
+  random_number_generator #(.LIMIT(ROWS-1), .SEED(8'h07))
+  row_generator_2 (
+    .clk(clk),
+    .rst(rst),
+    .load(load_generators),
+    .random_number(random_row_2)
+  );
+
+  random_number_generator #(.LIMIT(COLS-1), .SEED(8'hAA))
+  col_generator_2 (
+    .clk(clk),
+    .rst(rst),
+    .load(load_generators),
+    .random_number(random_col_2)
+  );
+
+  initial begin
+    load_generators = 1;
+    reset_everything();
+  end
 
   always_ff @(posedge clk or posedge rst) begin
       if(rst) begin
@@ -83,8 +127,8 @@ module snake_controller
 			if (i == 0) snake_body[i].active = 1;
 			else snake_body[i].active = 0;
 			
-			snake_body[i].pos_x = 0;
-			snake_body[i].pos_y = 1;
+			snake_body[i].pos_x = random_col_2;
+			snake_body[i].pos_y = random_row_2;
 		end
   endtask
 
@@ -144,8 +188,8 @@ module snake_controller
   endtask
 
   task generate_food;
-    food_pos.x = 4;
-    food_pos.y = 4;
+    food_pos.x = random_col_1;
+    food_pos.y = random_row_1;
   endtask
 
   task check_food_collision;

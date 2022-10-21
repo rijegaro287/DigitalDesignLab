@@ -29,8 +29,8 @@ module timer (
 		pps <= (accum == 0);
 
 		case (difficulty)
-			2'b01: period <= 3_000_000 * 2;
-			2'b10: period <= 1_500_000 * 2;
+			2'b01: period <= 2_000_000 * 2;
+			2'b10: period <= 1_000_000 * 2;
 
 			/* Para el testbench */
 			// 2'b01: period <= 2 * 2;
