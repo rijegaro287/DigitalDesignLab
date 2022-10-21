@@ -43,7 +43,6 @@ module main_controller (
   logic [($clog2(BODY_LENGTH)-1):0] score_bin;
   logic [($clog2(BODY_LENGTH)-1):0] score_1_bin;
   logic [(ROWS-1):0][(COLS-1):0] grid; 
-  // logic load_generators;
   logic won;
   logic lost;
 
@@ -104,6 +103,7 @@ module main_controller (
   snake_controller #(.ROWS(ROWS), .COLS(COLS), .BODY_LENGTH(BODY_LENGTH))
   snake_ctrl ( 
     .clk(snake_clk),
+    .vga_clk(VGA_CLK),
     .rst(rst),
     .state(state),
     .up_button(up_button),
@@ -119,8 +119,8 @@ module main_controller (
   video_controller #(.WIDTH(WIDTH), .HEIGHT(HEIGHT), .ROWS(ROWS), .COLS(COLS))
   vga_ctrl (
     .clock(clk),
-    // rst,
     .state(state),
+    .difficulty(variable_difficulty),
     .grid(grid),
     .h_synq(VGA_HS), .v_synq(VGA_VS),
     .red(VGA_R), .green(VGA_G), .blue(VGA_B),

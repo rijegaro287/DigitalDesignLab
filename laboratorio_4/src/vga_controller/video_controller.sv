@@ -8,6 +8,7 @@ module video_controller
 (
 	input logic clock,
 	input logic [1:0] state,
+	input logic [1:0] difficulty,
 	input logic [(ROWS-1):0][(COLS-1):0] grid,
 
 	output logic h_synq,
@@ -31,6 +32,9 @@ module video_controller
 	localparam GRASS_R = 8'h00;
 	localparam GRASS_G = 8'h00;
 	localparam GRASS_B = 8'h00;
+
+	localparam COLOR_W = 8'hFA;
+	localparam COLOR_M = 8'h7F;
 	
 	// VGA variables de control 
 	logic enable_v_counter;
@@ -48,12 +52,65 @@ module video_controller
 	assign h_synq = (h_count_value < 96) ? 1'b1 : 1'b0;
 	assign v_synq = (v_count_value < 2) ? 1'b1 : 1'b0;
 	
+	logic gridStart [14:0][14:0] = '{
+		'{1'b0,1'b0,1'b1,1'b0,1'b0,1'b1,1'b1,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0,1'b0},
+		'{1'b0,1'b1,1'b1,1'b0,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0},
+		'{1'b0,1'b0,1'b1,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0,1'b0},
+		'{1'b0,1'b0,1'b1,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0},
+		'{1'b0,1'b0,1'b1,1'b0,1'b0,1'b1,1'b1,1'b1,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0,1'b0},
+		'{1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0},
+		'{1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b1,1'b1,1'b1,1'b0},
+		'{1'b0,1'b0,1'b1,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0},
+		'{1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0},
+		'{1'b1,1'b0,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b0,1'b1,1'b1,1'b0,1'b0,1'b0},
+		'{1'b1,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b0,1'b0,1'b0,1'b0},
+		'{1'b1,1'b0,1'b1,1'b1,1'b0,1'b1,1'b1,1'b1,1'b0,1'b1,1'b1,1'b1,1'b0,1'b0,1'b0},
+		'{1'b1,1'b0,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0},
+		'{1'b1,1'b0,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b0,1'b1,1'b1,1'b0,1'b0,1'b0},
+		'{1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}
+	};
+												 
+	logic gameover[14:0][14:0] = '{
+		'{1'b0,1'b1,1'b1,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b1},
+		'{1'b1,1'b0,1'b0,1'b0,1'b1,1'b0,1'b1,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b0},
+		'{1'b1,1'b0,1'b1,1'b0,1'b1,1'b1,1'b1,1'b0,1'b1,1'b1,1'b0,1'b1,1'b0,1'b1,1'b1},
+		'{1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b0,1'b1,1'b0},
+		'{1'b0,1'b1,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b0,1'b1,1'b1},
+		'{1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0},
+		'{1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0},
+		'{1'b0,1'b1,1'b0,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b1,1'b0,1'b1,1'b1,1'b0,1'b0},
+		'{1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b0,1'b1,1'b0,1'b1,1'b0},
+		'{1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b1,1'b0,1'b1,1'b1,1'b0,1'b0},
+		'{1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b0,1'b1,1'b0,1'b1,1'b0},
+		'{1'b0,1'b1,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b1,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0},
+		'{1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0},
+		'{1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0},
+		'{1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}
+	};
+										 
+	logic gridWin [14:0][14:0] = '{
+		'{1'b0,1'b1,1'b0,1'b1,1'b0,1'b0,1'b1,1'b1,1'b0,1'b0,1'b1,1'b0,1'b0,1'b1,1'b0},
+		'{1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b0,1'b1,1'b0,1'b1,1'b0,1'b0,1'b1,1'b0},
+		'{1'b0,1'b0,1'b1,1'b0,1'b0,1'b1,1'b0,1'b0,1'b1,1'b0,1'b1,1'b0,1'b0,1'b1,1'b0},
+		'{1'b0,1'b0,1'b1,1'b0,1'b0,1'b1,1'b0,1'b0,1'b1,1'b0,1'b1,1'b0,1'b0,1'b1,1'b0},
+		'{1'b0,1'b0,1'b1,1'b0,1'b0,1'b0,1'b1,1'b1,1'b0,1'b0,1'b0,1'b1,1'b1,1'b0,1'b0},
+		'{1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0},
+		'{1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0},
+		'{1'b0,1'b1,1'b0,1'b0,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b0,1'b1,1'b0,1'b0},
+		'{1'b0,1'b1,1'b0,1'b0,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b1,1'b0,1'b1,1'b0,1'b0},
+		'{1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b1,1'b0,1'b0},
+		'{1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b1,1'b0,1'b0,1'b1,1'b0,1'b0},
+		'{1'b0,1'b0,1'b1,1'b0,1'b1,1'b0,1'b0,1'b1,1'b0,1'b1,1'b0,1'b0,1'b1,1'b0,1'b0},
+		'{1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0},
+		'{1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0},
+		'{1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}
+	};
+
 	always begin
-		// draw_game_screen();/*  */
 		case (state)
 			2'b01: draw_game_screen();
-			// 2'b10: draw_win_screen();
-			// 2'b11: draw_game_over_screen();
+			2'b10: draw_win_screen();
+			2'b11: draw_game_over_screen();
 			default: draw_diff_selection_screen();
 		endcase
 	end
@@ -83,20 +140,78 @@ module video_controller
 	endtask
 
 	task draw_diff_selection_screen;
-		if (v_count_value >= 35 && v_count_value < 515 &&
-				h_count_value >= 144 && h_count_value < 784
-		) begin
-			red <= GRASS_R;
-			green <= GRASS_G;
-			blue <= GRASS_B;	
+		for (int i = 0; i < ROWS; i++) begin
+			for (int j = 0; j < COLS; j++) begin
+				if (v_count_value >= (i * CELL_HEIGHT + 35) && v_count_value < ((i+1) * CELL_HEIGHT + 35) &&
+						h_count_value >= (j * CELL_WIDTH + 144) && h_count_value < ((j+1) * CELL_WIDTH + 144)
+				) begin
+					if (gridStart[((ROWS-1)-i)][((COLS-1)-j)] == 1'b1) begin
+							if (difficulty == 2'b01 && i == 2 && j == 7) begin
+										red <= COLOR_W;
+										green <= COLOR_W;
+										blue <= COLOR_W;
+										end
+							else if (difficulty == 2'b10 && i == 6 && j == 7) begin
+									red <= COLOR_W;
+									green <= COLOR_W;
+									blue <= COLOR_W;
+									end
+							else begin
+										red <= 8'b00000000;
+										green <= 8'b00000000;
+										blue <= 8'b00000000;
+								end
+						end	
+					else begin
+								red <= COLOR_W;
+								green <= COLOR_W;
+								blue <= COLOR_W;
+					end 
+					
+				end
+			end
 		end
 	endtask
 
 	task draw_win_screen;
-
+		for (int i = 0; i < ROWS; i++) begin
+				for (int j = 0; j < COLS; j++) begin
+					if (v_count_value >= (i * CELL_HEIGHT + 35) && v_count_value < ((i+1) * CELL_HEIGHT + 35) &&
+							h_count_value >= (j * CELL_WIDTH + 144) && h_count_value < ((j+1) * CELL_WIDTH + 144)
+					) begin
+						if (gridWin[((ROWS-1)-i)][((COLS-1)-j)] == 1'b1) begin
+										red <= 8'b00000000;
+										green <= 8'b00000000;
+										blue <= 8'b00000000;
+									 end 
+						else begin
+										red <= COLOR_W;
+										green <= COLOR_W;
+										blue <= COLOR_W;
+							end 
+					end
+				end
+			end
 	endtask
 
 	task draw_game_over_screen;
-
+		for (int i = 0; i < ROWS; i++) begin
+			for (int j = 0; j < COLS; j++) begin
+				if (v_count_value >= (i * CELL_HEIGHT + 35) && v_count_value < ((i+1) * CELL_HEIGHT + 35) &&
+						h_count_value >= (j * CELL_WIDTH + 144) && h_count_value < ((j+1) * CELL_WIDTH + 144)
+				) begin
+					if (gameover[((ROWS-1)-i)][((COLS-1)-j)] == 1'b1) begin
+									red <= 8'b00000000;
+									green <= 8'b00000000;
+									blue <= 8'b00000000;
+								 end 
+					else begin
+									red <= COLOR_W;
+									green <= COLOR_W;
+									blue <= COLOR_W;
+						end 
+				end
+			end
+		end
 	endtask
 endmodule

@@ -6,6 +6,7 @@ module snake_controller
 )
 (
   input logic clk,
+  input logic vga_clk,
   input logic rst,
 	input logic [1:0] state,
   input logic up_button,
@@ -47,30 +48,30 @@ module snake_controller
   int random_row_2;
   int random_col_2;
 
-  random_number_generator #(.LIMIT(ROWS-1), .SEED(8'h6D))
+  random_number_generator #(.LIMIT(ROWS-1), .SEED(8'hD6))
   row_generator_1 (
-    .clk(clk),
+    .clk(vga_clk),
     .rst(0),
     .random_number(random_row_1)
   );
 
-  random_number_generator #(.LIMIT(COLS-1), .SEED(8'h8A))
+  random_number_generator #(.LIMIT(COLS-1), .SEED(8'hA8))
   col_generator_1 (
-    .clk(clk),
+    .clk(vga_clk),
     .rst(0),
     .random_number(random_col_1)
   );
 
-  random_number_generator #(.LIMIT(ROWS-1), .SEED(8'h07))
+  random_number_generator #(.LIMIT(ROWS-1), .SEED(8'h70))
   row_generator_2 (
-    .clk(clk),
+    .clk(vga_clk),
     .rst(0),
     .random_number(random_row_2)
   );
 
-  random_number_generator #(.LIMIT(COLS-1), .SEED(8'hAA))
+  random_number_generator #(.LIMIT(COLS-1), .SEED(8'hF2))
   col_generator_2 (
-    .clk(clk),
+    .clk(vga_clk),
     .rst(0),
     .random_number(random_col_2)
   );
