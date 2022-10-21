@@ -50,22 +50,13 @@ set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name EDA_SIMULATION_TOOL "Questa Intel FPGA (SystemVerilog)"
-set_global_assignment -name EDA_TIME_SCALE "10 ns" -section_id eda_simulation
+set_global_assignment -name EDA_TIME_SCALE "1 ns" -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "SYSTEMVERILOG HDL" -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH snake_tb -section_id eda_simulation
-set_global_assignment -name EDA_TEST_BENCH_NAME controller_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id controller_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME controller_tb -section_id controller_tb
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH main_controller_tb -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_NAME difficulty_selector_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id difficulty_selector_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME difficulty_selector_tb -section_id difficulty_selector_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE test/controller_tb.sv -section_id controller_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE test/difficulty_selector_tb.sv -section_id difficulty_selector_tb
-set_global_assignment -name EDA_TEST_BENCH_NAME snake_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id snake_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME snake_tb -section_id snake_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE test/snake_tb.sv -section_id snake_tb
 set_global_assignment -name VERILOG_INPUT_VERSION SYSTEMVERILOG_2005
 set_global_assignment -name VERILOG_SHOW_LMF_MAPPING_MESSAGES OFF
 set_location_assignment PIN_J14 -to VGA_B[7]
@@ -97,23 +88,6 @@ set_location_assignment PIN_C13 -to VGA_R[1]
 set_location_assignment PIN_A13 -to VGA_R[0]
 set_location_assignment PIN_C10 -to VGA_SYNC_N
 set_location_assignment PIN_D11 -to VGA_VS
-set_global_assignment -name SYSTEMVERILOG_FILE src/main_controller.sv
-set_global_assignment -name SYSTEMVERILOG_FILE src/snake_controller.sv
-set_global_assignment -name SYSTEMVERILOG_FILE src/vga_controller/vga_controller.sv
-set_global_assignment -name SYSTEMVERILOG_FILE src/vga_controller/video_controller.sv
-set_global_assignment -name SYSTEMVERILOG_FILE src/vga_controller/vertical_counter.sv
-set_global_assignment -name SYSTEMVERILOG_FILE src/vga_controller/timer_secs.sv
-set_global_assignment -name SYSTEMVERILOG_FILE src/vga_controller/timer.sv
-set_global_assignment -name SYSTEMVERILOG_FILE src/vga_controller/sram.sv
-set_global_assignment -name SYSTEMVERILOG_FILE src/vga_controller/horizontal_counter.sv
-set_global_assignment -name SYSTEMVERILOG_FILE src/vga_controller/contador.sv
-set_global_assignment -name SYSTEMVERILOG_FILE src/vga_controller/clock_divider.sv
-set_global_assignment -name SYSTEMVERILOG_FILE test/snake_tb.sv
-set_global_assignment -name SYSTEMVERILOG_FILE test/difficulty_selector_tb.sv
-set_global_assignment -name SYSTEMVERILOG_FILE src/difficulty_selector.sv
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_location_assignment PIN_AH28 -to score[6]
 set_location_assignment PIN_AG28 -to score[5]
 set_location_assignment PIN_AF28 -to score[4]
@@ -127,4 +101,32 @@ set_location_assignment PIN_AA15 -to left_button
 set_location_assignment PIN_AA14 -to right_button
 set_location_assignment PIN_AF14 -to clk
 set_location_assignment PIN_AF9 -to rst
+set_global_assignment -name EDA_TEST_BENCH_NAME main_controller_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id main_controller_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME main_controller_tb -section_id main_controller_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME snake_controller_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id snake_controller_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME snake_controller_tb -section_id snake_controller_tb
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name SYSTEMVERILOG_FILE src/main_controller.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/snake_controller.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/vga_controller/video_controller.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/vga_controller/clock_divider.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/vga_controller/vertical_counter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/vga_controller/horizontal_counter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/difficulty_selector.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/timer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/bcd_deco.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/vga_controller/vga_controller.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/vga_controller/timer_secs.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/vga_controller/sram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/vga_controller/contador.sv
+set_global_assignment -name SYSTEMVERILOG_FILE test/main_controller_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE test/snake_controller_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE test/difficulty_selector_tb.sv
+set_global_assignment -name EDA_TEST_BENCH_FILE test/difficulty_selector_tb.sv -section_id difficulty_selector_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE test/main_controller_tb.sv -section_id main_controller_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE test/snake_controller_tb.sv -section_id snake_controller_tb
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
