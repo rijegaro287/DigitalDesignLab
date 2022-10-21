@@ -113,6 +113,7 @@ module snake_controller
 		score_var = 0;
 		direction = RIGHT;
 		reset_snake();
+    generate_food();
 		reset_grid();
   endtask
 
