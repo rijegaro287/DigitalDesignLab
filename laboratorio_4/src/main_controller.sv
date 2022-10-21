@@ -6,17 +6,22 @@ module main_controller (
   input logic down_button,
   input logic left_button,
 
-  output VGA_CLK,
-  output [7:0] VGA_R,
-  output [7:0] VGA_G,
-  output [7:0] VGA_B,
-  output VGA_BLANK_N,
-  output VGA_SYNC_N,
-  output VGA_HS,
-  output VGA_VS,
-  output [6:0] score
-);
+  output logic VGA_CLK,
+  output logic [7:0] VGA_R,
+  output logic [7:0] VGA_G,
+  output logic [7:0] VGA_B,
+  output logic VGA_BLANK_N,
+  output logic VGA_SYNC_N,
+  output logic VGA_HS,
+  output logic VGA_VS,
+  output logic [6:0] score
 
+  /* Para simulacion */
+  // output logic [1:0] difficulty,
+  // output logic [1:0] variable_difficulty,
+  // output logic snake_clk,
+  // output logic [(5-1):0][((640 / 480) * 5):0] grid
+);
   /* PARÁMETROS DE JUEGO */
   localparam DIFF_SELECTION_STATE = 2'b00;
   localparam PLAYING_STATE = 2'b01;
@@ -26,20 +31,17 @@ module main_controller (
   localparam WIDTH = 640;
   localparam HEIGHT = 480;
 
-  // localparam ROWS = 15;
-  // localparam COLS = 20;
-  localparam ROWS = 10;
-  localparam COLS = 10;
+  localparam ROWS = 5;
+  localparam COLS = (WIDTH / HEIGHT) * ROWS; // Para que las celdas sean cuadradas
   localparam BODY_LENGTH = 16;
 
   /* VARIABLES DE CONTROL */
-  logic won = 0; // Si es 1, el jugador ha ganado, se calcula en el módulo de la serpiente
-  logic crashed = 0; // Si es 1, el jugador ha perdido, se calcula en el módulo de la serpiente
-
-  reg [9:0] block0, block1, block2, block3, block4;
-  reg [9:0] block5, block6, block7, block8, block9;
-
+  logic [1:0] difficulty;
+  logic [1:0] variable_difficulty;
+  logic [($clog2(BODY_LENGTH)-1):0] score_bin;
   logic [(ROWS-1):0][(COLS-1):0] grid; 
+  logic won;
+  logic lost;
 
   /* MÁQUINA DE ESTADOS */
   logic [1:0] state = DIFF_SELECTION_STATE;
@@ -53,7 +55,7 @@ module main_controller (
   always_comb begin
     case (state)
       DIFF_SELECTION_STATE: begin
-        if (difficulty == difficulty_selector.UNSET) begin
+        if (difficulty == 2'b00) begin
           next_state <= DIFF_SELECTION_STATE;
         end 
         else begin
@@ -62,7 +64,7 @@ module main_controller (
       end
       PLAYING_STATE: begin
         if (won) next_state <= WIN_STATE;
-        else if (crashed) next_state <= GAME_OVER_STATE;
+        else if (lost) next_state <= GAME_OVER_STATE;
         else next_state <= PLAYING_STATE;
       end
       WIN_STATE: begin
@@ -76,54 +78,55 @@ module main_controller (
   end
 
   /* COMUNICACIÓN CON LOS OTROS MÓDULOS */
+  difficulty_selector difficulty_selector_inst (
+    .clk(clk),
+    .rst(rst),
+    .state(state),
+    .up_button(up_button),
+    .down_button(down_button),
+    .select_button(left_button),
+    .variable_difficulty(variable_difficulty), 
+    .difficulty(difficulty)
+  );
+
   logic snake_clk;
-  logic not_snake_clk;
   timer movement_timer (
-    .clock(clk),
-    // .reset(rst),
-    .finish(snake_clk),
-    .counting(not_snake_clk)
+    .clk(clk),
+    .rst(rst),
+    .difficulty(difficulty),
+    .out_clk(snake_clk)
   );
 
   snake_controller #(.ROWS(ROWS), .COLS(COLS), .BODY_LENGTH(BODY_LENGTH))
   snake_ctrl ( 
     .clk(snake_clk),
     .rst(rst),
-    // .state(state),
+    .state(state),
     .up_button(up_button),
     .right_button(right_button),
     .down_button(down_button),
     .left_button(left_button),
-    .grid(grid)
-    // .grid(grid),
-    // .won(won),
-    // .crashed(crashed)
+    .grid(grid),
+    .score(score_bin),
+    .won(won),
+    .lost(lost)
   );
 
   video_controller #(.WIDTH(WIDTH), .HEIGHT(HEIGHT), .ROWS(ROWS), .COLS(COLS))
-  VGA (
-    clk,
+  vga_ctrl (
+    .clock(clk),
     // rst,
-    // state,
-    // grid,
-    block0, block1, block2, block3, block4, 
-    block5, block6, block7, block8, block9,
-    VGA_HS, VGA_VS,
-    VGA_R, VGA_G, VGA_B,
-    VGA_CLK,
-    VGA_SYNC_N,
-    VGA_BLANK_N
+    .state(state),
+    .grid(grid),
+    .h_synq(VGA_HS), .v_synq(VGA_VS),
+    .red(VGA_R), .green(VGA_G), .blue(VGA_B),
+    .clk_25mhz(VGA_CLK),
+    .sync_n(VGA_SYNC_N),
+    .blank_n(VGA_BLANK_N)
   );
 
-  always_comb begin
-		block1 <= grid[1];
-		block2 <= grid[2];
-		block3 <= grid[3];
-		block4 <= grid[4];
-		block5 <= grid[5];
-		block6 <= grid[6];
-		block7 <= grid[7];
-		block8 <= grid[8];
-		block9 <= grid[9];
-	end
+  bcd_deco score_decoder(
+    .NUM(score_bin),
+    .SEG(score)
+	);
 endmodule
