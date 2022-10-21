@@ -5,7 +5,6 @@ module random_number_generator_tb();
 
   logic clk;
   logic rst;
-  logic load;
   logic [($clog2(LIMIT)-1):0] random_number;
 
   random_number_generator 
@@ -16,19 +15,16 @@ module random_number_generator_tb();
   dut (
     .clk(clk),
     .rst(rst),
-    .load(load),
     .random_number(random_number)
   );
 
   initial begin 
     clk = 0;
     rst = 0;
-    load = 0;
     
     #10;
     #20; 
 
-    load = 1;
 
     #500;
 

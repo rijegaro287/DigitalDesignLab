@@ -16,12 +16,13 @@ module main_controller_tb();
   logic VGA_SYNC_N;
   logic VGA_HS;
   logic VGA_VS;
-  logic [6:0] score;
+  logic [6:0] score_0;
+  logic [6:0] score_1;
 
-  logic [1:0] difficulty;
-  logic [1:0] variable_difficulty;
-  logic snake_clk;
-  logic [(5-1):0][((640 / 480) * 5):0] grid;
+  // logic [1:0] difficulty;
+  // logic [1:0] variable_difficulty;
+  // logic snake_clk;
+  // logic [(5-1):0][((640 / 480) * 5):0] grid;
 
   main_controller dut(
     .clk(clk),
@@ -38,12 +39,13 @@ module main_controller_tb();
     .VGA_SYNC_N(VGA_SYNC_N),
     .VGA_HS(VGA_HS),
     .VGA_VS(VGA_VS),
-    .score(score),
+    .score_0(score_0),
+    .score_1(score_1)
 
-    .difficulty(difficulty),
-    .variable_difficulty(variable_difficulty),
-    .snake_clk(snake_clk),
-    .grid(grid)
+    // .difficulty(difficulty),
+    // .variable_difficulty(variable_difficulty),
+    // .snake_clk(snake_clk),
+    // .grid(grid)
   );
 
   initial begin

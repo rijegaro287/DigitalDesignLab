@@ -39,7 +39,9 @@ module main_controller (
   /* VARIABLES DE CONTROL */
   logic [1:0] difficulty;
   logic [1:0] variable_difficulty;
+  logic score_extra;
   logic [($clog2(BODY_LENGTH)-1):0] score_bin;
+  logic [($clog2(BODY_LENGTH)-1):0] score_1_bin;
   logic [(ROWS-1):0][(COLS-1):0] grid; 
   // logic load_generators;
   logic won;
@@ -132,8 +134,8 @@ module main_controller (
     .SEG(score_0)
 	);
 
-  logic [3:0] score_1_bin = 0;
-  assign score_1_bin[0] = score_bin[4];
+  always_comb score_1_bin[0] <= score_bin[4];
+
   bcd_deco score_1_decoder(
     .NUM(score_1_bin),
     .SEG(score_1)

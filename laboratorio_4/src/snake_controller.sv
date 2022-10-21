@@ -12,7 +12,6 @@ module snake_controller
   input logic right_button,
   input logic down_button,
   input logic left_button,
-  // input logic load_generators,
 
   output logic [(ROWS-1):0][(COLS-1):0] grid,
   output logic [($clog2(BODY_LENGTH)-1):0] score,
@@ -41,7 +40,6 @@ module snake_controller
 	int score_var;
   bit [1:0] direction;
 
-  logic load_generators = 0;
 
   int random_row_1;
   int random_col_1;
@@ -52,37 +50,32 @@ module snake_controller
   random_number_generator #(.LIMIT(ROWS-1), .SEED(8'h6D))
   row_generator_1 (
     .clk(clk),
-    .rst(rst),
-    .load(load_generators),
+    .rst(0),
     .random_number(random_row_1)
   );
 
   random_number_generator #(.LIMIT(COLS-1), .SEED(8'h8A))
   col_generator_1 (
     .clk(clk),
-    .rst(rst),
-    .load(load_generators),
+    .rst(0),
     .random_number(random_col_1)
   );
 
   random_number_generator #(.LIMIT(ROWS-1), .SEED(8'h07))
   row_generator_2 (
     .clk(clk),
-    .rst(rst),
-    .load(load_generators),
+    .rst(0),
     .random_number(random_row_2)
   );
 
   random_number_generator #(.LIMIT(COLS-1), .SEED(8'hAA))
   col_generator_2 (
     .clk(clk),
-    .rst(rst),
-    .load(load_generators),
+    .rst(0),
     .random_number(random_col_2)
   );
 
   initial begin
-    load_generators = 1;
     reset_everything();
   end
 
