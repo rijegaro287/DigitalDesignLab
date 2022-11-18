@@ -2,27 +2,41 @@ module main(
   input clk,
   input rst
 );
+  logic [3:0] cond;
+  logic [1:0] op;
+  logic [5:0] funct;
+  logic [3:0] rd;
+  logic [3:0] alu_flags;
+  logic pc_src;
+  logic mem_to_reg;
+  logic mem_write;
+  logic alu_control;
+  logic alu_src;
+  logic imm_src;
+  logic reg_write;
+  logic reg_src;
+
   logic [31:0] pc_next;
   logic [31:0] pc;
 
   logic [31:0] instruction;
 
-  logic reg_write_en = 1;
-  logic [3:0] addr_1;
-  logic [3:0] addr_2;
-  logic [3:0] addr_3;
+  logic reg_write_en;
+  logic [3:0] reg_addr_1;
+  logic [3:0] reg_addr_2;
+  logic [3:0] reg_addr_3;
   logic [31:0] reg_write_data;
   logic [31:0] r15;
-  logic [31:0] read_data_1;
-  logic [31:0] read_data_2;
+  logic [31:0] reg_read_data_1;
+  logic [31:0] reg_read_data_2;
 
   logic [31:0] extend_immediate;
 
-  logic [3:0] alu_ctrl = 4'b0000;
+  logic [3:0] alu_ctrl;
   logic [31:0] alu_result;
   logic N, Z, C, V;
 
-  logic mem_write_en = 0;
+  logic mem_write_en;
   logic [31:0] mem_write_data;
   logic [31:0] mem_read_data;
 
@@ -42,19 +56,18 @@ module main(
     .clk(clk),
     .rst(rst),
     .write_en(reg_write_en),
-    .addr_1(addr_1),
-    .addr_2(addr_2),
-    .addr_3(addr_3),
-    .write_data(mem_read_data),
-    // .write_data(reg_write_data),
+    .addr_1(reg_addr_1),
+    .addr_2(reg_addr_2),
+    .addr_3(reg_addr_3),
+    .write_data(reg_write_data),
     .r15(r15),
-    .read_data_1(read_data_1),
-    .read_data_2(read_data_2)
+    .read_data_1(reg_read_data_1),
+    .read_data_2(reg_read_data_2)
   );
 
   ALU #(.NUM_BITS(32)) 
     alu(
-      .A(read_data_1),
+      .A(reg_read_data_1),
       .B(extend_immediate),
       .S(alu_ctrl),
       .R(alu_result),
@@ -74,12 +87,27 @@ module main(
   );
 
   always_comb begin
-    addr_1 = instruction[19:16];
-    addr_3 = instruction[15:12];
+    // LDR
+    // pc_src = 0; // -> pc_next = pc + 4
+    // reg_write_en = 1; // -> write to register
+    // mem_write_en = 0; // -> no write to memory
+    // alu_ctrl = 4'b0000; // -> alu_result = A + B
+
+    //STR
+    pc_src = 0; // -> pc_next = pc + 4
+    reg_write_en = 0; // -> no write to register
+    mem_write_en = 1; // -> write to memory
+    alu_ctrl = 4'b0000; // -> alu_result = A + B
+
+    reg_addr_1 = instruction[19:16];
+    reg_addr_2 = instruction[15:12];
+    reg_addr_3 = instruction[15:12];
+
     extend_immediate = 32'(instruction[11:0]);
+    reg_write_data = mem_read_data;
+    mem_write_data = reg_read_data_2;
 
-    // reg_write_data = mem_read_data;
-
-    pc_next = pc + 4;
+    pc_next = pc_src ? mem_read_data : (pc + 4);
+    r15 = pc + 8;
   end
 endmodule

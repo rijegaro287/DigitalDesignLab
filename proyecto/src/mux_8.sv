@@ -12,7 +12,7 @@ module mux_8
 
     output logic [(INPUT_BITS-1):0] F;
 
-    always @(*) begin
+    always_comb begin
         case(S)
             3'b000: F <= E0;
             3'b001: F <= E1;

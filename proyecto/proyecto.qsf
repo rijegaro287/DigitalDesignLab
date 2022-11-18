@@ -67,11 +67,18 @@ set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME ALU_tb -section_id ALU_tb
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name EDA_TEST_BENCH_FILE test/register_file_tb.sv -section_id register_file_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE test/ALU_tb.sv -section_id ALU_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME main_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id main_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME main_tb -section_id main_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE test/main_tb.sv -section_id main_tb
+set_global_assignment -name SYSTEMVERILOG_FILE src/mux_2.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/mux_8.sv
 set_global_assignment -name SYSTEMVERILOG_FILE test/main_tb.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/data_memory.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/instruction_memory.sv
 set_global_assignment -name SYSTEMVERILOG_FILE test/ALU_tb.sv
-set_global_assignment -name SYSTEMVERILOG_FILE src/ALU/mux_8.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/ALU/ALU.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/ALU/logica/XOR_.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/ALU/logica/unidad_logica.sv
@@ -90,10 +97,4 @@ set_global_assignment -name SYSTEMVERILOG_FILE test/register_file_tb.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/register_file.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/main.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/D_FF.sv
-set_global_assignment -name EDA_TEST_BENCH_FILE test/register_file_tb.sv -section_id register_file_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE test/ALU_tb.sv -section_id ALU_tb
-set_global_assignment -name EDA_TEST_BENCH_NAME main_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id main_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME main_tb -section_id main_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE test/main_tb.sv -section_id main_tb
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
