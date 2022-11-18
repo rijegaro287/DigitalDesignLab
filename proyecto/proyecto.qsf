@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CSEMA5F31C6
-set_global_assignment -name TOP_LEVEL_ENTITY register_file_tb
+set_global_assignment -name TOP_LEVEL_ENTITY ALU
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 21.1.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "01:36:53  NOVIEMBRE 18, 2022"
 set_global_assignment -name LAST_QUARTUS_VERSION "21.1.1 Lite Edition"
@@ -56,17 +56,37 @@ set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH ALU_tb -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_NAME register_file_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id register_file_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME register_file_tb -section_id register_file_tb
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name SYSTEMVERILOG_FILE test/ALU_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/ALU/mux_8.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/ALU/ALU.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/ALU/logica/XOR_.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/ALU/logica/unidad_logica.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/ALU/logica/RSHIFT_.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/ALU/logica/OR_.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/ALU/logica/LSHIFT_.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/ALU/logica/AND_.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/ALU/aritmetica/unidad_aritmetica.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/ALU/aritmetica/sumador_restador.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/ALU/aritmetica/sumador_completo.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/ALU/aritmetica/sumador.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/ALU/aritmetica/multiplicador.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/ALU/aritmetica/modulo.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/ALU/aritmetica/divisor.sv
 set_global_assignment -name SYSTEMVERILOG_FILE test/register_file_tb.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/register_file.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/main.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/D_FF.sv
-set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH register_file_tb -section_id eda_simulation
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name EDA_TEST_BENCH_NAME register_file_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id register_file_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME register_file_tb -section_id register_file_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE test/register_file_tb.sv -section_id register_file_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME ALU_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id ALU_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME ALU_tb -section_id ALU_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE test/ALU_tb.sv -section_id ALU_tb
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
