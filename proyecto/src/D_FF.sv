@@ -1,10 +1,10 @@
 module D_FF(CLK, RST, D, Q);
     input logic CLK, RST;
-    input logic D;
+    input logic [31:0] D;
 
-    output logic Q = 0;
+    output logic [31:0] Q = 0;
 
     always_ff @(posedge CLK or posedge RST)
-        if (RST) Q <= 1'b0;
+        if (RST) Q <= '{default: '0};
         else Q <= D;
 endmodule

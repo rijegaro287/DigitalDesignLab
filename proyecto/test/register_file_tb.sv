@@ -3,70 +3,70 @@
 module register_file_tb();
   logic clk;
   logic rst;
-  logic WE3;
-  logic [3:0] A1;
-  logic [3:0] A2;
-  logic [3:0] A3;
-  logic [31:0] WD3;
-  logic [31:0] R15;
-  logic [31:0] RD1;
-  logic [31:0] RD2;
+  logic write_en;
+  logic [3:0] addr_1;
+  logic [3:0] addr_2;
+  logic [3:0] addr_3;
+  logic [31:0] write_data;
+  logic [31:0] r15;
+  logic [31:0] read_data_1;
+  logic [31:0] read_data_2;
 
   register_file dut(
     .clk(clk),
     .rst(rst),
-    .WE3(WE3),
-    .A1(A1),
-    .A2(A2),
-    .A3(A3),
-    .WD3(WD3),
-    .R15(R15),
-    .RD1(RD1),
-    .RD2(RD2)
+    .write_en(write_en),
+    .addr_1(addr_1),
+    .addr_2(addr_2),
+    .addr_3(addr_3),
+    .write_data(write_data),
+    .r15(r15),
+    .read_data_1(read_data_1),
+    .read_data_2(read_data_2)
   );
 
   initial begin
     clk = 0;
     rst = 1;
     
-    WE3 = 0;
-    A1 = 4'h0;
-    A2 = 4'h0;
-    A3 = 4'h0;
+    write_en = 0;
+    addr_1 = 4'h0;
+    addr_2 = 4'h0;
+    addr_3 = 4'h0;
 
-    WD3 = 32'h00000000;
-    R15 = 32'h00000000;
+    write_data = 32'h00000000;
+    r15 = 32'h00000000;
 
     #50; rst = 0; #20;
 
-    WE3 = 1;
-    A3 = 4'h0;
-    WD3 = 32'h000001DA;
+    write_en = 1;
+    addr_3 = 4'h0;
+    write_data = 32'h000001DA;
 
     #20;
 
-    A3 = 4'h1;
-    WD3 = 32'h0000FFFF;
+    addr_3 = 4'h1;
+    write_data = 32'h0000FFFF;
 
     #20;
 
-    WE3 = 0;
-    WD3 = 32'h00000000;
-    A1 = 4'h0;
-    A2 = 4'h1;
-    A3 = 4'h0;
+    write_en = 0;
+    write_data = 32'h00000000;
+    addr_1 = 4'h0;
+    addr_2 = 4'h1;
+    addr_3 = 4'h0;
 
     #20;
 
-    WE3 = 1;
-    A3 = 4'hA;
-    WD3 = 32'h0A00D3F1;
+    write_en = 1;
+    addr_3 = 4'hA;
+    write_data = 32'h0A00D3F1;
 
     #20;
 
-    WE3 = 0;
-    A1 = 4'h1;
-    A2 = 4'hA;
+    write_en = 0;
+    addr_1 = 4'h1;
+    addr_2 = 4'hA;
 
     #60;
 
