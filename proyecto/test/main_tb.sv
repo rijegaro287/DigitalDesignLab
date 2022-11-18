@@ -13,7 +13,15 @@ module main_tb();
     clk = 0;
     rst = 1;
 
-    #50; rst = 0; #19;
+    #50; rst = 0; 
+    
+    #20;
+
+    #20;
+
+    #20;
+
+    #19;
 
     $stop;
   end

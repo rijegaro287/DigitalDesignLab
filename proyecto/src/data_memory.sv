@@ -11,7 +11,7 @@ module data_memory(
   always_ff @(posedge clk or posedge rst) begin
     if (rst) begin
       // memory <= '{default: '0};
-      memory <= '{default: 32'h0000A123};
+      memory <= '{default: 32'h0000000A};
     end 
     else begin
       if (write_en) memory[addr] <= write_data;

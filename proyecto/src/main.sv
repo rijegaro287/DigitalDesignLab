@@ -88,26 +88,40 @@ module main(
 
   always_comb begin
     // LDR
-    // pc_src = 0; // -> pc_next = pc + 4
-    // reg_write_en = 1; // -> write to register
-    // mem_write_en = 0; // -> no write to memory
-    // alu_ctrl = 4'b0000; // -> alu_result = A + B
+    // pc_src = 0;
+    // reg_write_en = 1;
+    // mem_write_en = 0;
+    // alu_ctrl = 4'b0000;
+    // imm_src = 1;
+    // mem_to_reg = 1;
 
     //STR
-    pc_src = 0; // -> pc_next = pc + 4
-    reg_write_en = 0; // -> no write to register
-    mem_write_en = 1; // -> write to memory
-    alu_ctrl = 4'b0000; // -> alu_result = A + B
+    // pc_src = 0;
+    // reg_write_en = 0;
+    // mem_write_en = 1;
+    // alu_ctrl = 4'b0000;
+    // imm_src = 1;
+    // mem_to_reg = 1;
+
+    // ADD
+    pc_src = 0;
+    reg_write_en = 1;
+    mem_write_en = 0;
+    alu_ctrl = 4'b0000;
+    imm_src = 0;
+    mem_to_reg = 0;
 
     reg_addr_1 = instruction[19:16];
     reg_addr_2 = instruction[15:12];
     reg_addr_3 = instruction[15:12];
 
-    extend_immediate = 32'(instruction[11:0]);
-    reg_write_data = mem_read_data;
+    extend_immediate = imm_src ? 32'(instruction[11:0]) : 32'(instruction[8:0]);
+    reg_write_data = mem_to_reg ? mem_read_data : alu_result;
     mem_write_data = reg_read_data_2;
 
-    pc_next = pc_src ? mem_read_data : (pc + 4);
-    r15 = pc + 8;
+    pc_next = pc_src ? reg_write_data : (pc + 1);
+    r15 = pc + 2;
+    // pc_next = pc_src ? reg_write_data : (pc + 4);
+    // r15 = pc + 8;
   end
 endmodule
