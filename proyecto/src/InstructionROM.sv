@@ -1,5 +1,5 @@
-module InstructionRom(
-	input [7:0] addr,
+module InstructionROM(
+	input [31:0] addr,
 	output [31:0] data
 );
 	logic [7:0] memory [255:0];
@@ -8,9 +8,9 @@ module InstructionRom(
 	//Nombre del archivo con las instrucciones
 
 	assign data = {
-		memory[addr],
-		memory[addr+1],
-	  memory[addr+2],
-		memory[addr+3]
+		memory[addr[7:0]],
+		memory[addr[7:0]+1],
+	  memory[addr[7:0]+2],
+		memory[addr[7:0]+3]
 	};
 endmodule 

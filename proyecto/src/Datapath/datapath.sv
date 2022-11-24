@@ -2,21 +2,34 @@ module datapath(
   input logic clk,
   input logic rst,
 
+  // Nuevo valor de pc -> 0 = PC+4, 1 = resultado (alu o memoria)
   input logic pc_src,
-  input logic mem_to_reg,
+  // Valor a escribir en los registros -> 0 = alu, 1 = memoria 
+  input logic mem_to_reg, 
+  // Habilita la escritura de datos en memoria
   input logic mem_write,
+  // Selecciona la operación de la ALU
   input logic [3:0] alu_control,
+  // Selecciona el segundo operando de la ALU -> 0 = registros, 1 = inmediato
   input logic alu_src,
+  // Habilita la escritura de datos en los registros
   input logic reg_write,
+  // Selecciona las direcciones de los registros
+  // reg_src[0] controla ra1, reg_src[1] controla ra2
+  // reg_src[0] = 0 -> rn, reg_src[0] = 1 -> PC
+  // reg_src[1] = 0 -> rm, reg_src[1] = 1 -> rd
   input logic [1:0] reg_src,
 
 	output logic [3:0] cond,
 	output logic [1:0] op,
 	output logic [5:0] funct,
   output logic [3:0] rd,
-  output logic [4:0] alu_flags
+  output logic [3:0] alu_flags
 );
-  logic [31:0]empty;
+  logic [31:0] result;
+  
+  logic [31:0] pc_plus_4;
+  logic [31:0] pc_plus_8;
 
   logic [31:0] pc_next;
   logic [31:0] pc;
@@ -28,7 +41,7 @@ module datapath(
   );
 
   logic [31:0] instruction;
-  InstructionRom inst_mem (
+  InstructionROM inst_mem (
     .addr(pc),
     .data(instruction)
   );
@@ -47,21 +60,23 @@ module datapath(
     .imm(immediate)
   );
 
-  logic reg_addr_1;
-  logic reg_addr_2;
-  mux_2 mux_reg_addr_1(
-    .E0(rn),
-    .E1(4'hF),
-    .S(reg_src[1]),
-    .F(reg_addr_1)
-  );
+  logic [3:0] reg_addr_1;
+  logic [3:0] reg_addr_2;
+  mux_2 #(.INPUT_BITS(4))
+    mux_reg_addr_1(
+      .E0(rn),
+      .E1(4'hF),
+      .S(reg_src[0]),
+      .F(reg_addr_1)
+    );
 
-  mux_2 mux_reg_addr_2(
-    .E0(rm),
-    .E1(rd),
-    .S(reg_src[0]),
-    .F(reg_addr_2)
-  );
+  mux_2 #(.INPUT_BITS(4))
+    mux_reg_addr_2(
+      .E0(rm),
+      .E1(rd),
+      .S(reg_src[1]),
+      .F(reg_addr_2)
+    );
 
   logic [31:0] reg_data_1;
   logic [31:0] reg_data_2;
@@ -79,12 +94,13 @@ module datapath(
   );
 
   logic [31:0] alu_src_b;
-  mux_2 mux_alu_b(
-    .E0(reg_data_2),
-    .E1(immediate),
-    .S(alu_src),
-    .F(alu_src_b)
-  );
+  mux_2 #(.INPUT_BITS(32))
+    mux_alu_b(
+      .E0(reg_data_2),
+      .E1(immediate),
+      .S(alu_src),
+      .F(alu_src_b)
+    );
 
   logic [31:0] alu_result;
   ALU #(.NUM_BITS(32)) 
@@ -100,7 +116,7 @@ module datapath(
     );
 
   logic [31:0] mem_data;
-  data_memory data_mem (
+  RAM data_mem (
     .clk(clk),
     .rst(rst),
     .write_en(mem_write),
@@ -109,22 +125,21 @@ module datapath(
     .read_data(mem_data)
   );
 
-  logic [31:0] result;
-  mux_2 mux_result(
-    .E0(alu_result),
-    .E1(mem_data),
-    .S(mem_to_reg),
-    .F(result)
-  );
-  
-  logic [31:0] pc_plus_4;
-  logic [31:0] pc_plus_8;
-  mux_2 mux_pc_next(
-    .E0(pc_plus_4),
-    .E1(result),
-    .S(pc_src),
-    .F(pc_next)
-  );
+  mux_2 #(.INPUT_BITS(32))
+    mux_result(
+      .E0(alu_result),
+      .E1(mem_data),
+      .S(mem_to_reg),
+      .F(result)
+    );
+
+  mux_2 #(.INPUT_BITS(32))
+    mux_pc_next(
+      .E0(pc_plus_4),
+      .E1(result),
+      .S(pc_src),
+      .F(pc_next)
+    );
 
   assign pc_plus_4 = pc + 4;
   assign pc_plus_8 = pc + 8;

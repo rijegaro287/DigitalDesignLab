@@ -45,7 +45,7 @@ module InstructionDecoder(instruction,op,funct,cond,Rn,Rm,Rd,imm);
 				Rd = 0;
 				Rm = 0;
 				funct = instruction[25:24];
-				imm = 32'(instruction[23:0] * 4);
+				imm = 32'(signed'(instruction[23:0])) << 2;
 			end
 
 			default: begin
