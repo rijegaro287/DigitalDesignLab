@@ -7,6 +7,7 @@ module main(
   logic [5:0] funct;
   logic [3:0] rd;
   logic [3:0] alu_flags;
+  
   logic pc_src;
   logic mem_to_reg;
   logic mem_write;

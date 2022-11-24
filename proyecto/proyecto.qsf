@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CSEMA5F31C6
-set_global_assignment -name TOP_LEVEL_ENTITY main
+set_global_assignment -name TOP_LEVEL_ENTITY datapath
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 21.1.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "01:36:53  NOVIEMBRE 18, 2022"
 set_global_assignment -name LAST_QUARTUS_VERSION "21.1.1 Lite Edition"
@@ -64,15 +64,18 @@ set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME register_file_tb -section
 set_global_assignment -name EDA_TEST_BENCH_NAME ALU_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id ALU_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME ALU_tb -section_id ALU_tb
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name EDA_TEST_BENCH_FILE test/register_file_tb.sv -section_id register_file_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE test/ALU_tb.sv -section_id ALU_tb
 set_global_assignment -name EDA_TEST_BENCH_NAME main_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id main_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME main_tb -section_id main_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE test/main_tb.sv -section_id main_tb
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name SYSTEMVERILOG_FILE src/InstructionDecoder.sv
+set_global_assignment -name SYSTEMVERILOG_FILE test/datapath_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/Datapath/datapath.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/InstructionRom.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/mux_2.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/mux_8.sv
