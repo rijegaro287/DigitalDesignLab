@@ -3,15 +3,18 @@
 module main_tb();
   logic clk;
   logic rst;
+  logic reg_alu_src;
 
   main dut(
     .clk(clk),
-    .rst(rst)
+    .rst(rst),
+    .reg_alu_src(reg_alu_src)
   );
 
   initial begin
     clk = 0;
     rst = 1;
+    reg_alu_src = 1;
 
     #50; rst = 0; 
     
@@ -19,6 +22,12 @@ module main_tb();
 
     #20;
 
+    #20; 
+    
+    #20; reg_alu_src = 0; 
+
+    #20;
+    
     #20;
 
     #19;

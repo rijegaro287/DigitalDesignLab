@@ -1,6 +1,6 @@
 module main(
-  input clk,
-  input rst
+  input logic clk,
+  input logic rst, input logic reg_alu_src
 );
   logic [3:0] cond;
   logic [1:0] op;
@@ -47,7 +47,7 @@ module main(
     .Q(pc)
   );
 
-  instruction_memory inst_mem (
+  InstructionRom inst_mem (
     .addr(pc),
     .data(instruction)
   );
@@ -68,7 +68,7 @@ module main(
   ALU #(.NUM_BITS(32)) 
     alu(
       .A(reg_read_data_1),
-      .B(extend_immediate),
+      .B(/* alu_src */ reg_alu_src ? extend_immediate : reg_read_data_2),
       .S(alu_ctrl),
       .R(alu_result),
       .N(N),
@@ -94,6 +94,8 @@ module main(
     // alu_ctrl = 4'b0000;
     // imm_src = 1;
     // mem_to_reg = 1;
+    // reg_src = 0; // 1 inmediato, 0 registro
+    // alu_src = 0; // 1 inmediato, 0 registro 
 
     //STR
     // pc_src = 0;
@@ -102,6 +104,8 @@ module main(
     // alu_ctrl = 4'b0000;
     // imm_src = 1;
     // mem_to_reg = 1;
+    // reg_src = 0; // 1 inmediato, 0 registro
+    // alu_src = 0; // 1 inmediato, 0 registro 
 
     // ADD
     pc_src = 0;
@@ -110,18 +114,18 @@ module main(
     alu_ctrl = 4'b0000;
     imm_src = 0;
     mem_to_reg = 0;
+    // reg_src = 1; // 1 inmediato, 0 registro
+    // alu_src = 1; // 1 inmediato, 0 registro 
 
     reg_addr_1 = instruction[19:16];
-    reg_addr_2 = instruction[15:12];
+    reg_addr_2 = /* reg_src */ reg_alu_src ? instruction[15:12] : instruction[3:0];
     reg_addr_3 = instruction[15:12];
 
-    extend_immediate = imm_src ? 32'(instruction[11:0]) : 32'(instruction[8:0]);
+    extend_immediate = imm_src ? 32'(instruction[11:0]) : 32'(instruction[7:0]);
     reg_write_data = mem_to_reg ? mem_read_data : alu_result;
     mem_write_data = reg_read_data_2;
 
-    pc_next = pc_src ? reg_write_data : (pc + 1);
-    r15 = pc + 2;
-    // pc_next = pc_src ? reg_write_data : (pc + 4);
-    // r15 = pc + 8;
+    pc_next = pc_src ? reg_write_data : (pc + 4);
+    r15 = pc + 8;
   end
 endmodule
