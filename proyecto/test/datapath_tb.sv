@@ -51,55 +51,6 @@ module datapath_tb();
 
     // Instrucción vacía
 
-    #20; 
-
-    alu_src = 1;
-    reg_write = 1;
-    reg_src[1] = 1;
-    // 1110 00 1 0100 0 0000 0000 0000 00000010 // ADD R0, R0, #0x02
-
-    #20; 
-
-    // 1110 00 1 0100 0 0000 0001 0000 00000101 // ADD R1, R0, #0x05
-
-    #20;
-
-    // 1110 00 1 0100 0 0001 0010 0000 00101010 // ADD R2, R1, #0x2A
-
-    #20;
-
-    alu_src = 0;
-    reg_src[1] = 0;
-    // 1110 00 0 0100 0 0010 0001 00000 00 0 0000 // ADD R1, R2, R0
-
-    #20;
-
-    // 1110 00 0 0100 0 0010 0010 00000 00 0 0010 // ADD R2, R2, R2
-
-    #20;
-
-    // 11100101100100000000000000000000; // LDR R0, [R0], #0x00
-
-    #19; // Antes de ejecutar la siguiente instrucción
-
-    $stop;
-  end
-  initial begin
-    clk = 0;
-    rst = 1;
-
-    pc_src = 0;
-    mem_to_reg = 0;
-    mem_write = 0;
-    alu_control = 0;
-    alu_src = 0;
-    reg_write = 0;
-    reg_src = 0;
-
-    #50; rst = 0; 
-
-    // Instrucción vacía
-
     #21; // Espera antes de setear las flags
 
     alu_src = 1;

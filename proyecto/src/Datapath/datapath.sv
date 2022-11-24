@@ -33,12 +33,13 @@ module datapath(
 
   logic [31:0] pc_next;
   logic [31:0] pc;
-  D_FF PC(
-    .CLK(clk),
-    .RST(rst),
-    .D(pc_next),
-    .Q(pc)
-  );
+  D_FF #(.NUM_BITS(32)) 
+    PC(
+      .CLK(clk),
+      .RST(rst),
+      .D(pc_next),
+      .Q(pc)
+    );
 
   logic [31:0] instruction;
   InstructionROM inst_mem (
