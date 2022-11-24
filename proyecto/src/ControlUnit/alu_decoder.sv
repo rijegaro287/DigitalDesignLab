@@ -52,7 +52,7 @@ module alu_decoder(
         end
 
         4'b0100: begin //ADD
-          alu_control = 4'b0100;
+          alu_control = 4'b0000;
           if (funct[0]) begin
             flag_w = 2'b11;
           end 
@@ -62,7 +62,7 @@ module alu_decoder(
         end
 
         4'b0010: begin //SUB
-          alu_control = 4'b0010;
+          alu_control = 4'b0001;
           if (funct[0]) begin
             flag_w = 2'b11;
           end 

@@ -1,0 +1,232 @@
+/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/main_tb.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/main_tb.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module main_tb
+
+Top level modules:
+	main_tb
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module unidad_logica
+
+Top level modules:
+	unidad_logica
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/modulo.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/modulo.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module modulo
+
+Top level modules:
+	modulo
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/divisor.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/divisor.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module divisor
+
+Top level modules:
+	divisor
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/ALU.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/ALU.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_2.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_2.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module mux_2
+
+Top level modules:
+	mux_2
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/datapath_tb.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/datapath_tb.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module datapath_tb
+
+Top level modules:
+	datapath_tb
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/main.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/main.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module main
+
+Top level modules:
+	main
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module control_unit_tb
+
+Top level modules:
+	control_unit_tb
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/sumador.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/sumador.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module sumador
+
+Top level modules:
+	sumador
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/ALU_tb.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/ALU_tb.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module ALU_tb
+
+Top level modules:
+	ALU_tb
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/OR_.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/OR_.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module OR_
+
+Top level modules:
+	OR_
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/InstructionDecoder.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/InstructionDecoder.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module InstructionDecoder
+
+Top level modules:
+	InstructionDecoder
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/RAM.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/RAM.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module RAM
+
+Top level modules:
+	RAM
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/LSHIFT_.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/LSHIFT_.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module LSHIFT_
+
+Top level modules:
+	LSHIFT_
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/pc_logic.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/pc_logic.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module pc_logic
+
+Top level modules:
+	pc_logic
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/control_unit.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/control_unit.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module control_unit
+
+Top level modules:
+	control_unit
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module mux_8
+
+Top level modules:
+	mux_8
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/register_file_tb.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/register_file_tb.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module register_file_tb
+
+Top level modules:
+	register_file_tb
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module unidad_aritmetica
+
+Top level modules:
+	unidad_aritmetica
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/Datapath/register_file.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/Datapath/register_file.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module register_file
+
+Top level modules:
+	register_file
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/main_decoder.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/main_decoder.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module main_decoder
+
+Top level modules:
+	main_decoder
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/multiplicador.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/multiplicador.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module multiplicador
+
+Top level modules:
+	multiplicador
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/Datapath/datapath.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/Datapath/datapath.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module datapath
+
+Top level modules:
+	datapath
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/RSHIFT_.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/RSHIFT_.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module RSHIFT_
+
+Top level modules:
+	RSHIFT_
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/XOR_.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/XOR_.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module XOR_
+
+Top level modules:
+	XOR_
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/D_FF.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/D_FF.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module D_FF
+
+Top level modules:
+	D_FF
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/sumador_completo.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/sumador_completo.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module sumador_completo
+
+Top level modules:
+	sumador_completo
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/InstructionROM.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/InstructionROM.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module InstructionROM
+
+Top level modules:
+	InstructionROM
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/conditional_logic.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/conditional_logic.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module conditional_logic
+
+Top level modules:
+	conditional_logic
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/AND_.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/AND_.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module AND_
+
+Top level modules:
+	AND_
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/sumador_restador.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/sumador_restador.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module sumador_restador
+
+Top level modules:
+	sumador_restador
+
+} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/imageRom.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/imageRom.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module imageRom
+
+Top level modules:
+	imageRom
+
+} {} {}}

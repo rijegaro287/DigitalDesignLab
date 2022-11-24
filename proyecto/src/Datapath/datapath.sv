@@ -27,7 +27,7 @@ module datapath(
   output logic [3:0] alu_flags
 );
   logic [31:0] result;
-  
+    
   logic [31:0] pc_plus_4;
   logic [31:0] pc_plus_8;
 

@@ -1,0 +1,2897 @@
+vsim -voptargs=+acc work.control_unit_tb
+# vsim -voptargs="+acc" work.control_unit_tb 
+# Start time: 13:27:54 on Nov 24,2022
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading sv_std.std
+# Loading work.control_unit_tb(fast)
+# Loading work.control_unit(fast)
+# Loading work.main_decoder(fast)
+# Loading work.alu_decoder(fast)
+# Loading work.pc_logic(fast)
+# Loading work.conditional_logic(fast)
+# Loading work.D_FF(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (2) does not match connection size (1) for port 'reg_src'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/control_unit.sv(16).
+#    Time: 0 ns  Iteration: 0  Instance: /control_unit_tb/dut File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv Line: 18
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'alu_control'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/alu_decoder.sv(5).
+#    Time: 0 ns  Iteration: 0  Instance: /control_unit_tb/dut/alu_deco File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/control_unit.sv Line: 35
+onerror {resume}
+#  Warning: onerror command for use within macro
+quietly WaveActivateNextPane {} 0
+add wave -noupdate /control_unit_tb/dut/cond
+add wave -noupdate /control_unit_tb/dut/op
+add wave -noupdate /control_unit_tb/dut/funct
+add wave -noupdate /control_unit_tb/dut/rd
+add wave -noupdate /control_unit_tb/dut/alu_flags
+add wave -noupdate /control_unit_tb/dut/pc_src
+add wave -noupdate /control_unit_tb/dut/mem_to_reg
+add wave -noupdate /control_unit_tb/dut/mem_write
+add wave -noupdate /control_unit_tb/dut/alu_control
+add wave -noupdate /control_unit_tb/dut/alu_src
+add wave -noupdate /control_unit_tb/dut/reg_write
+add wave -noupdate /control_unit_tb/dut/reg_src
+TreeUpdate [SetDefaultTree]
+WaveRestoreCursors {{Cursor 1} {0 ns} 0}
+quietly wave cursor active 0
+configure wave -namecolwidth 275
+configure wave -valuecolwidth 100
+configure wave -justifyvalue left
+configure wave -signalnamewidth 0
+configure wave -snapdistance 10
+configure wave -datasetprefix 0
+configure wave -rowmargin 4
+configure wave -childrowmargin 2
+configure wave -gridoffset 0
+configure wave -gridperiod 1
+configure wave -griddelta 40
+configure wave -timeline 0
+configure wave -timelineunits ns
+update
+WaveRestoreZoom {0 ns} {879 ns}
+# Compile of ALU_tb.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of main_tb.sv was successful.
+# Compile of register_file_tb.sv was successful.
+# Compile of D_FF.sv was successful.
+# Compile of imageRom.sv was successful.
+# Compile of InstructionDecoder.sv was successful.
+# Compile of InstructionROM.sv was successful.
+# Compile of main.sv was successful.
+# Compile of mux_2.sv was successful.
+# Compile of mux_8.sv was successful.
+# Compile of RAM.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of divisor.sv was successful.
+# Compile of modulo.sv was successful.
+# Compile of multiplicador.sv was successful.
+# Compile of sumador.sv was successful.
+# Compile of sumador_completo.sv was successful.
+# Compile of sumador_restador.sv was successful.
+# Compile of unidad_aritmetica.sv was successful.
+# Compile of AND_.sv was successful.
+# Compile of LSHIFT_.sv was successful.
+# Compile of OR_.sv was successful.
+# Compile of RSHIFT_.sv was successful.
+# Compile of unidad_logica.sv was successful.
+# Compile of XOR_.sv was successful.
+# Compile of control_unit.sv was successful.
+# Compile of control_unit_tb.sv was successful.
+# Compile of alu_decoder.sv was successful.
+# Compile of conditional_logic.sv was successful.
+# Compile of main_decoder.sv was successful.
+# Compile of pc_logic.sv was successful.
+# 34 compiles, 0 failed with no errors.
+vlog -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 13:28:37 on Nov 24,2022
+# vlog -reportprogress 300 -work work -refresh -force_refresh 
+# -- Refreshing module ALU
+# -- Refreshing module alu_decoder
+# -- Refreshing module ALU_tb
+# -- Refreshing module AND_
+# -- Refreshing module conditional_logic
+# -- Refreshing module control_unit
+# -- Refreshing module control_unit_tb
+# -- Refreshing module D_FF
+# -- Refreshing module datapath
+# -- Refreshing module datapath_tb
+# -- Refreshing module divisor
+# -- Refreshing module imageRom
+# -- Refreshing module instruction_memory
+# -- Refreshing module InstructionDecoder
+# -- Refreshing module InstructionROM
+# -- Refreshing module LSHIFT_
+# -- Refreshing module main
+# -- Refreshing module main_decoder
+# -- Refreshing module main_tb
+# -- Refreshing module modulo
+# -- Refreshing module multiplicador
+# -- Refreshing module mux_2
+# -- Refreshing module mux_8
+# -- Refreshing module OR_
+# -- Refreshing module pc_logic
+# -- Refreshing module RAM
+# -- Refreshing module register_file
+# -- Refreshing module register_file_tb
+# -- Refreshing module RSHIFT_
+# -- Refreshing module sumador
+# -- Refreshing module sumador_completo
+# -- Refreshing module sumador_restador
+# -- Refreshing module unidad_aritmetica
+# -- Refreshing module unidad_logica
+# -- Refreshing module XOR_
+# End time: 13:28:37 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 13:28:37 on Nov 24,2022
+# vcom -reportprogress 300 -work work -refresh -force_refresh 
+# -- Skipping module ALU
+# -- Skipping module alu_decoder
+# -- Skipping module ALU_tb
+# -- Skipping module AND_
+# -- Skipping module conditional_logic
+# -- Skipping module control_unit
+# -- Skipping module control_unit_tb
+# -- Skipping module D_FF
+# -- Skipping module datapath
+# -- Skipping module datapath_tb
+# -- Skipping module divisor
+# -- Skipping module imageRom
+# -- Skipping module instruction_memory
+# -- Skipping module InstructionDecoder
+# -- Skipping module InstructionROM
+# -- Skipping module LSHIFT_
+# -- Skipping module main
+# -- Skipping module main_decoder
+# -- Skipping module main_tb
+# -- Skipping module modulo
+# -- Skipping module multiplicador
+# -- Skipping module mux_2
+# -- Skipping module mux_8
+# -- Skipping module OR_
+# -- Skipping module pc_logic
+# -- Skipping module RAM
+# -- Skipping module register_file
+# -- Skipping module register_file_tb
+# -- Skipping module RSHIFT_
+# -- Skipping module sumador
+# -- Skipping module sumador_completo
+# -- Skipping module sumador_restador
+# -- Skipping module unidad_aritmetica
+# -- Skipping module unidad_logica
+# -- Skipping module XOR_
+# End time: 13:28:37 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.control_unit_tb(fast)
+# Loading work.control_unit(fast)
+# Loading work.main_decoder(fast)
+# Loading work.alu_decoder(fast)
+# Loading work.pc_logic(fast)
+# Loading work.conditional_logic(fast)
+# Loading work.D_FF(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (2) does not match connection size (1) for port 'reg_src'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/control_unit.sv(16).
+#    Time: 0 ns  Iteration: 0  Instance: /control_unit_tb/dut File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv Line: 18
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'alu_control'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/alu_decoder.sv(5).
+#    Time: 0 ns  Iteration: 0  Instance: /control_unit_tb/dut/alu_deco File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/control_unit.sv Line: 35
+run -all
+# Compile of ALU_tb.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of main_tb.sv was successful.
+# Compile of register_file_tb.sv was successful.
+# Compile of D_FF.sv was successful.
+# Compile of imageRom.sv was successful.
+# Compile of InstructionDecoder.sv was successful.
+# Compile of InstructionROM.sv was successful.
+# Compile of main.sv was successful.
+# Compile of mux_2.sv was successful.
+# Compile of mux_8.sv was successful.
+# Compile of RAM.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of divisor.sv was successful.
+# Compile of modulo.sv was successful.
+# Compile of multiplicador.sv was successful.
+# Compile of sumador.sv was successful.
+# Compile of sumador_completo.sv was successful.
+# Compile of sumador_restador.sv was successful.
+# Compile of unidad_aritmetica.sv was successful.
+# Compile of AND_.sv was successful.
+# Compile of LSHIFT_.sv was successful.
+# Compile of OR_.sv was successful.
+# Compile of RSHIFT_.sv was successful.
+# Compile of unidad_logica.sv was successful.
+# Compile of XOR_.sv was successful.
+# Compile of control_unit.sv was successful.
+# Compile of control_unit_tb.sv was successful.
+# Compile of alu_decoder.sv was successful.
+# Compile of conditional_logic.sv was successful.
+# Compile of main_decoder.sv was successful.
+# Compile of pc_logic.sv was successful.
+# 34 compiles, 0 failed with no errors.
+# Break key hit
+# Break in Module control_unit_tb at /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv line 45
+vlog -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 13:31:13 on Nov 24,2022
+# vlog -reportprogress 300 -work work -refresh -force_refresh 
+# -- Refreshing module ALU
+# -- Refreshing module alu_decoder
+# -- Refreshing module ALU_tb
+# -- Refreshing module AND_
+# -- Refreshing module conditional_logic
+# -- Refreshing module control_unit
+# -- Refreshing module control_unit_tb
+# -- Refreshing module D_FF
+# -- Refreshing module datapath
+# -- Refreshing module datapath_tb
+# -- Refreshing module divisor
+# -- Refreshing module imageRom
+# -- Refreshing module instruction_memory
+# -- Refreshing module InstructionDecoder
+# -- Refreshing module InstructionROM
+# -- Refreshing module LSHIFT_
+# -- Refreshing module main
+# -- Refreshing module main_decoder
+# -- Refreshing module main_tb
+# -- Refreshing module modulo
+# -- Refreshing module multiplicador
+# -- Refreshing module mux_2
+# -- Refreshing module mux_8
+# -- Refreshing module OR_
+# -- Refreshing module pc_logic
+# -- Refreshing module RAM
+# -- Refreshing module register_file
+# -- Refreshing module register_file_tb
+# -- Refreshing module RSHIFT_
+# -- Refreshing module sumador
+# -- Refreshing module sumador_completo
+# -- Refreshing module sumador_restador
+# -- Refreshing module unidad_aritmetica
+# -- Refreshing module unidad_logica
+# -- Refreshing module XOR_
+# End time: 13:31:13 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 13:31:13 on Nov 24,2022
+# vcom -reportprogress 300 -work work -refresh -force_refresh 
+# -- Skipping module ALU
+# -- Skipping module alu_decoder
+# -- Skipping module ALU_tb
+# -- Skipping module AND_
+# -- Skipping module conditional_logic
+# -- Skipping module control_unit
+# -- Skipping module control_unit_tb
+# -- Skipping module D_FF
+# -- Skipping module datapath
+# -- Skipping module datapath_tb
+# -- Skipping module divisor
+# -- Skipping module imageRom
+# -- Skipping module instruction_memory
+# -- Skipping module InstructionDecoder
+# -- Skipping module InstructionROM
+# -- Skipping module LSHIFT_
+# -- Skipping module main
+# -- Skipping module main_decoder
+# -- Skipping module main_tb
+# -- Skipping module modulo
+# -- Skipping module multiplicador
+# -- Skipping module mux_2
+# -- Skipping module mux_8
+# -- Skipping module OR_
+# -- Skipping module pc_logic
+# -- Skipping module RAM
+# -- Skipping module register_file
+# -- Skipping module register_file_tb
+# -- Skipping module RSHIFT_
+# -- Skipping module sumador
+# -- Skipping module sumador_completo
+# -- Skipping module sumador_restador
+# -- Skipping module unidad_aritmetica
+# -- Skipping module unidad_logica
+# -- Skipping module XOR_
+# End time: 13:31:13 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 13:31:13 on Nov 24,2022
+# vlog -reportprogress 300 -work work -refresh -force_refresh 
+# -- Refreshing module ALU
+# -- Refreshing module alu_decoder
+# -- Refreshing module ALU_tb
+# -- Refreshing module AND_
+# -- Refreshing module conditional_logic
+# -- Refreshing module control_unit
+# -- Refreshing module control_unit_tb
+# -- Refreshing module D_FF
+# -- Refreshing module datapath
+# -- Refreshing module datapath_tb
+# -- Refreshing module divisor
+# -- Refreshing module imageRom
+# -- Refreshing module instruction_memory
+# -- Refreshing module InstructionDecoder
+# -- Refreshing module InstructionROM
+# -- Refreshing module LSHIFT_
+# -- Refreshing module main
+# -- Refreshing module main_decoder
+# -- Refreshing module main_tb
+# -- Refreshing module modulo
+# -- Refreshing module multiplicador
+# -- Refreshing module mux_2
+# -- Refreshing module mux_8
+# -- Refreshing module OR_
+# -- Refreshing module pc_logic
+# -- Refreshing module RAM
+# -- Refreshing module register_file
+# -- Refreshing module register_file_tb
+# -- Refreshing module RSHIFT_
+# -- Refreshing module sumador
+# -- Refreshing module sumador_completo
+# -- Refreshing module sumador_restador
+# -- Refreshing module unidad_aritmetica
+# -- Refreshing module unidad_logica
+# -- Refreshing module XOR_
+# End time: 13:31:13 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 13:31:13 on Nov 24,2022
+# vcom -reportprogress 300 -work work -refresh -force_refresh 
+# -- Skipping module ALU
+# -- Skipping module alu_decoder
+# -- Skipping module ALU_tb
+# -- Skipping module AND_
+# -- Skipping module conditional_logic
+# -- Skipping module control_unit
+# -- Skipping module control_unit_tb
+# -- Skipping module D_FF
+# -- Skipping module datapath
+# -- Skipping module datapath_tb
+# -- Skipping module divisor
+# -- Skipping module imageRom
+# -- Skipping module instruction_memory
+# -- Skipping module InstructionDecoder
+# -- Skipping module InstructionROM
+# -- Skipping module LSHIFT_
+# -- Skipping module main
+# -- Skipping module main_decoder
+# -- Skipping module main_tb
+# -- Skipping module modulo
+# -- Skipping module multiplicador
+# -- Skipping module mux_2
+# -- Skipping module mux_8
+# -- Skipping module OR_
+# -- Skipping module pc_logic
+# -- Skipping module RAM
+# -- Skipping module register_file
+# -- Skipping module register_file_tb
+# -- Skipping module RSHIFT_
+# -- Skipping module sumador
+# -- Skipping module sumador_completo
+# -- Skipping module sumador_restador
+# -- Skipping module unidad_aritmetica
+# -- Skipping module unidad_logica
+# -- Skipping module XOR_
+# End time: 13:31:13 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 13:31:13 on Nov 24,2022
+# vlog -reportprogress 300 -work work -refresh -force_refresh 
+# -- Refreshing module ALU
+# -- Refreshing module alu_decoder
+# -- Refreshing module ALU_tb
+# -- Refreshing module AND_
+# -- Refreshing module conditional_logic
+# -- Refreshing module control_unit
+# -- Refreshing module control_unit_tb
+# -- Refreshing module D_FF
+# -- Refreshing module datapath
+# -- Refreshing module datapath_tb
+# -- Refreshing module divisor
+# -- Refreshing module imageRom
+# -- Refreshing module instruction_memory
+# -- Refreshing module InstructionDecoder
+# -- Refreshing module InstructionROM
+# -- Refreshing module LSHIFT_
+# -- Refreshing module main
+# -- Refreshing module main_decoder
+# -- Refreshing module main_tb
+# -- Refreshing module modulo
+# -- Refreshing module multiplicador
+# -- Refreshing module mux_2
+# -- Refreshing module mux_8
+# -- Refreshing module OR_
+# -- Refreshing module pc_logic
+# -- Refreshing module RAM
+# -- Refreshing module register_file
+# -- Refreshing module register_file_tb
+# -- Refreshing module RSHIFT_
+# -- Refreshing module sumador
+# -- Refreshing module sumador_completo
+# -- Refreshing module sumador_restador
+# -- Refreshing module unidad_aritmetica
+# -- Refreshing module unidad_logica
+# -- Refreshing module XOR_
+# End time: 13:31:13 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 13:31:13 on Nov 24,2022
+# vcom -reportprogress 300 -work work -refresh -force_refresh 
+# -- Skipping module ALU
+# -- Skipping module alu_decoder
+# -- Skipping module ALU_tb
+# -- Skipping module AND_
+# -- Skipping module conditional_logic
+# -- Skipping module control_unit
+# -- Skipping module control_unit_tb
+# -- Skipping module D_FF
+# -- Skipping module datapath
+# -- Skipping module datapath_tb
+# -- Skipping module divisor
+# -- Skipping module imageRom
+# -- Skipping module instruction_memory
+# -- Skipping module InstructionDecoder
+# -- Skipping module InstructionROM
+# -- Skipping module LSHIFT_
+# -- Skipping module main
+# -- Skipping module main_decoder
+# -- Skipping module main_tb
+# -- Skipping module modulo
+# -- Skipping module multiplicador
+# -- Skipping module mux_2
+# -- Skipping module mux_8
+# -- Skipping module OR_
+# -- Skipping module pc_logic
+# -- Skipping module RAM
+# -- Skipping module register_file
+# -- Skipping module register_file_tb
+# -- Skipping module RSHIFT_
+# -- Skipping module sumador
+# -- Skipping module sumador_completo
+# -- Skipping module sumador_restador
+# -- Skipping module unidad_aritmetica
+# -- Skipping module unidad_logica
+# -- Skipping module XOR_
+# End time: 13:31:14 on Nov 24,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.control_unit_tb(fast)
+# Loading work.control_unit(fast)
+# Loading work.main_decoder(fast)
+# Loading work.alu_decoder(fast)
+# Loading work.pc_logic(fast)
+# Loading work.conditional_logic(fast)
+# Loading work.D_FF(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'alu_control'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/control_unit.sv(13).
+#    Time: 0 ns  Iteration: 0  Instance: /control_unit_tb/dut File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv Line: 18
+# Compile of ALU_tb.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of main_tb.sv was successful.
+# Compile of register_file_tb.sv was successful.
+# Compile of D_FF.sv was successful.
+# Compile of imageRom.sv was successful.
+# Compile of InstructionDecoder.sv was successful.
+# Compile of InstructionROM.sv was successful.
+# Compile of main.sv was successful.
+# Compile of mux_2.sv was successful.
+# Compile of mux_8.sv was successful.
+# Compile of RAM.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of divisor.sv was successful.
+# Compile of modulo.sv was successful.
+# Compile of multiplicador.sv was successful.
+# Compile of sumador.sv was successful.
+# Compile of sumador_completo.sv was successful.
+# Compile of sumador_restador.sv was successful.
+# Compile of unidad_aritmetica.sv was successful.
+# Compile of AND_.sv was successful.
+# Compile of LSHIFT_.sv was successful.
+# Compile of OR_.sv was successful.
+# Compile of RSHIFT_.sv was successful.
+# Compile of unidad_logica.sv was successful.
+# Compile of XOR_.sv was successful.
+# Compile of control_unit.sv was successful.
+# Compile of control_unit_tb.sv was successful.
+# Compile of alu_decoder.sv was successful.
+# Compile of conditional_logic.sv was successful.
+# Compile of main_decoder.sv was successful.
+# Compile of pc_logic.sv was successful.
+# 34 compiles, 0 failed with no errors.
+vlog -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 13:31:26 on Nov 24,2022
+# vlog -reportprogress 300 -work work -refresh -force_refresh 
+# -- Refreshing module ALU
+# -- Refreshing module alu_decoder
+# -- Refreshing module ALU_tb
+# -- Refreshing module AND_
+# -- Refreshing module conditional_logic
+# -- Refreshing module control_unit
+# -- Refreshing module control_unit_tb
+# -- Refreshing module D_FF
+# -- Refreshing module datapath
+# -- Refreshing module datapath_tb
+# -- Refreshing module divisor
+# -- Refreshing module imageRom
+# -- Refreshing module instruction_memory
+# -- Refreshing module InstructionDecoder
+# -- Refreshing module InstructionROM
+# -- Refreshing module LSHIFT_
+# -- Refreshing module main
+# -- Refreshing module main_decoder
+# -- Refreshing module main_tb
+# -- Refreshing module modulo
+# -- Refreshing module multiplicador
+# -- Refreshing module mux_2
+# -- Refreshing module mux_8
+# -- Refreshing module OR_
+# -- Refreshing module pc_logic
+# -- Refreshing module RAM
+# -- Refreshing module register_file
+# -- Refreshing module register_file_tb
+# -- Refreshing module RSHIFT_
+# -- Refreshing module sumador
+# -- Refreshing module sumador_completo
+# -- Refreshing module sumador_restador
+# -- Refreshing module unidad_aritmetica
+# -- Refreshing module unidad_logica
+# -- Refreshing module XOR_
+# End time: 13:31:26 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 13:31:26 on Nov 24,2022
+# vcom -reportprogress 300 -work work -refresh -force_refresh 
+# -- Skipping module ALU
+# -- Skipping module alu_decoder
+# -- Skipping module ALU_tb
+# -- Skipping module AND_
+# -- Skipping module conditional_logic
+# -- Skipping module control_unit
+# -- Skipping module control_unit_tb
+# -- Skipping module D_FF
+# -- Skipping module datapath
+# -- Skipping module datapath_tb
+# -- Skipping module divisor
+# -- Skipping module imageRom
+# -- Skipping module instruction_memory
+# -- Skipping module InstructionDecoder
+# -- Skipping module InstructionROM
+# -- Skipping module LSHIFT_
+# -- Skipping module main
+# -- Skipping module main_decoder
+# -- Skipping module main_tb
+# -- Skipping module modulo
+# -- Skipping module multiplicador
+# -- Skipping module mux_2
+# -- Skipping module mux_8
+# -- Skipping module OR_
+# -- Skipping module pc_logic
+# -- Skipping module RAM
+# -- Skipping module register_file
+# -- Skipping module register_file_tb
+# -- Skipping module RSHIFT_
+# -- Skipping module sumador
+# -- Skipping module sumador_completo
+# -- Skipping module sumador_restador
+# -- Skipping module unidad_aritmetica
+# -- Skipping module unidad_logica
+# -- Skipping module XOR_
+# End time: 13:31:26 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+run -all
+# Break key hit
+# Break in Module control_unit_tb at /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv line 45
+run
+# Break key hit
+# Break in Module control_unit_tb at /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv line 45
+# Compile of ALU_tb.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of main_tb.sv was successful.
+# Compile of register_file_tb.sv was successful.
+# Compile of D_FF.sv was successful.
+# Compile of imageRom.sv was successful.
+# Compile of InstructionDecoder.sv was successful.
+# Compile of InstructionROM.sv was successful.
+# Compile of main.sv was successful.
+# Compile of mux_2.sv was successful.
+# Compile of mux_8.sv was successful.
+# Compile of RAM.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of divisor.sv was successful.
+# Compile of modulo.sv was successful.
+# Compile of multiplicador.sv was successful.
+# Compile of sumador.sv was successful.
+# Compile of sumador_completo.sv was successful.
+# Compile of sumador_restador.sv was successful.
+# Compile of unidad_aritmetica.sv was successful.
+# Compile of AND_.sv was successful.
+# Compile of LSHIFT_.sv was successful.
+# Compile of OR_.sv was successful.
+# Compile of RSHIFT_.sv was successful.
+# Compile of unidad_logica.sv was successful.
+# Compile of XOR_.sv was successful.
+# Compile of control_unit.sv was successful.
+# Compile of control_unit_tb.sv was successful.
+# Compile of alu_decoder.sv was successful.
+# Compile of conditional_logic.sv was successful.
+# Compile of main_decoder.sv was successful.
+# Compile of pc_logic.sv was successful.
+# 34 compiles, 0 failed with no errors.
+vlog -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 13:36:58 on Nov 24,2022
+# vlog -reportprogress 300 -work work -refresh -force_refresh 
+# -- Refreshing module ALU
+# -- Refreshing module alu_decoder
+# -- Refreshing module ALU_tb
+# -- Refreshing module AND_
+# -- Refreshing module conditional_logic
+# -- Refreshing module control_unit
+# -- Refreshing module control_unit_tb
+# -- Refreshing module D_FF
+# -- Refreshing module datapath
+# -- Refreshing module datapath_tb
+# -- Refreshing module divisor
+# -- Refreshing module imageRom
+# -- Refreshing module instruction_memory
+# -- Refreshing module InstructionDecoder
+# -- Refreshing module InstructionROM
+# -- Refreshing module LSHIFT_
+# -- Refreshing module main
+# -- Refreshing module main_decoder
+# -- Refreshing module main_tb
+# -- Refreshing module modulo
+# -- Refreshing module multiplicador
+# -- Refreshing module mux_2
+# -- Refreshing module mux_8
+# -- Refreshing module OR_
+# -- Refreshing module pc_logic
+# -- Refreshing module RAM
+# -- Refreshing module register_file
+# -- Refreshing module register_file_tb
+# -- Refreshing module RSHIFT_
+# -- Refreshing module sumador
+# -- Refreshing module sumador_completo
+# -- Refreshing module sumador_restador
+# -- Refreshing module unidad_aritmetica
+# -- Refreshing module unidad_logica
+# -- Refreshing module XOR_
+# End time: 13:36:58 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 13:36:58 on Nov 24,2022
+# vcom -reportprogress 300 -work work -refresh -force_refresh 
+# -- Skipping module ALU
+# -- Skipping module alu_decoder
+# -- Skipping module ALU_tb
+# -- Skipping module AND_
+# -- Skipping module conditional_logic
+# -- Skipping module control_unit
+# -- Skipping module control_unit_tb
+# -- Skipping module D_FF
+# -- Skipping module datapath
+# -- Skipping module datapath_tb
+# -- Skipping module divisor
+# -- Skipping module imageRom
+# -- Skipping module instruction_memory
+# -- Skipping module InstructionDecoder
+# -- Skipping module InstructionROM
+# -- Skipping module LSHIFT_
+# -- Skipping module main
+# -- Skipping module main_decoder
+# -- Skipping module main_tb
+# -- Skipping module modulo
+# -- Skipping module multiplicador
+# -- Skipping module mux_2
+# -- Skipping module mux_8
+# -- Skipping module OR_
+# -- Skipping module pc_logic
+# -- Skipping module RAM
+# -- Skipping module register_file
+# -- Skipping module register_file_tb
+# -- Skipping module RSHIFT_
+# -- Skipping module sumador
+# -- Skipping module sumador_completo
+# -- Skipping module sumador_restador
+# -- Skipping module unidad_aritmetica
+# -- Skipping module unidad_logica
+# -- Skipping module XOR_
+# End time: 13:36:58 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.control_unit_tb(fast)
+# Loading work.control_unit(fast)
+# Loading work.main_decoder(fast)
+# Loading work.alu_decoder(fast)
+# Loading work.pc_logic(fast)
+# Loading work.conditional_logic(fast)
+# Loading work.D_FF(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'alu_control'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/control_unit.sv(13).
+#    Time: 0 ns  Iteration: 0  Instance: /control_unit_tb/dut File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv Line: 18
+# Compile of ALU_tb.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of main_tb.sv was successful.
+# Compile of register_file_tb.sv was successful.
+# Compile of D_FF.sv was successful.
+# Compile of imageRom.sv was successful.
+# Compile of InstructionDecoder.sv was successful.
+# Compile of InstructionROM.sv was successful.
+# Compile of main.sv was successful.
+# Compile of mux_2.sv was successful.
+# Compile of mux_8.sv was successful.
+# Compile of RAM.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of divisor.sv was successful.
+# Compile of modulo.sv was successful.
+# Compile of multiplicador.sv was successful.
+# Compile of sumador.sv was successful.
+# Compile of sumador_completo.sv was successful.
+# Compile of sumador_restador.sv was successful.
+# Compile of unidad_aritmetica.sv was successful.
+# Compile of AND_.sv was successful.
+# Compile of LSHIFT_.sv was successful.
+# Compile of OR_.sv was successful.
+# Compile of RSHIFT_.sv was successful.
+# Compile of unidad_logica.sv was successful.
+# Compile of XOR_.sv was successful.
+# Compile of control_unit.sv was successful.
+# Compile of control_unit_tb.sv was successful.
+# Compile of alu_decoder.sv was successful.
+# Compile of conditional_logic.sv was successful.
+# Compile of main_decoder.sv was successful.
+# Compile of pc_logic.sv was successful.
+# 34 compiles, 0 failed with no errors.
+vlog -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 13:38:07 on Nov 24,2022
+# vlog -reportprogress 300 -work work -refresh -force_refresh 
+# -- Refreshing module ALU
+# -- Refreshing module alu_decoder
+# -- Refreshing module ALU_tb
+# -- Refreshing module AND_
+# -- Refreshing module conditional_logic
+# -- Refreshing module control_unit
+# -- Refreshing module control_unit_tb
+# -- Refreshing module D_FF
+# -- Refreshing module datapath
+# -- Refreshing module datapath_tb
+# -- Refreshing module divisor
+# -- Refreshing module imageRom
+# -- Refreshing module instruction_memory
+# -- Refreshing module InstructionDecoder
+# -- Refreshing module InstructionROM
+# -- Refreshing module LSHIFT_
+# -- Refreshing module main
+# -- Refreshing module main_decoder
+# -- Refreshing module main_tb
+# -- Refreshing module modulo
+# -- Refreshing module multiplicador
+# -- Refreshing module mux_2
+# -- Refreshing module mux_8
+# -- Refreshing module OR_
+# -- Refreshing module pc_logic
+# -- Refreshing module RAM
+# -- Refreshing module register_file
+# -- Refreshing module register_file_tb
+# -- Refreshing module RSHIFT_
+# -- Refreshing module sumador
+# -- Refreshing module sumador_completo
+# -- Refreshing module sumador_restador
+# -- Refreshing module unidad_aritmetica
+# -- Refreshing module unidad_logica
+# -- Refreshing module XOR_
+# End time: 13:38:07 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 13:38:07 on Nov 24,2022
+# vcom -reportprogress 300 -work work -refresh -force_refresh 
+# -- Skipping module ALU
+# -- Skipping module alu_decoder
+# -- Skipping module ALU_tb
+# -- Skipping module AND_
+# -- Skipping module conditional_logic
+# -- Skipping module control_unit
+# -- Skipping module control_unit_tb
+# -- Skipping module D_FF
+# -- Skipping module datapath
+# -- Skipping module datapath_tb
+# -- Skipping module divisor
+# -- Skipping module imageRom
+# -- Skipping module instruction_memory
+# -- Skipping module InstructionDecoder
+# -- Skipping module InstructionROM
+# -- Skipping module LSHIFT_
+# -- Skipping module main
+# -- Skipping module main_decoder
+# -- Skipping module main_tb
+# -- Skipping module modulo
+# -- Skipping module multiplicador
+# -- Skipping module mux_2
+# -- Skipping module mux_8
+# -- Skipping module OR_
+# -- Skipping module pc_logic
+# -- Skipping module RAM
+# -- Skipping module register_file
+# -- Skipping module register_file_tb
+# -- Skipping module RSHIFT_
+# -- Skipping module sumador
+# -- Skipping module sumador_completo
+# -- Skipping module sumador_restador
+# -- Skipping module unidad_aritmetica
+# -- Skipping module unidad_logica
+# -- Skipping module XOR_
+# End time: 13:38:08 on Nov 24,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.control_unit_tb(fast)
+# Loading work.control_unit(fast)
+# Loading work.main_decoder(fast)
+# Loading work.alu_decoder(fast)
+# Loading work.pc_logic(fast)
+# Loading work.conditional_logic(fast)
+# Loading work.D_FF(fast)
+run
+# Compile of ALU_tb.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of main_tb.sv was successful.
+# Compile of register_file_tb.sv was successful.
+# Compile of D_FF.sv was successful.
+# Compile of imageRom.sv was successful.
+# Compile of InstructionDecoder.sv was successful.
+# Compile of InstructionROM.sv was successful.
+# Compile of main.sv was successful.
+# Compile of mux_2.sv was successful.
+# Compile of mux_8.sv was successful.
+# Compile of RAM.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of divisor.sv was successful.
+# Compile of modulo.sv was successful.
+# Compile of multiplicador.sv was successful.
+# Compile of sumador.sv was successful.
+# Compile of sumador_completo.sv was successful.
+# Compile of sumador_restador.sv was successful.
+# Compile of unidad_aritmetica.sv was successful.
+# Compile of AND_.sv was successful.
+# Compile of LSHIFT_.sv was successful.
+# Compile of OR_.sv was successful.
+# Compile of RSHIFT_.sv was successful.
+# Compile of unidad_logica.sv was successful.
+# Compile of XOR_.sv was successful.
+# Compile of control_unit.sv was successful.
+# Compile of control_unit_tb.sv was successful.
+# Compile of alu_decoder.sv was successful.
+# Compile of conditional_logic.sv was successful.
+# Compile of main_decoder.sv was successful.
+# Compile of pc_logic.sv was successful.
+# 34 compiles, 0 failed with no errors.
+# Break key hit
+# Break in Module control_unit_tb at /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv line 45
+vlog -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 13:39:59 on Nov 24,2022
+# vlog -reportprogress 300 -work work -refresh -force_refresh 
+# -- Refreshing module ALU
+# -- Refreshing module alu_decoder
+# -- Refreshing module ALU_tb
+# -- Refreshing module AND_
+# -- Refreshing module conditional_logic
+# -- Refreshing module control_unit
+# -- Refreshing module control_unit_tb
+# -- Refreshing module D_FF
+# -- Refreshing module datapath
+# -- Refreshing module datapath_tb
+# -- Refreshing module divisor
+# -- Refreshing module imageRom
+# -- Refreshing module instruction_memory
+# -- Refreshing module InstructionDecoder
+# -- Refreshing module InstructionROM
+# -- Refreshing module LSHIFT_
+# -- Refreshing module main
+# -- Refreshing module main_decoder
+# -- Refreshing module main_tb
+# -- Refreshing module modulo
+# -- Refreshing module multiplicador
+# -- Refreshing module mux_2
+# -- Refreshing module mux_8
+# -- Refreshing module OR_
+# -- Refreshing module pc_logic
+# -- Refreshing module RAM
+# -- Refreshing module register_file
+# -- Refreshing module register_file_tb
+# -- Refreshing module RSHIFT_
+# -- Refreshing module sumador
+# -- Refreshing module sumador_completo
+# -- Refreshing module sumador_restador
+# -- Refreshing module unidad_aritmetica
+# -- Refreshing module unidad_logica
+# -- Refreshing module XOR_
+# End time: 13:39:59 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 13:39:59 on Nov 24,2022
+# vcom -reportprogress 300 -work work -refresh -force_refresh 
+# -- Skipping module ALU
+# -- Skipping module alu_decoder
+# -- Skipping module ALU_tb
+# -- Skipping module AND_
+# -- Skipping module conditional_logic
+# -- Skipping module control_unit
+# -- Skipping module control_unit_tb
+# -- Skipping module D_FF
+# -- Skipping module datapath
+# -- Skipping module datapath_tb
+# -- Skipping module divisor
+# -- Skipping module imageRom
+# -- Skipping module instruction_memory
+# -- Skipping module InstructionDecoder
+# -- Skipping module InstructionROM
+# -- Skipping module LSHIFT_
+# -- Skipping module main
+# -- Skipping module main_decoder
+# -- Skipping module main_tb
+# -- Skipping module modulo
+# -- Skipping module multiplicador
+# -- Skipping module mux_2
+# -- Skipping module mux_8
+# -- Skipping module OR_
+# -- Skipping module pc_logic
+# -- Skipping module RAM
+# -- Skipping module register_file
+# -- Skipping module register_file_tb
+# -- Skipping module RSHIFT_
+# -- Skipping module sumador
+# -- Skipping module sumador_completo
+# -- Skipping module sumador_restador
+# -- Skipping module unidad_aritmetica
+# -- Skipping module unidad_logica
+# -- Skipping module XOR_
+# End time: 13:39:59 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 13:40:02 on Nov 24,2022
+# vlog -reportprogress 300 -work work -refresh -force_refresh 
+# -- Refreshing module ALU
+# -- Refreshing module alu_decoder
+# -- Refreshing module ALU_tb
+# -- Refreshing module AND_
+# -- Refreshing module conditional_logic
+# -- Refreshing module control_unit
+# -- Refreshing module control_unit_tb
+# -- Refreshing module D_FF
+# -- Refreshing module datapath
+# -- Refreshing module datapath_tb
+# -- Refreshing module divisor
+# -- Refreshing module imageRom
+# -- Refreshing module instruction_memory
+# -- Refreshing module InstructionDecoder
+# -- Refreshing module InstructionROM
+# -- Refreshing module LSHIFT_
+# -- Refreshing module main
+# -- Refreshing module main_decoder
+# -- Refreshing module main_tb
+# -- Refreshing module modulo
+# -- Refreshing module multiplicador
+# -- Refreshing module mux_2
+# -- Refreshing module mux_8
+# -- Refreshing module OR_
+# -- Refreshing module pc_logic
+# -- Refreshing module RAM
+# -- Refreshing module register_file
+# -- Refreshing module register_file_tb
+# -- Refreshing module RSHIFT_
+# -- Refreshing module sumador
+# -- Refreshing module sumador_completo
+# -- Refreshing module sumador_restador
+# -- Refreshing module unidad_aritmetica
+# -- Refreshing module unidad_logica
+# -- Refreshing module XOR_
+# End time: 13:40:02 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 13:40:02 on Nov 24,2022
+# vcom -reportprogress 300 -work work -refresh -force_refresh 
+# -- Skipping module ALU
+# -- Skipping module alu_decoder
+# -- Skipping module ALU_tb
+# -- Skipping module AND_
+# -- Skipping module conditional_logic
+# -- Skipping module control_unit
+# -- Skipping module control_unit_tb
+# -- Skipping module D_FF
+# -- Skipping module datapath
+# -- Skipping module datapath_tb
+# -- Skipping module divisor
+# -- Skipping module imageRom
+# -- Skipping module instruction_memory
+# -- Skipping module InstructionDecoder
+# -- Skipping module InstructionROM
+# -- Skipping module LSHIFT_
+# -- Skipping module main
+# -- Skipping module main_decoder
+# -- Skipping module main_tb
+# -- Skipping module modulo
+# -- Skipping module multiplicador
+# -- Skipping module mux_2
+# -- Skipping module mux_8
+# -- Skipping module OR_
+# -- Skipping module pc_logic
+# -- Skipping module RAM
+# -- Skipping module register_file
+# -- Skipping module register_file_tb
+# -- Skipping module RSHIFT_
+# -- Skipping module sumador
+# -- Skipping module sumador_completo
+# -- Skipping module sumador_restador
+# -- Skipping module unidad_aritmetica
+# -- Skipping module unidad_logica
+# -- Skipping module XOR_
+# End time: 13:40:02 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.control_unit_tb(fast)
+# Loading work.control_unit(fast)
+# Loading work.main_decoder(fast)
+# Loading work.alu_decoder(fast)
+# Loading work.pc_logic(fast)
+# Loading work.conditional_logic(fast)
+# Loading work.D_FF(fast)
+run
+# Break key hit
+# Break in Module control_unit_tb at /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv line 49
+# Compile of ALU_tb.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of main_tb.sv was successful.
+# Compile of register_file_tb.sv was successful.
+# Compile of D_FF.sv was successful.
+# Compile of imageRom.sv was successful.
+# Compile of InstructionDecoder.sv was successful.
+# Compile of InstructionROM.sv was successful.
+# Compile of main.sv was successful.
+# Compile of mux_2.sv was successful.
+# Compile of mux_8.sv was successful.
+# Compile of RAM.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of divisor.sv was successful.
+# Compile of modulo.sv was successful.
+# Compile of multiplicador.sv was successful.
+# Compile of sumador.sv was successful.
+# Compile of sumador_completo.sv was successful.
+# Compile of sumador_restador.sv was successful.
+# Compile of unidad_aritmetica.sv was successful.
+# Compile of AND_.sv was successful.
+# Compile of LSHIFT_.sv was successful.
+# Compile of OR_.sv was successful.
+# Compile of RSHIFT_.sv was successful.
+# Compile of unidad_logica.sv was successful.
+# Compile of XOR_.sv was successful.
+# Compile of control_unit.sv was successful.
+# Compile of control_unit_tb.sv was successful.
+# Compile of alu_decoder.sv was successful.
+# Compile of conditional_logic.sv was successful.
+# Compile of main_decoder.sv was successful.
+# Compile of pc_logic.sv was successful.
+# 34 compiles, 0 failed with no errors.
+vlog -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 13:52:24 on Nov 24,2022
+# vlog -reportprogress 300 -work work -refresh -force_refresh 
+# -- Refreshing module ALU
+# -- Refreshing module alu_decoder
+# -- Refreshing module ALU_tb
+# -- Refreshing module AND_
+# -- Refreshing module conditional_logic
+# -- Refreshing module control_unit
+# -- Refreshing module control_unit_tb
+# -- Refreshing module D_FF
+# -- Refreshing module datapath
+# -- Refreshing module datapath_tb
+# -- Refreshing module divisor
+# -- Refreshing module imageRom
+# -- Refreshing module instruction_memory
+# -- Refreshing module InstructionDecoder
+# -- Refreshing module InstructionROM
+# -- Refreshing module LSHIFT_
+# -- Refreshing module main
+# -- Refreshing module main_decoder
+# -- Refreshing module main_tb
+# -- Refreshing module modulo
+# -- Refreshing module multiplicador
+# -- Refreshing module mux_2
+# -- Refreshing module mux_8
+# -- Refreshing module OR_
+# -- Refreshing module pc_logic
+# -- Refreshing module RAM
+# -- Refreshing module register_file
+# -- Refreshing module register_file_tb
+# -- Refreshing module RSHIFT_
+# -- Refreshing module sumador
+# -- Refreshing module sumador_completo
+# -- Refreshing module sumador_restador
+# -- Refreshing module unidad_aritmetica
+# -- Refreshing module unidad_logica
+# -- Refreshing module XOR_
+# End time: 13:52:24 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 13:52:24 on Nov 24,2022
+# vcom -reportprogress 300 -work work -refresh -force_refresh 
+# -- Skipping module ALU
+# -- Skipping module alu_decoder
+# -- Skipping module ALU_tb
+# -- Skipping module AND_
+# -- Skipping module conditional_logic
+# -- Skipping module control_unit
+# -- Skipping module control_unit_tb
+# -- Skipping module D_FF
+# -- Skipping module datapath
+# -- Skipping module datapath_tb
+# -- Skipping module divisor
+# -- Skipping module imageRom
+# -- Skipping module instruction_memory
+# -- Skipping module InstructionDecoder
+# -- Skipping module InstructionROM
+# -- Skipping module LSHIFT_
+# -- Skipping module main
+# -- Skipping module main_decoder
+# -- Skipping module main_tb
+# -- Skipping module modulo
+# -- Skipping module multiplicador
+# -- Skipping module mux_2
+# -- Skipping module mux_8
+# -- Skipping module OR_
+# -- Skipping module pc_logic
+# -- Skipping module RAM
+# -- Skipping module register_file
+# -- Skipping module register_file_tb
+# -- Skipping module RSHIFT_
+# -- Skipping module sumador
+# -- Skipping module sumador_completo
+# -- Skipping module sumador_restador
+# -- Skipping module unidad_aritmetica
+# -- Skipping module unidad_logica
+# -- Skipping module XOR_
+# End time: 13:52:24 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.control_unit_tb(fast)
+# Loading work.control_unit(fast)
+# Loading work.main_decoder(fast)
+# Loading work.alu_decoder(fast)
+# Loading work.pc_logic(fast)
+# Loading work.conditional_logic(fast)
+# Loading work.D_FF(fast)
+run
+run -all
+# ** Note: $stop    : /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv(46)
+#    Time: 210 ns  Iteration: 0  Instance: /control_unit_tb
+# Break in Module control_unit_tb at /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv line 46
+# Compile of ALU_tb.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of main_tb.sv was successful.
+# Compile of register_file_tb.sv was successful.
+# Compile of D_FF.sv was successful.
+# Compile of imageRom.sv was successful.
+# Compile of InstructionDecoder.sv was successful.
+# Compile of InstructionROM.sv was successful.
+# Compile of main.sv was successful.
+# Compile of mux_2.sv was successful.
+# Compile of mux_8.sv was successful.
+# Compile of RAM.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of divisor.sv was successful.
+# Compile of modulo.sv was successful.
+# Compile of multiplicador.sv was successful.
+# Compile of sumador.sv was successful.
+# Compile of sumador_completo.sv was successful.
+# Compile of sumador_restador.sv was successful.
+# Compile of unidad_aritmetica.sv was successful.
+# Compile of AND_.sv was successful.
+# Compile of LSHIFT_.sv was successful.
+# Compile of OR_.sv was successful.
+# Compile of RSHIFT_.sv was successful.
+# Compile of unidad_logica.sv was successful.
+# Compile of XOR_.sv was successful.
+# Compile of control_unit.sv was successful.
+# Compile of control_unit_tb.sv was successful.
+# Compile of alu_decoder.sv was successful.
+# Compile of conditional_logic.sv was successful.
+# Compile of main_decoder.sv was successful.
+# Compile of pc_logic.sv was successful.
+# 34 compiles, 0 failed with no errors.
+vlog -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 14:04:04 on Nov 24,2022
+# vlog -reportprogress 300 -work work -refresh -force_refresh 
+# -- Refreshing module ALU
+# -- Refreshing module alu_decoder
+# -- Refreshing module ALU_tb
+# -- Refreshing module AND_
+# -- Refreshing module conditional_logic
+# -- Refreshing module control_unit
+# -- Refreshing module control_unit_tb
+# -- Refreshing module D_FF
+# -- Refreshing module datapath
+# -- Refreshing module datapath_tb
+# -- Refreshing module divisor
+# -- Refreshing module imageRom
+# -- Refreshing module instruction_memory
+# -- Refreshing module InstructionDecoder
+# -- Refreshing module InstructionROM
+# -- Refreshing module LSHIFT_
+# -- Refreshing module main
+# -- Refreshing module main_decoder
+# -- Refreshing module main_tb
+# -- Refreshing module modulo
+# -- Refreshing module multiplicador
+# -- Refreshing module mux_2
+# -- Refreshing module mux_8
+# -- Refreshing module OR_
+# -- Refreshing module pc_logic
+# -- Refreshing module RAM
+# -- Refreshing module register_file
+# -- Refreshing module register_file_tb
+# -- Refreshing module RSHIFT_
+# -- Refreshing module sumador
+# -- Refreshing module sumador_completo
+# -- Refreshing module sumador_restador
+# -- Refreshing module unidad_aritmetica
+# -- Refreshing module unidad_logica
+# -- Refreshing module XOR_
+# End time: 14:04:04 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 14:04:04 on Nov 24,2022
+# vcom -reportprogress 300 -work work -refresh -force_refresh 
+# -- Skipping module ALU
+# -- Skipping module alu_decoder
+# -- Skipping module ALU_tb
+# -- Skipping module AND_
+# -- Skipping module conditional_logic
+# -- Skipping module control_unit
+# -- Skipping module control_unit_tb
+# -- Skipping module D_FF
+# -- Skipping module datapath
+# -- Skipping module datapath_tb
+# -- Skipping module divisor
+# -- Skipping module imageRom
+# -- Skipping module instruction_memory
+# -- Skipping module InstructionDecoder
+# -- Skipping module InstructionROM
+# -- Skipping module LSHIFT_
+# -- Skipping module main
+# -- Skipping module main_decoder
+# -- Skipping module main_tb
+# -- Skipping module modulo
+# -- Skipping module multiplicador
+# -- Skipping module mux_2
+# -- Skipping module mux_8
+# -- Skipping module OR_
+# -- Skipping module pc_logic
+# -- Skipping module RAM
+# -- Skipping module register_file
+# -- Skipping module register_file_tb
+# -- Skipping module RSHIFT_
+# -- Skipping module sumador
+# -- Skipping module sumador_completo
+# -- Skipping module sumador_restador
+# -- Skipping module unidad_aritmetica
+# -- Skipping module unidad_logica
+# -- Skipping module XOR_
+# End time: 14:04:05 on Nov 24,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.control_unit_tb(fast)
+# Loading work.control_unit(fast)
+# Loading work.main_decoder(fast)
+# Loading work.alu_decoder(fast)
+# Loading work.pc_logic(fast)
+# Loading work.conditional_logic(fast)
+# Loading work.D_FF(fast)
+run -all
+# ** Note: $stop    : /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv(68)
+#    Time: 130 ns  Iteration: 0  Instance: /control_unit_tb
+# Break in Module control_unit_tb at /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv line 68
+# Compile of ALU_tb.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of main_tb.sv was successful.
+# Compile of register_file_tb.sv was successful.
+# Compile of D_FF.sv was successful.
+# Compile of imageRom.sv was successful.
+# Compile of InstructionDecoder.sv was successful.
+# Compile of InstructionROM.sv was successful.
+# Compile of main.sv was successful.
+# Compile of mux_2.sv was successful.
+# Compile of mux_8.sv was successful.
+# Compile of RAM.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of divisor.sv was successful.
+# Compile of modulo.sv was successful.
+# Compile of multiplicador.sv was successful.
+# Compile of sumador.sv was successful.
+# Compile of sumador_completo.sv was successful.
+# Compile of sumador_restador.sv was successful.
+# Compile of unidad_aritmetica.sv was successful.
+# Compile of AND_.sv was successful.
+# Compile of LSHIFT_.sv was successful.
+# Compile of OR_.sv was successful.
+# Compile of RSHIFT_.sv was successful.
+# Compile of unidad_logica.sv was successful.
+# Compile of XOR_.sv was successful.
+# Compile of control_unit.sv was successful.
+# Compile of control_unit_tb.sv was successful.
+# Compile of alu_decoder.sv was successful.
+# Compile of conditional_logic.sv was successful.
+# Compile of main_decoder.sv was successful.
+# Compile of pc_logic.sv was successful.
+# 34 compiles, 0 failed with no errors.
+vlog -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 14:04:57 on Nov 24,2022
+# vlog -reportprogress 300 -work work -refresh -force_refresh 
+# -- Refreshing module ALU
+# -- Refreshing module alu_decoder
+# -- Refreshing module ALU_tb
+# -- Refreshing module AND_
+# -- Refreshing module conditional_logic
+# -- Refreshing module control_unit
+# -- Refreshing module control_unit_tb
+# -- Refreshing module D_FF
+# -- Refreshing module datapath
+# -- Refreshing module datapath_tb
+# -- Refreshing module divisor
+# -- Refreshing module imageRom
+# -- Refreshing module instruction_memory
+# -- Refreshing module InstructionDecoder
+# -- Refreshing module InstructionROM
+# -- Refreshing module LSHIFT_
+# -- Refreshing module main
+# -- Refreshing module main_decoder
+# -- Refreshing module main_tb
+# -- Refreshing module modulo
+# -- Refreshing module multiplicador
+# -- Refreshing module mux_2
+# -- Refreshing module mux_8
+# -- Refreshing module OR_
+# -- Refreshing module pc_logic
+# -- Refreshing module RAM
+# -- Refreshing module register_file
+# -- Refreshing module register_file_tb
+# -- Refreshing module RSHIFT_
+# -- Refreshing module sumador
+# -- Refreshing module sumador_completo
+# -- Refreshing module sumador_restador
+# -- Refreshing module unidad_aritmetica
+# -- Refreshing module unidad_logica
+# -- Refreshing module XOR_
+# End time: 14:04:57 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 14:04:57 on Nov 24,2022
+# vcom -reportprogress 300 -work work -refresh -force_refresh 
+# -- Skipping module ALU
+# -- Skipping module alu_decoder
+# -- Skipping module ALU_tb
+# -- Skipping module AND_
+# -- Skipping module conditional_logic
+# -- Skipping module control_unit
+# -- Skipping module control_unit_tb
+# -- Skipping module D_FF
+# -- Skipping module datapath
+# -- Skipping module datapath_tb
+# -- Skipping module divisor
+# -- Skipping module imageRom
+# -- Skipping module instruction_memory
+# -- Skipping module InstructionDecoder
+# -- Skipping module InstructionROM
+# -- Skipping module LSHIFT_
+# -- Skipping module main
+# -- Skipping module main_decoder
+# -- Skipping module main_tb
+# -- Skipping module modulo
+# -- Skipping module multiplicador
+# -- Skipping module mux_2
+# -- Skipping module mux_8
+# -- Skipping module OR_
+# -- Skipping module pc_logic
+# -- Skipping module RAM
+# -- Skipping module register_file
+# -- Skipping module register_file_tb
+# -- Skipping module RSHIFT_
+# -- Skipping module sumador
+# -- Skipping module sumador_completo
+# -- Skipping module sumador_restador
+# -- Skipping module unidad_aritmetica
+# -- Skipping module unidad_logica
+# -- Skipping module XOR_
+# End time: 14:04:58 on Nov 24,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+run -all
+# Break key hit
+# Simulation stop requested.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading work.control_unit_tb(fast)
+# Loading work.control_unit(fast)
+# Loading work.main_decoder(fast)
+# Loading work.alu_decoder(fast)
+# Loading work.pc_logic(fast)
+# Loading work.conditional_logic(fast)
+# Loading work.D_FF(fast)
+run
+run
+# ** Note: $stop    : /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv(68)
+#    Time: 130 ns  Iteration: 0  Instance: /control_unit_tb
+# Break in Module control_unit_tb at /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv line 68
+run
+add wave -position insertpoint  \
+sim:/control_unit_tb/dut/cond_logic/cond_ex
+add wave -position insertpoint  \
+sim:/control_unit_tb/dut/cond_logic/flags
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/custom_simulation/controlUnitWaves.do
+# Compile of ALU_tb.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of main_tb.sv was successful.
+# Compile of register_file_tb.sv was successful.
+# Compile of D_FF.sv was successful.
+# Compile of imageRom.sv was successful.
+# Compile of InstructionDecoder.sv was successful.
+# Compile of InstructionROM.sv was successful.
+# Compile of main.sv was successful.
+# Compile of mux_2.sv was successful.
+# Compile of mux_8.sv was successful.
+# Compile of RAM.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of divisor.sv was successful.
+# Compile of modulo.sv was successful.
+# Compile of multiplicador.sv was successful.
+# Compile of sumador.sv was successful.
+# Compile of sumador_completo.sv was successful.
+# Compile of sumador_restador.sv was successful.
+# Compile of unidad_aritmetica.sv was successful.
+# Compile of AND_.sv was successful.
+# Compile of LSHIFT_.sv was successful.
+# Compile of OR_.sv was successful.
+# Compile of RSHIFT_.sv was successful.
+# Compile of unidad_logica.sv was successful.
+# Compile of XOR_.sv was successful.
+# Compile of control_unit.sv was successful.
+# Compile of control_unit_tb.sv was successful.
+# Compile of alu_decoder.sv was successful.
+# Compile of conditional_logic.sv was successful.
+# Compile of main_decoder.sv was successful.
+# Compile of pc_logic.sv was successful.
+# 34 compiles, 0 failed with no errors.
+vlog -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 14:16:03 on Nov 24,2022
+# vlog -reportprogress 300 -work work -refresh -force_refresh 
+# -- Refreshing module ALU
+# -- Refreshing module alu_decoder
+# -- Refreshing module ALU_tb
+# -- Refreshing module AND_
+# -- Refreshing module conditional_logic
+# -- Refreshing module control_unit
+# -- Refreshing module control_unit_tb
+# -- Refreshing module D_FF
+# -- Refreshing module datapath
+# -- Refreshing module datapath_tb
+# -- Refreshing module divisor
+# -- Refreshing module imageRom
+# -- Refreshing module instruction_memory
+# -- Refreshing module InstructionDecoder
+# -- Refreshing module InstructionROM
+# -- Refreshing module LSHIFT_
+# -- Refreshing module main
+# -- Refreshing module main_decoder
+# -- Refreshing module main_tb
+# -- Refreshing module modulo
+# -- Refreshing module multiplicador
+# -- Refreshing module mux_2
+# -- Refreshing module mux_8
+# -- Refreshing module OR_
+# -- Refreshing module pc_logic
+# -- Refreshing module RAM
+# -- Refreshing module register_file
+# -- Refreshing module register_file_tb
+# -- Refreshing module RSHIFT_
+# -- Refreshing module sumador
+# -- Refreshing module sumador_completo
+# -- Refreshing module sumador_restador
+# -- Refreshing module unidad_aritmetica
+# -- Refreshing module unidad_logica
+# -- Refreshing module XOR_
+# End time: 14:16:03 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 14:16:03 on Nov 24,2022
+# vcom -reportprogress 300 -work work -refresh -force_refresh 
+# -- Skipping module ALU
+# -- Skipping module alu_decoder
+# -- Skipping module ALU_tb
+# -- Skipping module AND_
+# -- Skipping module conditional_logic
+# -- Skipping module control_unit
+# -- Skipping module control_unit_tb
+# -- Skipping module D_FF
+# -- Skipping module datapath
+# -- Skipping module datapath_tb
+# -- Skipping module divisor
+# -- Skipping module imageRom
+# -- Skipping module instruction_memory
+# -- Skipping module InstructionDecoder
+# -- Skipping module InstructionROM
+# -- Skipping module LSHIFT_
+# -- Skipping module main
+# -- Skipping module main_decoder
+# -- Skipping module main_tb
+# -- Skipping module modulo
+# -- Skipping module multiplicador
+# -- Skipping module mux_2
+# -- Skipping module mux_8
+# -- Skipping module OR_
+# -- Skipping module pc_logic
+# -- Skipping module RAM
+# -- Skipping module register_file
+# -- Skipping module register_file_tb
+# -- Skipping module RSHIFT_
+# -- Skipping module sumador
+# -- Skipping module sumador_completo
+# -- Skipping module sumador_restador
+# -- Skipping module unidad_aritmetica
+# -- Skipping module unidad_logica
+# -- Skipping module XOR_
+# End time: 14:16:03 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.control_unit_tb(fast)
+# Loading work.control_unit(fast)
+# Loading work.main_decoder(fast)
+# Loading work.alu_decoder(fast)
+# Loading work.pc_logic(fast)
+# Loading work.conditional_logic(fast)
+# Loading work.D_FF(fast)
+run -all
+# ** Note: $stop    : /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv(77)
+#    Time: 150 ns  Iteration: 0  Instance: /control_unit_tb
+# Break in Module control_unit_tb at /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv line 77
+add wave -position insertpoint  \
+sim:/control_unit_tb/dut/flag_w
+# Compile of ALU_tb.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of main_tb.sv was successful.
+# Compile of register_file_tb.sv was successful.
+# Compile of D_FF.sv was successful.
+# Compile of imageRom.sv was successful.
+# Compile of InstructionDecoder.sv was successful.
+# Compile of InstructionROM.sv was successful.
+# Compile of main.sv was successful.
+# Compile of mux_2.sv was successful.
+# Compile of mux_8.sv was successful.
+# Compile of RAM.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of divisor.sv was successful.
+# Compile of modulo.sv was successful.
+# Compile of multiplicador.sv was successful.
+# Compile of sumador.sv was successful.
+# Compile of sumador_completo.sv was successful.
+# Compile of sumador_restador.sv was successful.
+# Compile of unidad_aritmetica.sv was successful.
+# Compile of AND_.sv was successful.
+# Compile of LSHIFT_.sv was successful.
+# Compile of OR_.sv was successful.
+# Compile of RSHIFT_.sv was successful.
+# Compile of unidad_logica.sv was successful.
+# Compile of XOR_.sv was successful.
+# Compile of control_unit.sv was successful.
+# Compile of control_unit_tb.sv was successful.
+# Compile of alu_decoder.sv was successful.
+# Compile of conditional_logic.sv was successful.
+# Compile of main_decoder.sv was successful.
+# Compile of pc_logic.sv was successful.
+# 34 compiles, 0 failed with no errors.
+# Compile of ALU_tb.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of main_tb.sv was successful.
+# Compile of register_file_tb.sv was successful.
+# Compile of D_FF.sv was successful.
+# Compile of imageRom.sv was successful.
+# Compile of InstructionDecoder.sv was successful.
+# Compile of InstructionROM.sv was successful.
+# Compile of main.sv was successful.
+# Compile of mux_2.sv was successful.
+# Compile of mux_8.sv was successful.
+# Compile of RAM.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of divisor.sv was successful.
+# Compile of modulo.sv was successful.
+# Compile of multiplicador.sv was successful.
+# Compile of sumador.sv was successful.
+# Compile of sumador_completo.sv was successful.
+# Compile of sumador_restador.sv was successful.
+# Compile of unidad_aritmetica.sv was successful.
+# Compile of AND_.sv was successful.
+# Compile of LSHIFT_.sv was successful.
+# Compile of OR_.sv was successful.
+# Compile of RSHIFT_.sv was successful.
+# Compile of unidad_logica.sv was successful.
+# Compile of XOR_.sv was successful.
+# Compile of control_unit.sv was successful.
+# Compile of control_unit_tb.sv was successful.
+# Compile of alu_decoder.sv was successful.
+# Compile of conditional_logic.sv was successful.
+# Compile of main_decoder.sv was successful.
+# Compile of pc_logic.sv was successful.
+# 34 compiles, 0 failed with no errors.
+vlog -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 14:29:34 on Nov 24,2022
+# vlog -reportprogress 300 -work work -refresh -force_refresh 
+# -- Refreshing module ALU
+# -- Refreshing module alu_decoder
+# -- Refreshing module ALU_tb
+# -- Refreshing module AND_
+# -- Refreshing module conditional_logic
+# -- Refreshing module control_unit
+# -- Refreshing module control_unit_tb
+# -- Refreshing module D_FF
+# -- Refreshing module datapath
+# -- Refreshing module datapath_tb
+# -- Refreshing module divisor
+# -- Refreshing module imageRom
+# -- Refreshing module instruction_memory
+# -- Refreshing module InstructionDecoder
+# -- Refreshing module InstructionROM
+# -- Refreshing module LSHIFT_
+# -- Refreshing module main
+# -- Refreshing module main_decoder
+# -- Refreshing module main_tb
+# -- Refreshing module modulo
+# -- Refreshing module multiplicador
+# -- Refreshing module mux_2
+# -- Refreshing module mux_8
+# -- Refreshing module OR_
+# -- Refreshing module pc_logic
+# -- Refreshing module RAM
+# -- Refreshing module register_file
+# -- Refreshing module register_file_tb
+# -- Refreshing module RSHIFT_
+# -- Refreshing module sumador
+# -- Refreshing module sumador_completo
+# -- Refreshing module sumador_restador
+# -- Refreshing module unidad_aritmetica
+# -- Refreshing module unidad_logica
+# -- Refreshing module XOR_
+# End time: 14:29:34 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 14:29:34 on Nov 24,2022
+# vcom -reportprogress 300 -work work -refresh -force_refresh 
+# -- Skipping module ALU
+# -- Skipping module alu_decoder
+# -- Skipping module ALU_tb
+# -- Skipping module AND_
+# -- Skipping module conditional_logic
+# -- Skipping module control_unit
+# -- Skipping module control_unit_tb
+# -- Skipping module D_FF
+# -- Skipping module datapath
+# -- Skipping module datapath_tb
+# -- Skipping module divisor
+# -- Skipping module imageRom
+# -- Skipping module instruction_memory
+# -- Skipping module InstructionDecoder
+# -- Skipping module InstructionROM
+# -- Skipping module LSHIFT_
+# -- Skipping module main
+# -- Skipping module main_decoder
+# -- Skipping module main_tb
+# -- Skipping module modulo
+# -- Skipping module multiplicador
+# -- Skipping module mux_2
+# -- Skipping module mux_8
+# -- Skipping module OR_
+# -- Skipping module pc_logic
+# -- Skipping module RAM
+# -- Skipping module register_file
+# -- Skipping module register_file_tb
+# -- Skipping module RSHIFT_
+# -- Skipping module sumador
+# -- Skipping module sumador_completo
+# -- Skipping module sumador_restador
+# -- Skipping module unidad_aritmetica
+# -- Skipping module unidad_logica
+# -- Skipping module XOR_
+# End time: 14:29:34 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.control_unit_tb(fast)
+# Loading work.control_unit(fast)
+# Loading work.main_decoder(fast)
+# Loading work.alu_decoder(fast)
+# Loading work.pc_logic(fast)
+# Loading work.conditional_logic(fast)
+# Loading work.D_FF(fast)
+run -all
+# ** Note: $stop    : /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv(83)
+#    Time: 150 ns  Iteration: 0  Instance: /control_unit_tb
+# Break in Module control_unit_tb at /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv line 83
+add wave -position insertpoint  \
+sim:/control_unit_tb/dut/clk
+# Compile of ALU_tb.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of main_tb.sv was successful.
+# Compile of register_file_tb.sv was successful.
+# Compile of D_FF.sv was successful.
+# Compile of imageRom.sv was successful.
+# Compile of InstructionDecoder.sv was successful.
+# Compile of InstructionROM.sv was successful.
+# Compile of main.sv was successful.
+# Compile of mux_2.sv was successful.
+# Compile of mux_8.sv was successful.
+# Compile of RAM.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of divisor.sv was successful.
+# Compile of modulo.sv was successful.
+# Compile of multiplicador.sv was successful.
+# Compile of sumador.sv was successful.
+# Compile of sumador_completo.sv was successful.
+# Compile of sumador_restador.sv was successful.
+# Compile of unidad_aritmetica.sv was successful.
+# Compile of AND_.sv was successful.
+# Compile of LSHIFT_.sv was successful.
+# Compile of OR_.sv was successful.
+# Compile of RSHIFT_.sv was successful.
+# Compile of unidad_logica.sv was successful.
+# Compile of XOR_.sv was successful.
+# Compile of control_unit.sv was successful.
+# Compile of control_unit_tb.sv was successful.
+# Compile of alu_decoder.sv was successful.
+# Compile of conditional_logic.sv was successful.
+# Compile of main_decoder.sv was successful.
+# Compile of pc_logic.sv was successful.
+# 34 compiles, 0 failed with no errors.
+vlog -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 14:44:11 on Nov 24,2022
+# vlog -reportprogress 300 -work work -refresh -force_refresh 
+# -- Refreshing module ALU
+# -- Refreshing module alu_decoder
+# -- Refreshing module ALU_tb
+# -- Refreshing module AND_
+# -- Refreshing module conditional_logic
+# -- Refreshing module control_unit
+# -- Refreshing module control_unit_tb
+# -- Refreshing module D_FF
+# -- Refreshing module datapath
+# -- Refreshing module datapath_tb
+# -- Refreshing module divisor
+# -- Refreshing module imageRom
+# -- Refreshing module instruction_memory
+# -- Refreshing module InstructionDecoder
+# -- Refreshing module InstructionROM
+# -- Refreshing module LSHIFT_
+# -- Refreshing module main
+# -- Refreshing module main_decoder
+# -- Refreshing module main_tb
+# -- Refreshing module modulo
+# -- Refreshing module multiplicador
+# -- Refreshing module mux_2
+# -- Refreshing module mux_8
+# -- Refreshing module OR_
+# -- Refreshing module pc_logic
+# -- Refreshing module RAM
+# -- Refreshing module register_file
+# -- Refreshing module register_file_tb
+# -- Refreshing module RSHIFT_
+# -- Refreshing module sumador
+# -- Refreshing module sumador_completo
+# -- Refreshing module sumador_restador
+# -- Refreshing module unidad_aritmetica
+# -- Refreshing module unidad_logica
+# -- Refreshing module XOR_
+# End time: 14:44:11 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 14:44:11 on Nov 24,2022
+# vcom -reportprogress 300 -work work -refresh -force_refresh 
+# -- Skipping module ALU
+# -- Skipping module alu_decoder
+# -- Skipping module ALU_tb
+# -- Skipping module AND_
+# -- Skipping module conditional_logic
+# -- Skipping module control_unit
+# -- Skipping module control_unit_tb
+# -- Skipping module D_FF
+# -- Skipping module datapath
+# -- Skipping module datapath_tb
+# -- Skipping module divisor
+# -- Skipping module imageRom
+# -- Skipping module instruction_memory
+# -- Skipping module InstructionDecoder
+# -- Skipping module InstructionROM
+# -- Skipping module LSHIFT_
+# -- Skipping module main
+# -- Skipping module main_decoder
+# -- Skipping module main_tb
+# -- Skipping module modulo
+# -- Skipping module multiplicador
+# -- Skipping module mux_2
+# -- Skipping module mux_8
+# -- Skipping module OR_
+# -- Skipping module pc_logic
+# -- Skipping module RAM
+# -- Skipping module register_file
+# -- Skipping module register_file_tb
+# -- Skipping module RSHIFT_
+# -- Skipping module sumador
+# -- Skipping module sumador_completo
+# -- Skipping module sumador_restador
+# -- Skipping module unidad_aritmetica
+# -- Skipping module unidad_logica
+# -- Skipping module XOR_
+# End time: 14:44:11 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+run -all
+# Break key hit
+# Break in Module control_unit_tb at /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv line 86
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.control_unit_tb(fast)
+# Loading work.control_unit(fast)
+# Loading work.main_decoder(fast)
+# Loading work.alu_decoder(fast)
+# Loading work.pc_logic(fast)
+# Loading work.conditional_logic(fast)
+# Loading work.D_FF(fast)
+restart -f
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading work.control_unit_tb(fast)
+# Loading work.control_unit(fast)
+# Loading work.main_decoder(fast)
+# Loading work.alu_decoder(fast)
+# Loading work.pc_logic(fast)
+# Loading work.conditional_logic(fast)
+# Loading work.D_FF(fast)
+run -all
+# ** Note: $stop    : /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv(90)
+#    Time: 190 ns  Iteration: 0  Instance: /control_unit_tb
+# Break in Module control_unit_tb at /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv line 90
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/custom_simulation/controlUnitWaves.do
+quit -sim
+# End time: 17:10:37 on Nov 24,2022, Elapsed time: 3:42:43
+# Errors: 0, Warnings: 2
+# Compile of ALU_tb.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of main_tb.sv was successful.
+# Compile of register_file_tb.sv was successful.
+# Compile of D_FF.sv was successful.
+# Compile of imageRom.sv was successful.
+# Compile of InstructionDecoder.sv was successful.
+# Compile of InstructionROM.sv was successful.
+# Compile of main.sv failed with 1 errors.
+# Compile of mux_2.sv was successful.
+# Compile of mux_8.sv was successful.
+# Compile of RAM.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of divisor.sv was successful.
+# Compile of modulo.sv was successful.
+# Compile of multiplicador.sv was successful.
+# Compile of sumador.sv was successful.
+# Compile of sumador_completo.sv was successful.
+# Compile of sumador_restador.sv was successful.
+# Compile of unidad_aritmetica.sv was successful.
+# Compile of AND_.sv was successful.
+# Compile of LSHIFT_.sv was successful.
+# Compile of OR_.sv was successful.
+# Compile of RSHIFT_.sv was successful.
+# Compile of unidad_logica.sv was successful.
+# Compile of XOR_.sv was successful.
+# Compile of control_unit.sv was successful.
+# Compile of control_unit_tb.sv was successful.
+# Compile of alu_decoder.sv was successful.
+# Compile of conditional_logic.sv was successful.
+# Compile of main_decoder.sv was successful.
+# Compile of pc_logic.sv was successful.
+# 34 compiles, 1 failed with 1 error.
+vlog -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 17:12:43 on Nov 24,2022
+# vlog -reportprogress 300 -work work -refresh -force_refresh 
+# -- Refreshing module ALU
+# -- Refreshing module alu_decoder
+# -- Refreshing module ALU_tb
+# -- Refreshing module AND_
+# -- Refreshing module conditional_logic
+# -- Refreshing module control_unit
+# -- Refreshing module control_unit_tb
+# -- Refreshing module D_FF
+# -- Refreshing module datapath
+# -- Refreshing module datapath_tb
+# -- Refreshing module divisor
+# -- Refreshing module imageRom
+# -- Refreshing module instruction_memory
+# -- Refreshing module InstructionDecoder
+# -- Refreshing module InstructionROM
+# -- Refreshing module LSHIFT_
+# -- Refreshing module main
+# -- Refreshing module main_decoder
+# -- Refreshing module main_tb
+# -- Refreshing module modulo
+# -- Refreshing module multiplicador
+# -- Refreshing module mux_2
+# -- Refreshing module mux_8
+# -- Refreshing module OR_
+# -- Refreshing module pc_logic
+# -- Refreshing module RAM
+# -- Refreshing module register_file
+# -- Refreshing module register_file_tb
+# -- Refreshing module RSHIFT_
+# -- Refreshing module sumador
+# -- Refreshing module sumador_completo
+# -- Refreshing module sumador_restador
+# -- Refreshing module unidad_aritmetica
+# -- Refreshing module unidad_logica
+# -- Refreshing module XOR_
+# End time: 17:12:43 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 17:12:44 on Nov 24,2022
+# vcom -reportprogress 300 -work work -refresh -force_refresh 
+# -- Skipping module ALU
+# -- Skipping module alu_decoder
+# -- Skipping module ALU_tb
+# -- Skipping module AND_
+# -- Skipping module conditional_logic
+# -- Skipping module control_unit
+# -- Skipping module control_unit_tb
+# -- Skipping module D_FF
+# -- Skipping module datapath
+# -- Skipping module datapath_tb
+# -- Skipping module divisor
+# -- Skipping module imageRom
+# -- Skipping module instruction_memory
+# -- Skipping module InstructionDecoder
+# -- Skipping module InstructionROM
+# -- Skipping module LSHIFT_
+# -- Skipping module main
+# -- Skipping module main_decoder
+# -- Skipping module main_tb
+# -- Skipping module modulo
+# -- Skipping module multiplicador
+# -- Skipping module mux_2
+# -- Skipping module mux_8
+# -- Skipping module OR_
+# -- Skipping module pc_logic
+# -- Skipping module RAM
+# -- Skipping module register_file
+# -- Skipping module register_file_tb
+# -- Skipping module RSHIFT_
+# -- Skipping module sumador
+# -- Skipping module sumador_completo
+# -- Skipping module sumador_restador
+# -- Skipping module unidad_aritmetica
+# -- Skipping module unidad_logica
+# -- Skipping module XOR_
+# End time: 17:12:44 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -voptargs=+acc work.main_tb
+# vsim -voptargs="+acc" work.main_tb 
+# Start time: 17:12:59 on Nov 24,2022
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading sv_std.std
+# Loading work.main_tb(fast)
+# Loading work.main(fast)
+quit -sim
+# End time: 17:13:15 on Nov 24,2022, Elapsed time: 0:00:16
+# Errors: 0, Warnings: 2
+# Compile of ALU_tb.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of main_tb.sv was successful.
+# Compile of register_file_tb.sv was successful.
+# Compile of D_FF.sv was successful.
+# Compile of imageRom.sv was successful.
+# Compile of InstructionDecoder.sv was successful.
+# Compile of InstructionROM.sv was successful.
+# Compile of main.sv was successful.
+# Compile of mux_2.sv was successful.
+# Compile of mux_8.sv was successful.
+# Compile of RAM.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of divisor.sv was successful.
+# Compile of modulo.sv was successful.
+# Compile of multiplicador.sv was successful.
+# Compile of sumador.sv was successful.
+# Compile of sumador_completo.sv was successful.
+# Compile of sumador_restador.sv was successful.
+# Compile of unidad_aritmetica.sv was successful.
+# Compile of AND_.sv was successful.
+# Compile of LSHIFT_.sv was successful.
+# Compile of OR_.sv was successful.
+# Compile of RSHIFT_.sv was successful.
+# Compile of unidad_logica.sv was successful.
+# Compile of XOR_.sv was successful.
+# Compile of control_unit.sv was successful.
+# Compile of control_unit_tb.sv was successful.
+# Compile of alu_decoder.sv was successful.
+# Compile of conditional_logic.sv was successful.
+# Compile of main_decoder.sv was successful.
+# Compile of pc_logic.sv was successful.
+# 34 compiles, 0 failed with no errors.
+vlog -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 17:13:28 on Nov 24,2022
+# vlog -reportprogress 300 -work work -refresh -force_refresh 
+# -- Refreshing module ALU
+# -- Refreshing module alu_decoder
+# -- Refreshing module ALU_tb
+# -- Refreshing module AND_
+# -- Refreshing module conditional_logic
+# -- Refreshing module control_unit
+# -- Refreshing module control_unit_tb
+# -- Refreshing module D_FF
+# -- Refreshing module datapath
+# -- Refreshing module datapath_tb
+# -- Refreshing module divisor
+# -- Refreshing module imageRom
+# -- Refreshing module instruction_memory
+# -- Refreshing module InstructionDecoder
+# -- Refreshing module InstructionROM
+# -- Refreshing module LSHIFT_
+# -- Refreshing module main
+# -- Refreshing module main_decoder
+# -- Refreshing module main_tb
+# -- Refreshing module modulo
+# -- Refreshing module multiplicador
+# -- Refreshing module mux_2
+# -- Refreshing module mux_8
+# -- Refreshing module OR_
+# -- Refreshing module pc_logic
+# -- Refreshing module RAM
+# -- Refreshing module register_file
+# -- Refreshing module register_file_tb
+# -- Refreshing module RSHIFT_
+# -- Refreshing module sumador
+# -- Refreshing module sumador_completo
+# -- Refreshing module sumador_restador
+# -- Refreshing module unidad_aritmetica
+# -- Refreshing module unidad_logica
+# -- Refreshing module XOR_
+# End time: 17:13:28 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 17:13:28 on Nov 24,2022
+# vcom -reportprogress 300 -work work -refresh -force_refresh 
+# -- Skipping module ALU
+# -- Skipping module alu_decoder
+# -- Skipping module ALU_tb
+# -- Skipping module AND_
+# -- Skipping module conditional_logic
+# -- Skipping module control_unit
+# -- Skipping module control_unit_tb
+# -- Skipping module D_FF
+# -- Skipping module datapath
+# -- Skipping module datapath_tb
+# -- Skipping module divisor
+# -- Skipping module imageRom
+# -- Skipping module instruction_memory
+# -- Skipping module InstructionDecoder
+# -- Skipping module InstructionROM
+# -- Skipping module LSHIFT_
+# -- Skipping module main
+# -- Skipping module main_decoder
+# -- Skipping module main_tb
+# -- Skipping module modulo
+# -- Skipping module multiplicador
+# -- Skipping module mux_2
+# -- Skipping module mux_8
+# -- Skipping module OR_
+# -- Skipping module pc_logic
+# -- Skipping module RAM
+# -- Skipping module register_file
+# -- Skipping module register_file_tb
+# -- Skipping module RSHIFT_
+# -- Skipping module sumador
+# -- Skipping module sumador_completo
+# -- Skipping module sumador_restador
+# -- Skipping module unidad_aritmetica
+# -- Skipping module unidad_logica
+# -- Skipping module XOR_
+# End time: 17:13:28 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -voptargs=+acc work.main_tb
+# vsim -voptargs="+acc" work.main_tb 
+# Start time: 17:13:33 on Nov 24,2022
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.main_tb(fast)
+# Loading work.main(fast)
+# Loading work.control_unit(fast)
+# Loading work.main_decoder(fast)
+# Loading work.alu_decoder(fast)
+# Loading work.pc_logic(fast)
+# Loading work.conditional_logic(fast)
+# Loading work.D_FF(fast)
+# Loading work.datapath(fast)
+# Loading work.D_FF(fast__1)
+# Loading work.InstructionROM(fast)
+# Loading work.InstructionDecoder(fast)
+# Loading work.mux_2(fast)
+# Loading work.register_file(fast)
+# Loading work.mux_2(fast__1)
+# Loading work.ALU(fast)
+# Loading work.unidad_aritmetica(fast)
+# Loading work.sumador_restador(fast)
+# Loading work.sumador(fast)
+# Loading work.sumador_completo(fast)
+# Loading work.multiplicador(fast)
+# Loading work.divisor(fast)
+# Loading work.modulo(fast)
+# Loading work.mux_8(fast)
+# Loading work.mux_8(fast__1)
+# Loading work.unidad_logica(fast)
+# Loading work.AND_(fast)
+# Loading work.OR_(fast)
+# Loading work.XOR_(fast)
+# Loading work.LSHIFT_(fast)
+# Loading work.RSHIFT_(fast)
+# Loading work.RAM(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E3'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E4'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E5'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E6'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E7'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E3'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E4'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E5'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E6'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E7'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'E5'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UL/op_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv Line: 45
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'E6'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UL/op_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv Line: 45
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'E7'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UL/op_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv Line: 45
+add wave -position insertpoint  \
+sim:/main_tb/dut/rst \
+sim:/main_tb/dut/reg_write \
+sim:/main_tb/dut/reg_src \
+sim:/main_tb/dut/rd \
+sim:/main_tb/dut/pc_src \
+sim:/main_tb/dut/op \
+sim:/main_tb/dut/mem_write \
+sim:/main_tb/dut/mem_to_reg \
+sim:/main_tb/dut/funct \
+sim:/main_tb/dut/cond \
+sim:/main_tb/dut/clk \
+sim:/main_tb/dut/alu_src \
+sim:/main_tb/dut/alu_flags \
+sim:/main_tb/dut/alu_control
+# Can't move the Now cursor.
+# Can't move the Now cursor.
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/custom_simulation/mainWaves.do
+run -all
+# ** Warning: (vsim-PLI-3407) Too many data words read on line 68 of file "/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/memory_files/instructions.mem". (Current address [256], address range [0:255])    : /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/InstructionROM.sv(7)
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/inst_mem
+# ** Note: $stop    : /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/main_tb.sv(23)
+#    Time: 170 ns  Iteration: 0  Instance: /main_tb
+# Break in Module main_tb at /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/main_tb.sv line 23
+onerror {resume}
+#  Warning: onerror command for use within macro
+quietly WaveActivateNextPane {} 0
+add wave -noupdate /datapath_tb/dut/clk
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/clk'.
+add wave -noupdate /datapath_tb/dut/rst
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/rst'.
+add wave -noupdate /datapath_tb/dut/inst_mem/memory
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/inst_mem/memory'.
+add wave -noupdate /datapath_tb/dut/data_mem/memory
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/data_mem/memory'.
+add wave -noupdate /datapath_tb/dut/reg_file/registers
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/reg_file/registers'.
+add wave -noupdate /datapath_tb/dut/pc_src
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/pc_src'.
+add wave -noupdate /datapath_tb/dut/mem_to_reg
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/mem_to_reg'.
+add wave -noupdate /datapath_tb/dut/mem_write
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/mem_write'.
+add wave -noupdate /datapath_tb/dut/alu_control
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/alu_control'.
+add wave -noupdate /datapath_tb/dut/alu_src
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/alu_src'.
+add wave -noupdate /datapath_tb/dut/reg_write
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/reg_write'.
+add wave -noupdate /datapath_tb/dut/reg_src
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/reg_src'.
+add wave -noupdate /datapath_tb/dut/pc
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/pc'.
+add wave -noupdate /datapath_tb/dut/pc_next
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/pc_next'.
+add wave -noupdate /datapath_tb/dut/instruction
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/instruction'.
+add wave -noupdate /datapath_tb/dut/rn
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/rn'.
+add wave -noupdate /datapath_tb/dut/rm
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/rm'.
+add wave -noupdate /datapath_tb/dut/rd
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/rd'.
+add wave -noupdate /datapath_tb/dut/reg_addr_1
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/reg_addr_1'.
+add wave -noupdate /datapath_tb/dut/reg_addr_2
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/reg_addr_2'.
+add wave -noupdate /datapath_tb/dut/reg_data_1
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/reg_data_1'.
+add wave -noupdate /datapath_tb/dut/reg_data_2
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/reg_data_2'.
+add wave -noupdate /datapath_tb/dut/immediate
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/immediate'.
+add wave -noupdate /datapath_tb/dut/alu_src_b
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/alu_src_b'.
+add wave -noupdate /datapath_tb/dut/alu_result
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/alu_result'.
+add wave -noupdate /datapath_tb/dut/result
+# ** UI-Msg: (vish-4014) No objects found matching '/datapath_tb/dut/result'.
+TreeUpdate [SetDefaultTree]
+WaveRestoreCursors {{Cursor 1} {283 ns} 0}
+quietly wave cursor active 1
+configure wave -namecolwidth 294
+configure wave -valuecolwidth 100
+configure wave -justifyvalue left
+configure wave -signalnamewidth 0
+configure wave -snapdistance 10
+configure wave -datasetprefix 0
+configure wave -rowmargin 4
+configure wave -childrowmargin 2
+configure wave -gridoffset 0
+configure wave -gridperiod 1
+configure wave -griddelta 40
+configure wave -timeline 0
+configure wave -timelineunits ns
+update
+WaveRestoreZoom {0 ns} {345 ns}
+
+onerror {resume}
+#  Warning: onerror command for use within macro
+quietly WaveActivateNextPane {} 0
+add wave -noupdate /main_tb/dut/clk
+add wave -noupdate /main_tb/dut/rst
+add wave -noupdate /main_tb/dut/cond
+add wave -noupdate /main_tb/dut/op
+add wave -noupdate /main_tb/dut/funct
+add wave -noupdate /main_tb/dut/rd
+add wave -noupdate /main_tb/dut/alu_flags
+add wave -noupdate /main_tb/dut/pc_src
+add wave -noupdate /main_tb/dut/mem_to_reg
+add wave -noupdate /main_tb/dut/mem_write
+add wave -noupdate /main_tb/dut/alu_control
+add wave -noupdate /main_tb/dut/alu_src
+add wave -noupdate /main_tb/dut/reg_write
+add wave -noupdate /main_tb/dut/reg_src
+TreeUpdate [SetDefaultTree]
+WaveRestoreCursors {{Cursor 1} {0 ns} 0}
+quietly wave cursor active 0
+configure wave -namecolwidth 219
+configure wave -valuecolwidth 100
+configure wave -justifyvalue left
+configure wave -signalnamewidth 0
+configure wave -snapdistance 10
+configure wave -datasetprefix 0
+configure wave -rowmargin 4
+configure wave -childrowmargin 2
+configure wave -gridoffset 0
+configure wave -gridperiod 1
+configure wave -griddelta 40
+configure wave -timeline 0
+configure wave -timelineunits ns
+update
+WaveRestoreZoom {0 ns} {1039 ns}
+
+onerror {resume}
+#  Warning: onerror command for use within macro
+quietly WaveActivateNextPane {} 0
+add wave -noupdate /main_tb/dut/clk
+add wave -noupdate /main_tb/dut/rst
+add wave -noupdate /main_tb/dut/cond
+add wave -noupdate /main_tb/dut/op
+add wave -noupdate /main_tb/dut/funct
+add wave -noupdate /main_tb/dut/rd
+add wave -noupdate /main_tb/dut/alu_flags
+add wave -noupdate /main_tb/dut/pc_src
+add wave -noupdate /main_tb/dut/mem_to_reg
+add wave -noupdate /main_tb/dut/mem_write
+add wave -noupdate /main_tb/dut/alu_control
+add wave -noupdate /main_tb/dut/alu_src
+add wave -noupdate /main_tb/dut/reg_write
+add wave -noupdate /main_tb/dut/reg_src
+TreeUpdate [SetDefaultTree]
+WaveRestoreCursors {{Cursor 1} {0 ns} 0}
+quietly wave cursor active 0
+configure wave -namecolwidth 219
+configure wave -valuecolwidth 100
+configure wave -justifyvalue left
+configure wave -signalnamewidth 0
+configure wave -snapdistance 10
+configure wave -datasetprefix 0
+configure wave -rowmargin 4
+configure wave -childrowmargin 2
+configure wave -gridoffset 0
+configure wave -gridperiod 1
+configure wave -griddelta 40
+configure wave -timeline 0
+configure wave -timelineunits ns
+update
+WaveRestoreZoom {0 ns} {1039 ns}
+
+add wave -position insertpoint sim:/main_tb/dut/datapath/reg_file/*
+add wave -position insertpoint  \
+sim:/main_tb/dut/datapath/reg_file/registers
+add wave -position insertpoint  \
+sim:/main_tb/dut/datapath/inst_mem/memory
+add wave -position insertpoint  \
+sim:/main_tb/dut/datapath/data_mem/memory
+add wave -position insertpoint  \
+sim:/main_tb/dut/datapath/pc
+add wave -position insertpoint  \
+sim:/main_tb/dut/datapath/pc_next
+add wave -position insertpoint  \
+sim:/main_tb/dut/datapath/reg_addr_1
+add wave -position insertpoint  \
+sim:/main_tb/dut/datapath/reg_addr_2
+add wave -position insertpoint  \
+sim:/main_tb/dut/datapath/reg_data_1
+add wave -position insertpoint  \
+sim:/main_tb/dut/datapath/reg_data_2
+add wave -position insertpoint  \
+sim:/main_tb/dut/datapath/immediate
+add wave -position insertpoint  \
+sim:/main_tb/dut/datapath/alu_result
+add wave -position insertpoint  \
+sim:/main_tb/dut/datapath/result
+add wave -position insertpoint  \
+sim:/main_tb/dut/datapath/rn
+add wave -position insertpoint  \
+sim:/main_tb/dut/datapath/rm
+add wave -position insertpoint  \
+sim:/main_tb/dut/datapath/rd
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/custom_simulation/mainWaves.do
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.main_tb(fast)
+# Loading work.main(fast)
+# Loading work.control_unit(fast)
+# Loading work.main_decoder(fast)
+# Loading work.alu_decoder(fast)
+# Loading work.pc_logic(fast)
+# Loading work.conditional_logic(fast)
+# Loading work.D_FF(fast)
+# Loading work.datapath(fast)
+# Loading work.D_FF(fast__1)
+# Loading work.InstructionROM(fast)
+# Loading work.InstructionDecoder(fast)
+# Loading work.mux_2(fast)
+# Loading work.register_file(fast)
+# Loading work.mux_2(fast__1)
+# Loading work.ALU(fast)
+# Loading work.unidad_aritmetica(fast)
+# Loading work.sumador_restador(fast)
+# Loading work.sumador(fast)
+# Loading work.sumador_completo(fast)
+# Loading work.multiplicador(fast)
+# Loading work.divisor(fast)
+# Loading work.modulo(fast)
+# Loading work.mux_8(fast)
+# Loading work.mux_8(fast__1)
+# Loading work.unidad_logica(fast)
+# Loading work.AND_(fast)
+# Loading work.OR_(fast)
+# Loading work.XOR_(fast)
+# Loading work.LSHIFT_(fast)
+# Loading work.RSHIFT_(fast)
+# Loading work.RAM(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E3'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E4'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E5'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E6'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E7'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E3'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E4'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E5'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E6'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E7'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'E5'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UL/op_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv Line: 45
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'E6'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UL/op_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv Line: 45
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'E7'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UL/op_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv Line: 45
+run -all
+# ** Warning: (vsim-PLI-3407) Too many data words read on line 68 of file "/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/memory_files/instructions.mem". (Current address [256], address range [0:255])    : /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/InstructionROM.sv(7)
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/inst_mem
+# ** Note: $stop    : /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/main_tb.sv(23)
+#    Time: 170 ns  Iteration: 0  Instance: /main_tb
+# Break in Module main_tb at /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/main_tb.sv line 23
+# Compile of ALU_tb.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of main_tb.sv was successful.
+# Compile of register_file_tb.sv was successful.
+# Compile of D_FF.sv was successful.
+# Compile of imageRom.sv was successful.
+# Compile of InstructionDecoder.sv was successful.
+# Compile of InstructionROM.sv was successful.
+# Compile of main.sv was successful.
+# Compile of mux_2.sv was successful.
+# Compile of mux_8.sv was successful.
+# Compile of RAM.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of divisor.sv was successful.
+# Compile of modulo.sv was successful.
+# Compile of multiplicador.sv was successful.
+# Compile of sumador.sv was successful.
+# Compile of sumador_completo.sv was successful.
+# Compile of sumador_restador.sv was successful.
+# Compile of unidad_aritmetica.sv was successful.
+# Compile of AND_.sv was successful.
+# Compile of LSHIFT_.sv was successful.
+# Compile of OR_.sv was successful.
+# Compile of RSHIFT_.sv was successful.
+# Compile of unidad_logica.sv was successful.
+# Compile of XOR_.sv was successful.
+# Compile of control_unit.sv was successful.
+# Compile of control_unit_tb.sv was successful.
+# Compile of alu_decoder.sv was successful.
+# Compile of conditional_logic.sv was successful.
+# Compile of main_decoder.sv was successful.
+# Compile of pc_logic.sv was successful.
+# 34 compiles, 0 failed with no errors.
+vlog -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 17:26:36 on Nov 24,2022
+# vlog -reportprogress 300 -work work -refresh -force_refresh 
+# -- Refreshing module ALU
+# -- Refreshing module alu_decoder
+# -- Refreshing module ALU_tb
+# -- Refreshing module AND_
+# -- Refreshing module conditional_logic
+# -- Refreshing module control_unit
+# -- Refreshing module control_unit_tb
+# -- Refreshing module D_FF
+# -- Refreshing module datapath
+# -- Refreshing module datapath_tb
+# -- Refreshing module divisor
+# -- Refreshing module imageRom
+# -- Refreshing module instruction_memory
+# -- Refreshing module InstructionDecoder
+# -- Refreshing module InstructionROM
+# -- Refreshing module LSHIFT_
+# -- Refreshing module main
+# -- Refreshing module main_decoder
+# -- Refreshing module main_tb
+# -- Refreshing module modulo
+# -- Refreshing module multiplicador
+# -- Refreshing module mux_2
+# -- Refreshing module mux_8
+# -- Refreshing module OR_
+# -- Refreshing module pc_logic
+# -- Refreshing module RAM
+# -- Refreshing module register_file
+# -- Refreshing module register_file_tb
+# -- Refreshing module RSHIFT_
+# -- Refreshing module sumador
+# -- Refreshing module sumador_completo
+# -- Refreshing module sumador_restador
+# -- Refreshing module unidad_aritmetica
+# -- Refreshing module unidad_logica
+# -- Refreshing module XOR_
+# End time: 17:26:36 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -work work -refresh -force_refresh
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 17:26:36 on Nov 24,2022
+# vcom -reportprogress 300 -work work -refresh -force_refresh 
+# -- Skipping module ALU
+# -- Skipping module alu_decoder
+# -- Skipping module ALU_tb
+# -- Skipping module AND_
+# -- Skipping module conditional_logic
+# -- Skipping module control_unit
+# -- Skipping module control_unit_tb
+# -- Skipping module D_FF
+# -- Skipping module datapath
+# -- Skipping module datapath_tb
+# -- Skipping module divisor
+# -- Skipping module imageRom
+# -- Skipping module instruction_memory
+# -- Skipping module InstructionDecoder
+# -- Skipping module InstructionROM
+# -- Skipping module LSHIFT_
+# -- Skipping module main
+# -- Skipping module main_decoder
+# -- Skipping module main_tb
+# -- Skipping module modulo
+# -- Skipping module multiplicador
+# -- Skipping module mux_2
+# -- Skipping module mux_8
+# -- Skipping module OR_
+# -- Skipping module pc_logic
+# -- Skipping module RAM
+# -- Skipping module register_file
+# -- Skipping module register_file_tb
+# -- Skipping module RSHIFT_
+# -- Skipping module sumador
+# -- Skipping module sumador_completo
+# -- Skipping module sumador_restador
+# -- Skipping module unidad_aritmetica
+# -- Skipping module unidad_logica
+# -- Skipping module XOR_
+# End time: 17:26:36 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.main_tb(fast)
+# Loading work.main(fast)
+# Loading work.control_unit(fast)
+# Loading work.main_decoder(fast)
+# Loading work.alu_decoder(fast)
+# Loading work.pc_logic(fast)
+# Loading work.conditional_logic(fast)
+# Loading work.D_FF(fast)
+# Loading work.datapath(fast)
+# Loading work.D_FF(fast__1)
+# Loading work.InstructionROM(fast)
+# Loading work.InstructionDecoder(fast)
+# Loading work.mux_2(fast)
+# Loading work.register_file(fast)
+# Loading work.mux_2(fast__1)
+# Loading work.ALU(fast)
+# Loading work.unidad_aritmetica(fast)
+# Loading work.sumador_restador(fast)
+# Loading work.sumador(fast)
+# Loading work.sumador_completo(fast)
+# Loading work.multiplicador(fast)
+# Loading work.divisor(fast)
+# Loading work.modulo(fast)
+# Loading work.mux_8(fast)
+# Loading work.mux_8(fast__1)
+# Loading work.unidad_logica(fast)
+# Loading work.AND_(fast)
+# Loading work.OR_(fast)
+# Loading work.XOR_(fast)
+# Loading work.LSHIFT_(fast)
+# Loading work.RSHIFT_(fast)
+# Loading work.RAM(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E3'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E4'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E5'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E6'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E7'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E3'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E4'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E5'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E6'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E7'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'E5'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UL/op_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv Line: 45
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'E6'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UL/op_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv Line: 45
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'E7'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UL/op_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv Line: 45
+run -all
+# ** Warning: (vsim-PLI-3407) Too many data words read on line 68 of file "/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/memory_files/instructions.mem". (Current address [256], address range [0:255])    : /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/InstructionROM.sv(7)
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/inst_mem
+# ** Note: $stop    : /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/main_tb.sv(23)
+#    Time: 170 ns  Iteration: 0  Instance: /main_tb
+# Break in Module main_tb at /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/main_tb.sv line 23
+run -all
+# Break key hit
+# Simulation stop requested.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.main_tb(fast)
+# Loading work.main(fast)
+# Loading work.control_unit(fast)
+# Loading work.main_decoder(fast)
+# Loading work.alu_decoder(fast)
+# Loading work.pc_logic(fast)
+# Loading work.conditional_logic(fast)
+# Loading work.D_FF(fast)
+# Loading work.datapath(fast)
+# Loading work.D_FF(fast__1)
+# Loading work.InstructionROM(fast)
+# Loading work.InstructionDecoder(fast)
+# Loading work.mux_2(fast)
+# Loading work.register_file(fast)
+# Loading work.mux_2(fast__1)
+# Loading work.ALU(fast)
+# Loading work.unidad_aritmetica(fast)
+# Loading work.sumador_restador(fast)
+# Loading work.sumador(fast)
+# Loading work.sumador_completo(fast)
+# Loading work.multiplicador(fast)
+# Loading work.divisor(fast)
+# Loading work.modulo(fast)
+# Loading work.mux_8(fast)
+# Loading work.mux_8(fast__1)
+# Loading work.unidad_logica(fast)
+# Loading work.AND_(fast)
+# Loading work.OR_(fast)
+# Loading work.XOR_(fast)
+# Loading work.LSHIFT_(fast)
+# Loading work.RSHIFT_(fast)
+# Loading work.RAM(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E3'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E4'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E5'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E6'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E7'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E3'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E4'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E5'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E6'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E7'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'E5'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UL/op_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv Line: 45
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'E6'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UL/op_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv Line: 45
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'E7'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UL/op_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv Line: 45
+run -all
+# ** Warning: (vsim-PLI-3407) Too many data words read on line 68 of file "/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/memory_files/instructions.mem". (Current address [256], address range [0:255])    : /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/InstructionROM.sv(7)
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/inst_mem
+# ** Note: $stop    : /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/main_tb.sv(23)
+#    Time: 170 ns  Iteration: 0  Instance: /main_tb
+# Break in Module main_tb at /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/main_tb.sv line 23
+run -all
+# Break key hit
+# Break in Module multiplicador in file /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/multiplicador.sv
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.main_tb(fast)
+# Loading work.main(fast)
+# Loading work.control_unit(fast)
+# Loading work.main_decoder(fast)
+# Loading work.alu_decoder(fast)
+# Loading work.pc_logic(fast)
+# Loading work.conditional_logic(fast)
+# Loading work.D_FF(fast)
+# Loading work.datapath(fast)
+# Loading work.D_FF(fast__1)
+# Loading work.InstructionROM(fast)
+# Loading work.InstructionDecoder(fast)
+# Loading work.mux_2(fast)
+# Loading work.register_file(fast)
+# Loading work.mux_2(fast__1)
+# Loading work.ALU(fast)
+# Loading work.unidad_aritmetica(fast)
+# Loading work.sumador_restador(fast)
+# Loading work.sumador(fast)
+# Loading work.sumador_completo(fast)
+# Loading work.multiplicador(fast)
+# Loading work.divisor(fast)
+# Loading work.modulo(fast)
+# Loading work.mux_8(fast)
+# Loading work.mux_8(fast__1)
+# Loading work.unidad_logica(fast)
+# Loading work.AND_(fast)
+# Loading work.OR_(fast)
+# Loading work.XOR_(fast)
+# Loading work.LSHIFT_(fast)
+# Loading work.RSHIFT_(fast)
+# Loading work.RAM(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E3'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E4'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E5'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E6'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E7'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E3'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E4'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E5'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E6'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E7'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'E5'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UL/op_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv Line: 45
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'E6'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UL/op_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv Line: 45
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'E7'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UL/op_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv Line: 45
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.main_tb(fast)
+# Loading work.main(fast)
+# Loading work.control_unit(fast)
+# Loading work.main_decoder(fast)
+# Loading work.alu_decoder(fast)
+# Loading work.pc_logic(fast)
+# Loading work.conditional_logic(fast)
+# Loading work.D_FF(fast)
+# Loading work.datapath(fast)
+# Loading work.D_FF(fast__1)
+# Loading work.InstructionROM(fast)
+# Loading work.InstructionDecoder(fast)
+# Loading work.mux_2(fast)
+# Loading work.register_file(fast)
+# Loading work.mux_2(fast__1)
+# Loading work.ALU(fast)
+# Loading work.unidad_aritmetica(fast)
+# Loading work.sumador_restador(fast)
+# Loading work.sumador(fast)
+# Loading work.sumador_completo(fast)
+# Loading work.multiplicador(fast)
+# Loading work.divisor(fast)
+# Loading work.modulo(fast)
+# Loading work.mux_8(fast)
+# Loading work.mux_8(fast__1)
+# Loading work.unidad_logica(fast)
+# Loading work.AND_(fast)
+# Loading work.OR_(fast)
+# Loading work.XOR_(fast)
+# Loading work.LSHIFT_(fast)
+# Loading work.RSHIFT_(fast)
+# Loading work.RAM(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E3'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E4'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E5'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E6'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E7'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/carry_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 62
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E3'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E4'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E5'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E6'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'E7'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UA/overflow_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/unidad_aritmetica.sv Line: 75
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'E5'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UL/op_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv Line: 45
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'E6'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UL/op_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv Line: 45
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'E7'. The port definition is at: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/mux_8.sv(2).
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/alu/UL/op_selector File: /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv Line: 45
+run
+# ** Warning: (vsim-PLI-3407) Too many data words read on line 68 of file "/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/memory_files/instructions.mem". (Current address [256], address range [0:255])    : /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/InstructionROM.sv(7)
+#    Time: 0 ns  Iteration: 0  Instance: /main_tb/dut/datapath/inst_mem
+run
+# ** Note: $stop    : /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/main_tb.sv(23)
+#    Time: 170 ns  Iteration: 0  Instance: /main_tb
+# Break in Module main_tb at /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/main_tb.sv line 23
+run
+run

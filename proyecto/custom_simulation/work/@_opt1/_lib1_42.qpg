@@ -1,0 +1,508 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+!s11e vcom 2021.2 2021.04, Apr 14 2021
+!s11f vlog 2021.2 2021.04, Apr 14 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 d/home/rijegaro
+T_opt
+!s110 1669284359
+VU9jiNT35j9:_@<_T8zi4O3
+Z2 04 11 4 work datapath_tb fast 0
+=1-00f48db99357-637f4207-4c59e-c588
+Z3 !s124 OEM10U1085 
+o-quiet -auto_acc_if_foreign -work work
+Z4 tCvgOpt 0
+n@_opt
+Z5 OL;O;2021.2;73
+R1
+T_opt1
+!s110 1669322667
+VR173@KcTo7JKblzbAd4gd0
+04 15 4 work control_unit_tb fast 0
+=12-00f48db99357-637fd7ab-331d0-5249
+!s124 OEM10U8 
+Z6 o-quiet -auto_acc_if_foreign -work work +acc
+R4
+n@_opt1
+R5
+T_opt2
+!s110 1669299424
+Vf5]_G0^XQVn]<S>YR1aKz0
+R2
+=2-00f48db99357-637f7ce0-ab463-10ad1
+R3
+R6
+R4
+n@_opt2
+R5
+R1
+vALU
+Z7 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z8 !s110 1669322644
+Z9 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+!i10b 1
+!s100 HJJ;]W>3NTOFPJbiLK:K`3
+I@6<89BW=S_dO6ZBkhA>YK0
+S1
+Z10 d/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/custom_simulation
+w1668764937
+8/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/ALU.sv
+F/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/ALU.sv
+!i122 1078
+L0 1 36
+Z11 OL;L;2021.2;73
+31
+!i113 0
+Z12 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R4
+n@a@l@u
+valu_decoder
+R7
+Z13 !s110 1669322645
+R9
+r1
+!s85 0
+!i10b 1
+!s100 _nV0<Xf0?_PSz4AIO6:263
+I>VoKmgHL4N32B`a<1P0@60
+S1
+R10
+w1669322268
+8/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/alu_decoder.sv
+F/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/alu_decoder.sv
+!i122 1094
+L0 1 85
+R11
+31
+!i113 0
+R12
+R4
+vALU_tb
+R7
+Z14 !s110 1669322643
+R9
+r1
+!s85 0
+!i10b 1
+!s100 BYckXSfcP^^R0dka3_FYZ0
+I2mWXjA`JF29IbnYRGdoE^2
+S1
+R10
+w1668764041
+8/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/ALU_tb.sv
+F/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/ALU_tb.sv
+!i122 1064
+L0 3 164
+R11
+31
+!i113 0
+R12
+R4
+n@a@l@u_tb
+vAND_
+R7
+R13
+R9
+r1
+!s85 0
+!i10b 1
+!s100 TJdon<TPA58NX5<l=z;Y:2
+I:ClbB_TO]jH@hL1^AoeOL2
+S1
+R10
+Z15 w1668764047
+8/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/AND_.sv
+F/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/AND_.sv
+!i122 1086
+Z16 L0 1 9
+R11
+31
+!i113 0
+R12
+R4
+n@a@n@d_
+vconditional_logic
+R7
+R13
+R9
+r1
+!s85 0
+!i10b 1
+!s100 RD4UM[dSQS^0V6dPVUnh_1
+IkDloU?H^WaDKcAKAPE@>T2
+S1
+R10
+w1669321231
+8/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/conditional_logic.sv
+F/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/conditional_logic.sv
+!i122 1095
+L0 1 69
+R11
+31
+!i113 0
+R12
+R4
+vcontrol_unit
+R7
+R13
+R9
+r1
+!s85 0
+!i10b 1
+!s100 5F96JjalTic19SIV]ElW[3
+IZ?Gm`4<l=_lhcMTPSOGl00
+S1
+R10
+w1669319504
+8/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/control_unit.sv
+F/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/control_unit.sv
+!i122 1092
+L0 1 62
+R11
+31
+!i113 0
+R12
+R4
+vcontrol_unit_tb
+R7
+R13
+R9
+r1
+!s85 0
+!i10b 1
+!s100 ?DLL21Qcz]VkH<SkgS9X?1
+Ioz@:UaHh[OHDb4N1gaFen1
+S1
+R10
+w1669322624
+8/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv
+F/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv
+!i122 1093
+L0 1 94
+R11
+31
+!i113 0
+R12
+R4
+vD_FF
+R7
+R8
+R9
+r1
+!s85 0
+!i10b 1
+!s100 af6Ta9YB:F?afi7Wl:eAd3
+I093meJ[1c_c9H?EZfd=UD0
+S1
+R10
+w1669315360
+8/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/D_FF.sv
+F/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/D_FF.sv
+!i122 1068
+L0 1 10
+R11
+31
+!i113 0
+R12
+R4
+n@d_@f@f
+vdatapath
+R7
+R8
+R9
+r1
+!s85 0
+!i10b 1
+!s100 LV5Pz]9nK@GG<D47bS]RN0
+I;h<KcJ2^@Vcn3eMe<JNVL2
+S1
+R10
+w1669315364
+8/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/Datapath/datapath.sv
+F/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/Datapath/datapath.sv
+!i122 1076
+L0 1 147
+R11
+31
+!i113 0
+R12
+R4
+vdatapath_tb
+R7
+R14
+R9
+r1
+!s85 0
+!i10b 1
+!s100 a3M^`9N9O71gO26`<0b;[1
+I9lzRBW@7iN0b^46FH3DTC1
+S1
+R10
+w1669319900
+8/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/datapath_tb.sv
+F/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/datapath_tb.sv
+!i122 1065
+L0 3 120
+R11
+31
+!i113 0
+R12
+R4
+vdivisor
+R7
+R8
+R9
+r1
+!s85 0
+!i10b 1
+!s100 heK^<7nLizN24H9;U3iej1
+I9@EU0GWoHL:hPaZEhVLPo0
+S1
+R10
+R15
+8/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/divisor.sv
+F/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/divisor.sv
+!i122 1079
+R16
+R11
+31
+!i113 0
+R12
+R4
+vimageRom
+R7
+R8
+R9
+r1
+!s85 0
+!i10b 1
+!s100 2FMVegJgV9de<n7Tmz3]A0
+I46Ujm:`mA[g2UE1hgTd?G0
+S1
+R10
+w1669255742
+8/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/imageRom.sv
+F/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/imageRom.sv
+!i122 1069
+Z17 L0 1 11
+R11
+31
+!i113 0
+R12
+R4
+nimage@rom
+vinstruction_memory
+R7
+!s110 1669281003
+R9
+r1
+!s85 0
+!i10b 1
+!s100 SDaZA0^43OXLjL3lNCBZO1
+Ii^LiI]S^ZVLmBBDJSLlmF0
+S1
+R10
+w1669264628
+8/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/instruction_memory.sv
+F/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/instruction_memory.sv
+!i122 48
+Z18 L0 1 6
+R11
+31
+!i113 0
+R12
+R4
+vInstructionDecoder
+R7
+R8
+R9
+r1
+!s85 0
+!i10b 1
+!s100 [k2i=ToNWoG`o?TdPnY281
+IO4M[gH4DI2eL6_;BOJiOa2
+S1
+R10
+w1669297100
+8/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/InstructionDecoder.sv
+F/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/InstructionDecoder.sv
+!i122 1070
+L0 1 64
+R11
+31
+!i113 0
+R12
+R4
+n@instruction@decoder
+vInstructionROM
+R7
+R8
+R9
+r1
+!s85 0
+!i10b 1
+!s100 QW:AJ9gLFEWb435alQYUO1
+IBz_oh9]0i;`UWGa4IJ=_53
+S1
+R10
+w1669276966
+8/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/InstructionROM.sv
+F/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/InstructionROM.sv
+!i122 1071
+L0 1 16
+R11
+31
+!i113 0
+R12
+R4
+n@instruction@r@o@m
+vLSHIFT_
+R7
+R13
+R9
+r1
+!s85 0
+!i10b 1
+!s100 nha`HA2==n8MUoQieL1;`0
+I02C0Ko<LaITZ8fL:E>6=:3
+S1
+R10
+R15
+8/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/LSHIFT_.sv
+F/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/LSHIFT_.sv
+!i122 1087
+R16
+R11
+31
+!i113 0
+R12
+R4
+n@l@s@h@i@f@t_
+vmain
+R7
+R8
+R9
+r1
+!s85 0
+!i10b 1
+!s100 [U_Y[KGRKkKNHcX?IhPX;2
+I0l4JAV:[oKok[1F?kaJ6O2
+S1
+R10
+w1669299663
+8/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/main.sv
+F/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/main.sv
+!i122 1072
+R18
+R11
+31
+!i113 0
+R12
+R4
+vmain_decoder
+R7
+R13
+R9
+r1
+!s85 0
+!i10b 1
+!s100 G6`h=Waj@74kk?e1o]35G2
+IYN9XSN[i_E6fME[54DWP_3
+S1
+R10
+w1669306806
+8/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/main_decoder.sv
+F/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/main_decoder.sv
+!i122 1096
+L0 1 79
+R11
+31
+!i113 0
+R12
+R4
+vmain_tb
+R7
+R14
+R9
+r1
+!s85 0
+!i10b 1
+!s100 G7Di`Po_a[^_i4m@P0bAZ3
+I<ki^H`1REb@kT_APJN5lm0
+S1
+R10
+w1669301464
+8/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/main_tb.sv
+F/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/main_tb.sv
+!i122 1066
+L0 3 21
+R11
+31
+!i113 0
+R12
+R4
+vmodulo
+R7
+R8
+R9
+r1
+!s85 0
+!i10b 1
+!s100 Pc<OKIMk:]1Ug`<2[XXGH1
+IzPhef?z9f0z95PLOFAemn1
+S1
+R10
+R15
+8/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/modulo.sv
+F/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/aritmetica/modulo.sv
+!i122 1080
+R16
+R11
+31
+!i113 0
+R12
+R4
+vmultiplicador
+R7
+R8
+R9
+r1
+!s85 0
+!i10b 1
+!s100 Fi=N``9;YdQ
