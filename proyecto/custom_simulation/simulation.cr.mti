@@ -1,11 +1,4 @@
-/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/main_tb.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/main_tb.sv
-Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling module main_tb
-
-Top level modules:
-	main_tb
-
-} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv
+/home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ALU/logica/unidad_logica.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 -- Compiling module unidad_logica
 
@@ -46,13 +39,6 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 
 Top level modules:
 	datapath_tb
-
-} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/main.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/main.sv
-Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling module main
-
-Top level modules:
-	main
 
 } {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/test/control_unit_tb.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
@@ -193,13 +179,6 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 
 Top level modules:
 	sumador_completo
-
-} {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/InstructionROM.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/InstructionROM.sv
-Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling module InstructionROM
-
-Top level modules:
-	InstructionROM
 
 } {} {}} /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/conditional_logic.sv {1 {vlog -work work -vopt -sv -stats=none /home/rijegaro/Desktop/RGatgens_ATrejos_digital_design_lab_2022/proyecto/src/ControlUnit/conditional_logic.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021

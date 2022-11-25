@@ -1,7 +1,5 @@
 module VGA_Controller(
 	input clk,
-	// input[7:0] colorEntrada,
-	// output [15:0] nextAddress,
 	output logic vga_clk,
 	output logic h_syncq,  
 	output logic v_syncq,
@@ -13,14 +11,26 @@ module VGA_Controller(
 );
 	clock_divider clock_divider(.clk(clk), .divided_clk(vga_clk));
 
-	//Lógiga del siguiente pixel
-	// logic[15:0] nextPixel = 0;
+	logic [31:0] pixel_addr;
+	logic [31:0] next_addr;
+	D_FF #(.NUM_BITS(32)) 
+    pixel_addr_ff(
+      .CLK(vga_clk),
+      .RST(1'b0),
+      .D(next_addr),
+      .Q(pixel_addr)
+    );
 
+	logic [23:0] pixel_data;
+	ImageRom image(
+		.addr(pixel_addr),
+		.data(pixel_data)
+	);
+
+	//Contadores verticales y horizontales
 	logic [15:0] h_count_value = 0; 
 	logic [15:0] v_count_value = 0;
 	logic enable_v_counter = 0;
-
-	//Contadores verticales y horizontales
 	always_ff @(posedge vga_clk) begin
 		if(h_count_value < 799) begin
 			h_count_value++;
@@ -39,57 +49,34 @@ module VGA_Controller(
 
 	logic h_limits, v_limits;
 	logic hcenter_limits, vcenter_limits;
-	// Assignación del color al pixel de VGA
-	always begin
-		h_limits = (h_count_value < 784) && (h_count_value > 144);
- 		v_limits = (v_count_value < 515) && (v_count_value > 35);
-		hcenter_limits = (h_count_value < 564) && (h_count_value > 364);
- 		vcenter_limits = (v_count_value < 375) && (v_count_value > 175);
+	always begin // Assignación del color al pixel de VGA
+		h_limits <= (h_count_value < 784) && (h_count_value > 144);
+ 		v_limits <= (v_count_value < 515) && (v_count_value > 35);
+		hcenter_limits <= (h_count_value < 514) && (h_count_value > 414);
+ 		vcenter_limits <= (v_count_value < 325) && (v_count_value > 225);
 
 		if(h_limits && v_limits) begin
-			if(hcenter_limits && vcenter_limits) begin
-				VGA_R = 8'hDD;
-				VGA_G = 8'h11; 
-				VGA_B = 8'hFF;
+			if(hcenter_limits  && vcenter_limits) begin
+				VGA_R <= pixel_data[23:16];
+				VGA_G <= pixel_data[15:8];
+				VGA_B <= pixel_data[7:0];
+				next_addr <= pixel_addr + 3;
 			end
 			else begin
-				VGA_R = 8'h00;
-				VGA_G = 8'h00; 
-				VGA_B = 8'h00;
+				VGA_R <= 8'h00;
+				VGA_G <= 8'h00; 
+				VGA_B <= 8'h00;
+				next_addr <= 0;
 			end
 		end
 		else begin
-			VGA_R = 8'h00;
-			VGA_G = 8'h00;
-			VGA_B = 8'h00;
+			VGA_R <= 8'h00;
+			VGA_G <= 8'h00;
+			VGA_B <= 8'h00;
+			next_addr <= 0;
 		end
 	end
 
-	//Contador para el siguiente pixel 
-	// always_ff @(posedge clk or posedge rst)
-	// 	begin 
-	// 		if(rst)
-	// 			begin
-	// 				nextPixel = 0;
-	// 			end
-	// 		else
-	// 			begin
-	// 				if((h_count_value > 144 && h_count_value < 245) && (v_count_value > 35 && v_count_value < 136))
-	// 					begin
-	// 						if (nextPixel <= 9999)
-	// 							begin
-	// 								nextPixel = nextPixel + 1;
-	// 							end
-	// 						if (nextPixel > 9999)
-	// 							begin
-	// 								nextPixel = 0;
-	// 							end
-	// 					end
-	// 			end
-	// 	end
-
-	// assign VGA_clk = clk;
-	// assign nextAddress = nextPixel;
 	assign h_syncq = (h_count_value < 96) ? 1'b1 : 1'b0;
 	assign v_syncq = (v_count_value < 2)  ? 1'b1 : 1'b0;
 
