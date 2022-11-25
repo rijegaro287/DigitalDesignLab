@@ -16,6 +16,10 @@ module main_tb();
     #50; rst = 0; 
     
 
+    #100;
+
+    #20
+
     $stop;
   end
 
